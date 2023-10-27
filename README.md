@@ -37,3 +37,6 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 ---
 
 Happy coding!
+
+
+Make sure to remove the DISABLE_COLLECTSTATIC config var from heroku before final deployment.
