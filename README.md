@@ -93,7 +93,10 @@ The project flowchart for the site structure was created using <b>LucidChart</b>
 **Wireframes**<br>
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
 <summary>Here:</summary>
+Homepage
 <img src="media/homepage-wireframe.png"><br>
+Login/Logout pages
+<img src="media/login-logout-wireframe.png"><br>
 </details><br>
 
 **Database**
