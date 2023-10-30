@@ -62,23 +62,39 @@ This site was created according to the Five Planes Of Website Design:<br>
 |                                       |1D| As a site user I can|
 
 **Project Goal:**<br>
-Project goal.
+To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login and book an appointment. 
 
 **Project Objectives:**<br>
-* Objective one
+- Create a sleek, modern website to promote Niall's Barbershop, containt all the information customers might want.
+- Allow users to create an account.
+- Allow users to see any available appointments and make a booking.
+- Allow users to see their upcoming and past appointments.
+- Allow users to cancel or modify an existing appointment.
+- Allow staff to login to an admin area.
+- Allow staff to view all upcoming booked appointments.
+- Allow staff to view all site members.
+- Allow staff to add new site member.
+- Allow staff to create a booking for a customer.
+- Allow staff to modify an existing booking.
+- Allow staff to remove/cancel an existing appointment.
+- Provide feedback to users when they have made changes.
+- Show different site functionality to logged in members than to non logged in users.
 
 ### Scope<hr>
 **Simple and Intuitive UX**<br>
-* Create...
+- Create a website that portrays the mood and feel of the barbershop.
+- Create a responsive navigation menu.
+- Create a footer with social links and store location.
+- Ensure that the user is visually notified of all changed to their account, eg booking conformation.
+- Ensure that the user keeps their orientation throughout their website experience. 
 
 **Relevant Content**<br>
-* Add...
-
-**Features for Upgraded Experience**<br>
-* Create...
+- Make sure all the available haircut services are listed on the site.
+- Display a map to the barbershop.
+- Display only available time slots when booking a service.
 
 **Responsiveness**<br>
-* Create a responsive website that works on every device and screen size.<br><br>
+- Create a responsive website that works on every device and screen size.<br><br>
 
 ### Structure<hr>
 Introduction:
@@ -86,16 +102,15 @@ Introduction:
 Site structure
 
 #### Flowchart
-The project flowchart for the site structure was created using <b>LucidChart</b>.<br><br>
-[![N|Solid](static/images/flow_chart.png)](static/images/flow_chart.png)<br><br>
+The project flowchart for the site structure was created using <b>LucidChart</b>.
 
 ### Skeleton<hr>
 **Wireframes**<br>
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
 <summary>Here:</summary>
-Homepage
+Homepage<br>
 <img src="media/homepage-wireframe.png"><br>
-Login/Logout pages
+Login/Logout pages<br>
 <img src="media/login-logout-wireframe.png"><br>
 </details><br>
 
@@ -104,14 +119,14 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 <details>
   <summary>Model</summary>
-<img src="#"><br>
+<img src="media/database-schema.png"><br>
 </details><br>
 
 ### Surface
 #### Color Scheme and Fonts
 * The fonts I used for this site were imported from [Google Fonts](https://fonts.google.com/):
-* Font 1
-* Font 2
+- Font 1
+- Font 2
 
 <img src="#" width="60%">
 
@@ -138,9 +153,9 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 <details>
 <summary>Sprint Details</summary>
 
-* **KANBAN BOARD**<br><br>
+- **KANBAN BOARD**<br><br>
     <img src="static/images/kanban.png" width="60%"><br><br>
-* **EPIC 1 - BASE SETUP**<br>
+- **EPIC 1 - BASE SETUP**<br>
     -1A Create<br>
     <img src="static/images/epic-1.png" width="60%"><br><br>
 </details><br><br>
@@ -150,7 +165,6 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 ### Existing Features and sub-pages<hr>
 
 #### Feature 1
-
 
 ### Potential Future Features
 
@@ -165,25 +179,24 @@ How the breakpoints are set.
 
 ## Tools Used
 
-[GitHub](https://github.com/) - used for hosting the source code of the program<br>
-[Visual Studio](https://code.visualstudio.com/) - for writing and testing the code<br>
-[Heroku](https://dashboard.heroku.com/) - used for deploying the project<br>
-[ElephantSQL](https://www.elephantsql.com/) - For PostgreSQL database<br>
-[Balsamiq](https://balsamiq.com/wireframes/) - for creating the wireframes<br>
-[LucidChart](https://www.lucidchart.com/) - used for creating the Flowchart and Database relational schema<br>
-[Favicon.io](https://favicon.io/) - used for generating the website favicon<br>
-[TinyPNG](https://tinypng.com/) - for compressing the images<br>
-[Grammarly](https://app.grammarly.com/) - for correcting text content<br>
-[Font Awesome](https://fontawesome.com/) - for creating atractive UX with icons<br>
-[Bootstrap5](https://getbootstrap.com/) - for adding predifined styled elements and creating responsiveness<br>
-[Google Fonts](https://fonts.google.com/) - for typography<br>
-[Code Institute Pylint](https://pep8ci.herokuapp.com/) - used for validating the python code<br>
-[HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br>
-[CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
-[Firefox dev tools](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/open_the_inspector/index.html) - for debugging the project<br>
-[Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - for debugging the project<br>
-[W.A.V.E.](https://wave.webaim.org/) - for testing accessibility<br>
-[Cloudinary](https://cloudinary.com/) - for storing static data<br>
+- [GitHub](https://github.com/) - used for hosting the source code of the program<br>
+- [VS Code](https://code.visualstudio.com/) - for writing and testing the code<br>
+- [Heroku](https://dashboard.heroku.com/) - used for deploying the project<br>
+- [ElephantSQL](https://www.elephantsql.com/) - For PostgreSQL database<br>
+- [Balsamiq](https://balsamiq.com/wireframes/) - for creating the wireframes<br>
+- [Canva](https://www.canva.com/) - for images logo creation<br>
+- [LucidChart](https://www.lucidchart.com/) - used for creating the Flowchart and Database relational schema<br>
+- [Favicon.io](https://favicon.io/) - used for generating the website favicon<br>
+- [TinyPNG](https://tinypng.com/) - for compressing the images<br>
+- [Font Awesome](https://fontawesome.com/) - for the site's icons<br>
+- [Bootstrap5](https://getbootstrap.com/) - for out of the box initial CSS styling<br>
+- [Google Fonts](https://fonts.google.com/) - for typography<br>
+- [Code Institute Pylint](https://pep8ci.herokuapp.com/) - used for validating the python code<br>
+- [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br>
+- [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - for debugging the project<br>
+- [W.A.V.E.](https://wave.webaim.org/) - for testing accessibility<br>
+- [Cloudinary](https://cloudinary.com/) - for storing static data<br>
 Chrome LightHouse extension - for testing performance<br>
 
 ### Python packages
@@ -248,12 +261,9 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 
 ### Code
 
-* Further studies with [Net Ninja](https://www.youtube.com/watch?v=n-FTlQ7Djqc&list=PL4cUxeGkcC9ib4HsrXEYpQnTOTZE1x0uc)
-* Help with Bootstrap from their own excellent [documentation](https://getbootstrap.com)
-* Database setup and much more with [Codemy.com](https://www.youtube.com/watch?v=A1nqCgAM6CE)
-* Automated testing with [CodingEntrepeneurs](https://www.youtube.com/watch?v=5E_xLmQXOZg)
-* Code from Gareth McGirr's [project](https://github.com/Gareth-McGirr/Portfolio-Project-4-SizzleAndSteak) used and customized for table verification
-* A lot of time has been spent on re-watching Code Institutes splendid videos on Agile Methodologies, Django and Python to find solutions to problems.
+- Help with Bootstrap from their [documentation](https://getbootstrap.com)
+- Database setup and much more with [Codemy.com](https://www.youtube.com/watch?v=A1nqCgAM6CE)
+- Automated testing with [CodingEntrepeneurs](https://www.youtube.com/watch?v=5E_xLmQXOZg)
 
 ## Acknowledgements
 
