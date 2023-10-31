@@ -99,10 +99,14 @@ To create a website with good UI and UX to promote Niall's Barbershop where pote
 ### Structure<hr>
 Introduction:
 
-Site structure
+The main landing page...
 
-#### Flowchart
-The project flowchart for the site structure was created using <b>LucidChart</b>.
+#### Sitemap
+The project flowcharts for the site structure was created using <b>LucidChart</b>.
+<details>
+<summary>Sitemap:</summary>
+<img src="media/sitemap.png"><br>
+</details>
 
 ### Skeleton<hr>
 **Wireframes**<br>
@@ -112,6 +116,8 @@ Homepage<br>
 <img src="media/homepage-wireframe.png"><br>
 Login/Logout pages<br>
 <img src="media/login-logout-wireframe.png"><br>
+Book a haircut<br>
+<img src="media/book-a-haircut-wireframe.png"><br>
 </details><br>
 
 **Database**
