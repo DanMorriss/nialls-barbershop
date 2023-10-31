@@ -1,6 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+BOOKING_TIME = ((1, "9:00am"), (2, "9:15am"), (3, "9:30am"), (4, "9:45am"),
+                (5, "10:00am"), (6, "10:15am"), (7, "10:30am"), (8, "10:45am"),
+                (9, "11:00am"), (10, "11:15am"), (11, "11:30am"),
+                (12, "11:45am"), (13, "12:00pm"), (14, "12:15pm"),
+                (15, "12:30pm"), (16, "12:45pm"), (17, "2:00pm"),
+                (18, "2:15pm"), (19, "2:30pm"), (20, "2:45pm"),
+                (21, "3:00pm"), (22, "3:15pm"), (23, "3:30pm"), (24, "3:45pm"),
+                (25, "4:00pm"), (26, "4:15pm"), (27, "4:30pm"), (28, "4:45pm"),
+                (25, "4:00pm"), (26, "4:15pm"), (27, "4:30pm"))
+
 
 class Services(models.Model):
     """
@@ -41,7 +51,7 @@ class Booking(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
     date_of_booking = models.DateField()
     service_name = models.ForeignKey(Services, on_delete=models.CASCADE)
-    start_time = models.TimeField()
+    start_time = models.TimeField(choices=BOOKING_TIME, default=1)
     end_time = models.TimeField()
 
     class Meta:
