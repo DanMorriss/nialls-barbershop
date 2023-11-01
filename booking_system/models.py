@@ -78,6 +78,7 @@ class Booking(models.Model):
     service_name = models.ForeignKey(Services, on_delete=models.CASCADE)
     start_time = models.TimeField(choices=BOOKING_TIME)
     end_time = models.TimeField(editable=False, blank=True, null=True)
+    confirmed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['date_of_booking', 'start_time']
