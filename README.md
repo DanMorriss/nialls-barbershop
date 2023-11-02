@@ -130,13 +130,21 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 ### Surface
 #### Color Scheme and Fonts
-* The fonts I used for this site were imported from [Google Fonts](https://fonts.google.com/):
-- Font 1
-- Font 2
 
-<img src="#" width="60%">
+- The fonts I used for this site were imported from [Google Fonts](https://fonts.google.com/):
+  - Sancreek for the headings
+  - Tenor Sans for the body
 
-<img src="#" width="60%">
+<img src="media/fonts.png" width="60%">
+
+- The colors used were based on the the colors in the logo.
+  - #000000
+  - #af7f1f
+  - #ffffff
+
+<img src="media/color-palette.png" width="60%">
+
+
 
 #### Visual Effects
 

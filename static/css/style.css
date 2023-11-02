@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Sancreek&family=Tenor+Sans&display=swap');
+
+body {
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Sancreek', serif;
+}
