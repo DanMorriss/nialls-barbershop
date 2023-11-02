@@ -21,3 +21,7 @@ h1, h2 {
     transition: .5s ease-in-out;
     color: var(---clr-white)
 }
+
+.fill-viewport-height {
+    min-height: 80vh;
+}
