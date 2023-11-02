@@ -261,6 +261,8 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 
 ## Credits
 
+- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date 
+
 ### Content
 
 ### Media
