@@ -1,9 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Sancreek&family=Tenor+Sans&display=swap');
 
+:root {
+    --clr-gold: #af7f1f;
+    ---clr-white: #ffffff;
+}
+
 body {
     font-family: 'Tenor Sans', sans-serif;
 }
 
 h1, h2 {
     font-family: 'Sancreek', serif;
+}
+
+.gold {
+    color: var(--clr-gold)
+}
+
+.hover-white:hover {
+    transition: .5s ease-in-out;
+    color: var(---clr-white)
 }

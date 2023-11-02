@@ -103,6 +103,7 @@ The main landing page...
 
 #### Sitemap
 The project flowcharts for the site structure was created using <b>LucidChart</b>.
+https://lucid.app/lucidspark/555215a4-f33d-4e81-9a84-f9966d26e96c/edit?beaconFlowId=5B1214176B988F10&invitationId=inv_308a82e1-de92-41cb-8dec-6d03f4e7d8c1&page=0_0#
 <details>
 <summary>Sitemap:</summary>
 <img src="media/sitemap.png"><br>
@@ -122,7 +123,7 @@ Book a haircut<br>
 
 **Database**
 The project uses ElephantSQL as PostgreSQL relational database for storing the data.
-
+https://lucid.app/lucidchart/2e594f61-9a74-4848-9fe6-caf7fd3e236d/edit?beaconFlowId=57CA775DFDACD84D&invitationId=inv_4abd5981-3808-4cba-9b7c-974200dde00d&page=0_0# 
 <details>
   <summary>Model</summary>
 <img src="media/database-schema.png"><br>
