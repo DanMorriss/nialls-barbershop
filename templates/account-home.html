@@ -5,20 +5,30 @@
 
 <p>Welcome, {% user_display user %}!</p>
     <h1 class="text-center">Upcoming Appointments</h1>
-
-        {% for booking in object_list %}
-        <div class='d-flex justify-content-center '>
-            <div class="card shadow p-3 m-3 text-center w-75">
-                <p>{{ booking.date_of_booking|date:"l j F Y" }}</p> 
-                <p>{{ booking.username }}</p>
-                <p>{{ booking.service_name }} at {{ booking.start_time|date:"g a" }}</p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button">Edit Appointment</button>
-                    <button class="btn btn-danger" type="button">Cancel Appointment</button>
-                  </div>
+        {% if object_list %}
+            {% for booking in object_list %}
+            <div class='d-flex justify-content-center '>
+                <div class="card shadow p-3 m-3 text-center w-75">
+                    <p>{{ booking.date_of_booking|date:"l j F Y" }}</p> 
+                    <p>{{ booking.username }}</p>
+                    <p>{{ booking.service_name }} at {{ booking.start_time|date:"g a" }}</p>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="button">Edit Appointment</button>
+                        <button class="btn btn-danger" type="button">Cancel Appointment</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <div class='d-flex justify-content-center '>
+                <div class="card shadow p-3 m-3 text-center w-75">
+                    <p>No upcoming apppointments.</p> 
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="button">Book An Appointment</button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
 
 
     {% if is_paginated %}
