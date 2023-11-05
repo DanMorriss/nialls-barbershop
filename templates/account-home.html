@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load account %}
+
+<p>Welcome, {% user_display user %}!</p>
     <h1 class="text-center">Upcoming Appointments</h1>
 
         {% for booking in object_list %}
