@@ -18,16 +18,23 @@
                     </div>
                 </div>
             </div>
+            <a href="#">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="button">Book An Appointment</button>
+                </div>
+            </a>
             {% endfor %}
         {% else %}
-            <div class='d-flex justify-content-center '>
-                <div class="card shadow p-3 m-3 text-center w-75">
-                    <p>No upcoming apppointments.</p> 
+        <div class='d-flex justify-content-center '>
+            <div class="card shadow p-3 m-3 text-center w-75">
+                <p>No upcoming apppointments.</p> 
+                <a href="#">
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <button class="btn btn-primary" type="button">Book An Appointment</button>
                     </div>
-                </div>
+                </a>
             </div>
+        </div>
         {% endif %}
 
 
@@ -45,5 +52,7 @@
         </ul>
     </nav>
     {% endif %}
+
+
 
 {% endblock %}
