@@ -1,0 +1,28 @@
+{% extends "base.html" %}{% load crispy_forms_tags %}{% load account %}
+{% block content %}
+
+    {% if form.errors %}
+        <div class="alert bg-danger text-center container-sm ">
+            <h2>We had an issue booking your haircut</h2><br>
+
+                {% for field, errors in form.errors.items %}
+
+                        <p>{{ field }}: {{ errors.0 }}</p>
+
+                {% endfor %}
+
+        </div>
+    {% endif %}
+
+    <div class="m-3">
+        <form method="POST" action="{% url 'createbooking' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
+            <h1 class="text-center">Book a Haircut</h1>
+            {% csrf_token %}
+            {{ form | crispy }}
+            {{ form.media }}
+            <button type="submit" class="btn form-style btn-primary mt-3">Book</button>
+        </form>
+    </div>
+    
+
+{% endblock content %}

@@ -15,10 +15,10 @@ class BookingsList(generic.ListView):
 
 
 class CreateBookingView(LoginRequiredMixin, CreateView):
+    model = Booking
     form_class = BookingForm
     template_name = 'booking/booking.html'
-    success_url = "/accounthome/"
-    model = Booking
+    success_url = "/booking/"
 
     def form_valid(self, form):
         form.instance.username = self.request.user
