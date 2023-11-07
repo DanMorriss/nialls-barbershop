@@ -9,7 +9,7 @@ from django.views.generic import DeleteView, CreateView, UpdateView, ListView
 
 class BookingsList(generic.ListView):
     model = Booking
-    template_name = 'account-home.html'
+    template_name = 'booking-home.html'
     paginate_by = 25
     queryset = Booking.objects.filter(date_of_booking__gte=date.today()).order_by('date_of_booking', 'start_time')
 
