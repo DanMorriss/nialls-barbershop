@@ -18,12 +18,15 @@
                     </div>
                 </div>
             </div>
+            
+            {% endfor %}
+
             <a href="{% url 'createbooking' %}">
                 <div class="d-grid gap-2 col-5 mx-auto">
                     <button class="btn btn-primary pt-3 mt-5 shadow-lg" type="button"><h2>Book Another Appointment</h2></button>
                 </div>
             </a>
-            {% endfor %}
+
         {% else %}
         <div class='d-flex justify-content-center '>
             <div class="card shadow p-3 m-3 text-center w-75">
