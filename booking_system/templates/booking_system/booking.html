@@ -1,7 +1,7 @@
 {% extends "base.html" %}{% load crispy_forms_tags %}{% load account %}
 {% block content %}
     <div class="m-3">
-        <form method="POST" action="{% url 'create_booking' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
+        <form method="POST" action="{% url 'createbooking' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
             <h1 class="text-center">Book a Haircut</h1>
             {% csrf_token %}
             {{ form | crispy }}
