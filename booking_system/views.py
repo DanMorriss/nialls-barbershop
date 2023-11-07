@@ -9,7 +9,7 @@ from django.views.generic import DeleteView, CreateView, UpdateView, ListView
 
 class BookingsList(generic.ListView):
     model = Booking
-    template_name = 'booking-home.html'
+    template_name = 'booking_system/booking-home.html'
     paginate_by = 25
     queryset = Booking.objects.filter(date_of_booking__gte=date.today()).order_by('date_of_booking', 'start_time')
 
@@ -17,7 +17,7 @@ class BookingsList(generic.ListView):
 class CreateBookingView(LoginRequiredMixin, CreateView):
     model = Booking
     form_class = BookingForm
-    template_name = 'booking/booking.html'
+    template_name = 'booking_system/booking.html'
     success_url = "/booking/"
 
     def form_valid(self, form):
