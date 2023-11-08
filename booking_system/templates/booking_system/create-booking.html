@@ -1,6 +1,6 @@
 {% extends "base.html" %}{% load crispy_forms_tags %}{% load account %}
 {% block content %}
-
+<div class="container">
     {% if form.errors %}
         <div class="alert bg-danger text-center container-sm ">
             <h2>We had an issue booking your haircut</h2><br>
@@ -23,6 +23,6 @@
             <button type="submit" class="btn form-style btn-primary mt-3">Book</button>
         </form>
     </div>
-    
+</div>    
 
 {% endblock content %}
