@@ -272,6 +272,7 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 
 - https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date 
 
+
 ### Content
 
 ### Media
@@ -284,7 +285,7 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 
 ## Acknowledgements
 
-
+- Roman Rakic
 
 
 

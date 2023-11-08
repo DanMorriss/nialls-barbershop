@@ -17,7 +17,7 @@ class BookingsList(generic.ListView):
 class CreateBookingView(LoginRequiredMixin, CreateView):
     model = Booking
     form_class = BookingForm
-    template_name = 'booking_system/booking.html'
+    template_name = 'booking.html'
     success_url = "/booking/"
 
     def form_valid(self, form):
