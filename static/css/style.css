@@ -2,15 +2,16 @@
 
 :root {
     --clr-gold: #af7f1f;
-    --clr-white: #ffffff;
+    --clr-light: #faf8f2;
     --clr-dark: #212529;
 }
 
 body {
     font-family: 'Tenor Sans', sans-serif;
+    background-color: var(--clr-light);
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5 {
     font-family: 'Sancreek', serif;
 }
 
@@ -18,13 +19,40 @@ h1, h2 {
     color: var(--clr-gold)
 }
 
-.hover-white:hover {
-    transition: .5s ease-in-out;
-    color: var(--clr-white)
+.dark-background {
+    background-color: var(--clr-dark);
 }
 
+.gold-background {
+    background-color: var(--clr-gold);
+}
+
+#app {
+    display: flex;
+}
+
+.hover-white:hover {
+    transition: .5s ease-in-out;
+    color: var(--clr-light)
+}
+
+/* Navigation */
 .fill-viewport-height {
     min-height: 80vh;
+}
+
+/* Alert Box */
+
+#alert-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* height:fit-content; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Home Page */
@@ -33,7 +61,7 @@ h1, h2 {
     height: 80vh;
     width: 100%;
     overflow: hidden;
-    position: absolute;
+    position: relative;
     top: 0;
 }
 

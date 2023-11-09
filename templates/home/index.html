@@ -1,8 +1,50 @@
 {% extends "base.html" %}
-
 {% block content %}
+
+<!-- Hero Image -->
 <div class="hero-container">
     <div class="hero-image"></div>
-    {% comment %} <img class="hero-image" src="https://res.cloudinary.com/deahxwfve/image/upload/v1699454210/neills-barbershop-hero_ibh0na.png" class="img-fluid " alt="hero image"> {% endcomment %}
 </div>
+
+<!-- About -->
+<div class="container mt-5 text-center">
+    <h1 class="text-uppercase">Welcome to Niell's Barbershop</h1>
+    <p class="fs-4">Your Premier Destination for Grooming Excellence in the heart of Old Town, Swindon</p>
+    <div class="row">
+        <div class="col-sm p-3 m-2">
+            <h5 class="fw-bold fs-5">Masterful Craftmanship</h5> 
+            <p>After completing his NVQ is barbering, Neill spend 2 years honing his craft in Marlborough before opening his own barbershop.</p>
+        </div>
+    
+        <div class="col-sm p-3 m-2">
+            <h5 class="fw-bold fs-5">Personalized Services</h5> 
+            <p>All services are tailored to your individual preferences, whether it's a classic cut, a modern style, or a beard grooming masterpiece.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm p-3 m-2">
+            <h5 class="fw-bold fs-5">Cutting-Edge Techniques</h5> 
+            <p>He stays at the forefront of the industry, incorporating the latest trends and technologies to give you the best possible grooming experience.</p>
+        </div>
+        <div class="col-sm p-3 m-2">
+            <h5 class="fw-bold fs-5">Quality Products</h5> 
+            <p>He only use top-tier grooming products to ensure you get the best results and maintain your look long after you leave his chair.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Haircuts -->
+<div class="gold-background p-5">
+    <div class="container text-center">
+        <h2 class="fs-1">Haircuts</h2>
+    </div>
+    {% if services %}
+        {% for service in services %}
+            <p>{{ service.name }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No Services Avalible</p>
+    {% endif %}
+</div>
+
 {% endblock %}

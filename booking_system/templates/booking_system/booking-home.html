@@ -3,8 +3,8 @@
 {% block content %}
 {% load account %}
 
-<div class="container">
-    <p>Welcome, {% user_display user %}!</p>
+<div class="container mt-5">
+    <p class="pt-5">Welcome, {% user_display user %}!</p>
     <h1 class="text-center">Upcoming Appointments</h1>
         {% if object_list %}
             {% for booking in object_list %}
