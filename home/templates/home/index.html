@@ -8,7 +8,13 @@
 
 <!-- About -->
 <div class="container mt-5 text-center">
-    <h1 class="text-uppercase">Welcome to Niell's Barbershop</h1>
+
+    <div class="container heading">
+        <hr/>
+        <h1 class="text-uppercase">Welcome to Niell's Barbershop</h1>
+        <hr/>
+    </div>
+
     <p class="fs-4">Your Premier Destination for Grooming Excellence in the heart of Old Town, Swindon</p>
     <div class="row">
         <div class="col-sm p-3 m-2">
@@ -34,17 +40,31 @@
 </div>
 
 <!-- Haircuts -->
-<div class="gold-background p-5">
-    <div class="container text-center">
-        <h2 class="fs-1">Haircuts</h2>
+<div class="gold-background text-center p-5">
+    <div class="container heading light-text">
+        <hr/>
+        <h2 class="fs-1 text-uppercase ">Haircuts</h2>
+        <hr/>
     </div>
-    {% if services %}
-        {% for service in services %}
-            <p>{{ service.name }}</p>
-        {% endfor %}
-    {% else %}
-        <p>No Services Avalible</p>
-    {% endif %}
+
+    <div class="container col-12">
+        <div class="row justify-content-md-center ">
+            {% for service in services %}
+            <div class="col-md-4 mt-4">
+                <a href="#" class="haircut-hover">
+                    <div class="card p-2 dark-background light-text haircut-hover pt-3">
+                        <i class="fa-solid fa-scissors"></i>
+                        <h4 class="pt-2">{{ service.service_name }}</h4> 
+                        <p>£{{ service.cost }}</p>
+                    </div>
+                </a>
+            </div>
+        {% if forloop.counter|divisibleby:2%}
+        </div>
+        <div class="row justify-content-md-center">
+        {% endif %}
+            {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
