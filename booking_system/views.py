@@ -5,6 +5,7 @@ from datetime import date
 from .forms import BookingForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import DeleteView, CreateView, UpdateView, ListView
+from django.urls import reverse_lazy
 
 
 class BookingsList(LoginRequiredMixin, ListView):
@@ -18,3 +19,11 @@ class BookingsList(LoginRequiredMixin, ListView):
             return queryset
         else:
             return Booking.objects.filter(username=self.request.user)
+
+
+class CreateBooking(LoginRequiredMixin, CreateView):
+    model = Booking
+    template_name = 'booking_system/create-booking.html'
+    success_url = reverse_lazy('booking_home')
+    from_class = BookingForm
+    fields = ["date_of_booking", "service_name", "start_time"]
