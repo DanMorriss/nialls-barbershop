@@ -40,11 +40,16 @@
 </div>
 
 <!-- Haircuts -->
-<div class="gold-background text-center p-5">
+<div class="dark-background text-center p-5">
     <div class="container heading light-text">
         <hr/>
-        <h2 class="fs-1 text-uppercase ">Haircuts</h2>
+        <h2 class="fs-1 text-uppercase gold-text">Haircuts</h2>
         <hr/>
+    </div>
+    <div class="container light-text">
+        <p>Your haircut is a statement of style and individuality. Niall is passionate about delivering more than just a haircut; he creates an experience tailored to you. Explore the diverse range of haircut services below and book your appointment for an unparalleled grooming experience at Niall's Barbershop.</p>
+        <h2 class="gold-text p-3">Book a Haircut <br/><br/>
+            <i class="fa-solid fa-hand-point-down fs-1"></i></h2>
     </div>
 
     <div class="container col-12">
@@ -52,7 +57,7 @@
             {% for service in services %}
             <div class="col-md-4 mt-4">
                 <a href="#" class="haircut-hover">
-                    <div class="card p-2 dark-background light-text haircut-hover pt-3">
+                    <div class="card p-2 pt-3 dark-background light-text haircut-hover">
                         <i class="fa-solid fa-scissors"></i>
                         <h4 class="pt-2">{{ service.service_name }}</h4> 
                         <p>£{{ service.cost }}</p>

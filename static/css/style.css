@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5 {
 .hero-image {
     height: 80vh;
     width: 100%;
-    background: url('https://res.cloudinary.com/deahxwfve/image/upload/v1699534688/neills-barbershop-hero_emhbza.png') no-repeat center center / cover;
+    background: url('https://res.cloudinary.com/deahxwfve/image/upload/v1699609296/neills-barbershop-hero-3_uskfyr.png') no-repeat center center / cover;
 }
 
 .heading {
@@ -90,6 +90,7 @@ h1, h2, h3, h4, h5 {
 .haircut-hover {
     transition: .5s ease-in-out;
     text-decoration: none;
+    box-shadow: 0 0.2rem 1rem #af7f1f;
 }
 
 .haircut-hover:hover {
