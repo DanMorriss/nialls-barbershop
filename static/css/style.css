@@ -44,10 +44,6 @@ h1, h2, h3, h4, h5 {
     color: var(--clr-light)
 }
 
-/* #app {
-    display: flex;
-} */
-
 /* Navigation */
 .fill-viewport-height {
     min-height: 80vh;
@@ -65,6 +61,15 @@ h1, h2, h3, h4, h5 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Custom Utilities */
+
+.custom-button-dark-gold {
+    transition: .5s ease-in-out;
+    background-color: var(--clr-dark);
+    color: var(--clr-gold);
+    box-shadow: 0 0.2rem 1rem var(--clr-gold);
 }
 
 /* Home Page */
@@ -90,7 +95,7 @@ h1, h2, h3, h4, h5 {
 .haircut-hover {
     transition: .5s ease-in-out;
     text-decoration: none;
-    box-shadow: 0 0.2rem 1rem #af7f1f;
+    box-shadow: 0 0.2rem 1rem var(--clr-gold);
 }
 
 .haircut-hover:hover {
