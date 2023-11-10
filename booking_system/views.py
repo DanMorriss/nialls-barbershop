@@ -25,5 +25,8 @@ class CreateBooking(LoginRequiredMixin, CreateView):
     model = Booking
     template_name = 'booking_system/create-booking.html'
     success_url = reverse_lazy('booking_home')
-    from_class = BookingForm
-    fields = ["date_of_booking", "service_name", "start_time"]
+    form_class = BookingForm
+
+    def form_valid(self, form):
+        form.instance.username = self.request.user
+        return super().form_valid(form)

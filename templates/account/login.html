@@ -1,34 +1,40 @@
 {% extends "base.html" %} {% load i18n %} {% load account socialaccount %} 
 {% block head_title %}{% trans "Sign In" %}{% endblock head_title %} {% block content %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h3>{% trans "Sign In" %}</h1>
+<div class="container mt-5 login-card">
+  <div class="card mt-5 p-5">
 
-      <p>
-        {% blocktrans %}Welcome back to Niall's Barbershop, please log in to book a haircut and see you appointments. 
-        If you have not created an account yet, then 
-        <a href="{{ signup_url }}">sign up</a>.{% endblocktrans %}
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2">
+        <h3 class="text-center">{% trans "Sign In" %}</h3>
 
-      <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
-        <input
-          type="hidden"
-          name="{{ redirect_field_name }}"
-          value="{{ redirect_field_value }}"
-        />
-        {% endif %}
-        <button class="btn right" type="submit">
-          {% trans "Sign In" %}
-        </button>
-      </form>
+        <p>
+          {% blocktrans %}Welcome back to Niall's Barbershop, please log in to book a haircut and see you appointments. 
+          If you have not created an account yet, then 
+          <a href="{{ signup_url }}">sign up</a>.{% endblocktrans %}
+        </p>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-3">
+
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+          <input
+            type="hidden"
+            name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}"
+          />
+          {% endif %}
+          <button class="btn right custom-button-dark-gold" type="submit">
+            {% trans "Sign In" %}
+          </button>
+        </form>
+      </div>
+    </div>
+
   </div>
+
 </div>
 {% endblock content %}
