@@ -38,17 +38,6 @@ BOOKING_TIME = ((datetime.time(9, 0, 0), '9:00am'),
 
 
 class Services(models.Model):
-    """
-    Model for the list of haircuts offered.
-
-    Fields:
-    service_name(CharField): The name of the haircut or service.
-    session_length(DurationField): How long the session lasts.
-    cost(DecimalField): The cost of the service to 2 decimal places.
-
-    Methods:
-    __str__: Returns the service name
-    """
     service_name = models.CharField(max_length=250)
     session_length = models.DurationField()
     cost = models.DecimalField(max_digits=8, decimal_places=2)
@@ -58,24 +47,11 @@ class Services(models.Model):
 
 
 class Booking(models.Model):
-    """
-    Model to create a booking, linked to the user that the booking is for.
-    The bookings will be displayed in date and time order,
-    with the newest booking first.
-
-    Fields:
-    username(ForeignKey): The user the service is for.
-    date_of_booking(DateField): The day the haircut is for.
-    service_name(ForeignKey): The service booked.
-    start_time(TimeField): The start time of the booking.
-    end_time(TimeField): The end time of the booking.
-
-    Methods:
-    __str__: Returns the booking details.
-    """
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE,
+                                 related_name='username_booking')
     date_of_booking = models.DateField()
-    service_name = models.ForeignKey(Services, on_delete=models.CASCADE)
+    service_name = models.ForeignKey(Services, on_delete=models.CASCADE,
+                                     related_name='service_name_booking')
     start_time = models.TimeField(choices=BOOKING_TIME)
     end_time = models.TimeField(editable=False, blank=True, null=True)
     confirmed = models.BooleanField(default=False)
