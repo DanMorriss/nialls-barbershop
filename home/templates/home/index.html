@@ -69,7 +69,41 @@
         <div class="row justify-content-md-center">
         {% endif %}
             {% endfor %}
+        </div>
     </div>
 </div>
+
+
+<!-- Contact -->
+<div class="container mt-5 text-center">
+
+    <div class="container heading">
+        <hr/>
+        <h1 class="text-uppercase">Contact</h1>
+        <hr/>
+    </div>
+
+    <p class="fs-4">You can find the shop in the heart of Old Town, Swindon. </p>
+    <div class="row">
+        <div class="col-sm p-3 m-2">
+            <h5 class="fw-bold fs-5">Opening Hours</h5> 
+            <p>Monday: 9am - 5:30pm</p>
+            <p>Tuesday: 9am - 5:30pm</p>
+            <p>Wednesday: 9am - 5:30pm</p>
+            <p>Thursday: 9am - 5:30pm</p>
+            <p>Friday: 9am - 5:30pm</p>
+            <p>Saturday: 7am - 2pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+    
+        <div class="col-sm p-3 m-2">
+            <h5 class="fw-bold fs-5">Come Visit Us</h5> 
+            <p>Unit 1,<br>The Arcade,<br>29c Wood Street,<br>Swindon<br>SN1 4AN</p>
+            <p>niallsbarbershop@gmail.com</p>
+            <a href="{% url 'createbooking' %}"><div class="btn dark-background light-text haircut-hover"><h2>Book a Haircut</h2><div></a>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
