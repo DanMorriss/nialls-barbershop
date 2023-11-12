@@ -15,10 +15,14 @@ class BookingsList(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         if self.request.user.is_superuser:
-            queryset = Booking.objects.filter(date_of_booking__gte=date.today()).order_by('date_of_booking', 'start_time')
+            queryset = Booking.objects.filter(
+                date_of_booking__gte=date.today()).order_by(
+                    'date_of_booking', 'start_time')
             return queryset
         else:
-            return Booking.objects.filter(username=self.request.user)
+            return Booking.objects.filter(
+                username=self.request.user).filter(
+                    date_of_booking__gte=date.today())
 
 
 class CreateBooking(LoginRequiredMixin, CreateView):
