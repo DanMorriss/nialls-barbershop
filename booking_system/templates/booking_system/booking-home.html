@@ -22,9 +22,9 @@
             
             {% endfor %}
 
-            <a href="{% url 'createbooking' %}">
-                <div class="d-grid gap-2 col-5 mx-auto">
-                    <button class="btn btn-primary pt-3 mt-5 shadow-lg" type="button"><h2>Book Another Appointment</h2></button>
+            <a href="{% url 'createbooking' %}" class="link-underline link-underline-opacity-0">
+                <div class="d-grid gap-2 col-5 mx-auto pt-3">
+                    <button class="btn custom-button-dark-gold pt-3 haircut-hover" type="button"><h2>Book Another Appointment</h2></button>
                 </div>
             </a>
 
@@ -32,9 +32,9 @@
         <div class='d-flex justify-content-center '>
             <div class="card shadow p-3 m-3 text-center w-75">
                 <p>No upcoming apppointments.</p> 
-                <a href="{% url 'createbooking' %}">
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-primary" type="button">Book An Appointment</button>
+                <a href="{% url 'createbooking' %}" class="link-underline link-underline-opacity-0">
+                    <div class="d-grid gap-2 col-6 mx-auto pt-3">
+                        <button class="btn custom-button-dark-gold pt-3 haircut-hover" type="button">Book An Appointment</button>
                     </div>
                 </a>
             </div>
