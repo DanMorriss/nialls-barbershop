@@ -38,6 +38,23 @@ BOOKING_TIME = ((datetime.time(9, 0, 0), '9:00am'),
 
 
 class Services(models.Model):
+    """
+    Model for services offered.
+
+    Fields:
+        - `service_name` (CharField): The name of the service.
+        - `session_length` (DurationField): The duration of the service.
+        - `cost` (DecimalField): The cost of the service.
+
+    Methods:
+        - `__str__`: Human-readable string representation of the service.
+
+    Attributes:
+        - `max_length`: Maximum length for the `service_name` field.
+
+    Returns:
+        str: A string representing the name of the service.
+    """
     service_name = models.CharField(max_length=250)
     session_length = models.DurationField()
     cost = models.DecimalField(max_digits=8, decimal_places=2)
@@ -47,6 +64,24 @@ class Services(models.Model):
 
 
 class Booking(models.Model):
+    """
+    Model for bookings.
+
+    Fields:
+        - `username` (ForeignKey): Reference to the user making the booking.
+        - `date_of_booking` (DateField): Date of the reservation.
+        - `service_name` (ForeignKey): Reference to the booked service.
+        - `start_time` (TimeField): Start time of the reservation chosen from predefined choices.
+        - `end_time` (TimeField): End time of the reservation, calculated based on the start time and service session length.
+        - `confirmed` (BooleanField): Indicates whether the booking is confirmed.
+
+    Meta:
+        - `ordering`: Default ordering for queries based on date and start time.
+
+    Methods:
+        - `__str__`: Human-readable string representation of the booking.
+        - `calculateEndTime`: Calculates and sets the end time based on the start time and service session length.
+    """
     username = models.ForeignKey(User, on_delete=models.CASCADE,
                                  related_name='username_booking')
     date_of_booking = models.DateField()
@@ -64,7 +99,8 @@ class Booking(models.Model):
 
     def calculateEndTime(self):
         if self.start_time and self.service_name:
-            start_datetime = datetime.datetime.combine(self.date_of_booking, self.start_time)
+            start_datetime = datetime.datetime.combine(self.date_of_booking,
+                                                       self.start_time)
             session_length = self.service_name.session_length
             end_datetime = start_datetime + session_length
             self.end_time = end_datetime.time()
