@@ -71,16 +71,21 @@ class Booking(models.Model):
         - `username` (ForeignKey): Reference to the user making the booking.
         - `date_of_booking` (DateField): Date of the reservation.
         - `service_name` (ForeignKey): Reference to the booked service.
-        - `start_time` (TimeField): Start time of the reservation chosen from predefined choices.
-        - `end_time` (TimeField): End time of the reservation, calculated based on the start time and service session length.
-        - `confirmed` (BooleanField): Indicates whether the booking is confirmed.
+        - `start_time` (TimeField): Start time of the reservation chosen from
+        predefined choices.
+        - `end_time` (TimeField): End time of the reservation, calculated
+        based on the start time and service session length.
+        - `confirmed` (BooleanField): Indicates whether the booking is
+        confirmed.
 
     Meta:
-        - `ordering`: Default ordering for queries based on date and start time.
+        - `ordering`: Default ordering for queries based on date and
+        start time.
 
     Methods:
         - `__str__`: Human-readable string representation of the booking.
-        - `calculateEndTime`: Calculates and sets the end time based on the start time and service session length.
+        - `calculateEndTime`: Calculates and sets the end time based on the
+        start time and service session length.
     """
     username = models.ForeignKey(User, on_delete=models.CASCADE,
                                  related_name='username_booking')
@@ -95,7 +100,8 @@ class Booking(models.Model):
         ordering = ['date_of_booking', 'start_time']
 
     def __str__(self):
-        return f"{self.service_name} for {self.username} on {self.date_of_booking} at {self.start_time}"
+        return (f"{self.service_name} for {self.username} "
+                f"on {self.date_of_booking} at {self.start_time}")
 
     def calculateEndTime(self):
         if self.start_time and self.service_name:
