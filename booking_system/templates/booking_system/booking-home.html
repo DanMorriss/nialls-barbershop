@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
 {% load account %}
 
@@ -8,15 +7,16 @@
     <h1 class="text-center">Upcoming Appointments</h1>
         {% if object_list %}
             {% for booking in object_list %}
-            <div class='d-flex justify-content-center '>
-                <div class="card shadow p-3 m-3 text-center w-75">
+            <a href="{% url 'booking-detail' booking.id %}"><div class='d-flex justify-content-center'>
+                <div class="card shadow p-3 m-3 text-center w-75 haircut-hover">
                     <p>{{ booking.date_of_booking|date:"l j F Y" }}</p> 
+                    {% if user.is_superuser %}
                     <p>{{ booking.username }}</p>
+                    {% endif %}
                     <p>{{ booking.service_name }} at {{ booking.start_time|date:"g a" }}</p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-primary" type="button">Edit Appointment</button>
-                        <button class="btn btn-danger" type="button">Cancel Appointment</button>
-                    </div>
+                    <p>End time: {{ booking.end_time }}</p>
+                        
+                    </a>
                 </div>
             </div>
             

@@ -1,7 +1,8 @@
-from .models import Booking
+from .models import Booking, BOOKING_TIME
 from django import forms
 from datetime import datetime
 from django.forms.widgets import DateInput
+from django.core.exceptions import ValidationError
 
 
 class BookingForm(forms.ModelForm):

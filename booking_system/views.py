@@ -1,16 +1,16 @@
-from django.shortcuts import render, get_object_or_404
-from django.views import generic, View
-from .models import Booking
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
+from .models import Booking, BOOKING_TIME
 from datetime import date
 from .forms import BookingForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import DeleteView, CreateView, UpdateView, ListView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 
-class BookingsList(LoginRequiredMixin, ListView):
+class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
-    template_name = 'booking_system/booking-home.html'
+    template_name = 'booking_system/booking-home.html'  #  Without this line django would look here: <app>/<model>_<viewtype>.html booking_system/booking_list
     paginate_by = 25
 
     def get_queryset(self):
@@ -25,6 +25,10 @@ class BookingsList(LoginRequiredMixin, ListView):
                     date_of_booking__gte=date.today())
 
 
+class BookingDetailView(LoginRequiredMixin, DetailView):
+    model = Booking
+
+
 class CreateBooking(LoginRequiredMixin, CreateView):
     model = Booking
     template_name = 'booking_system/create-booking.html'
@@ -33,4 +37,5 @@ class CreateBooking(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.username = self.request.user
+        form.instance.calculateEndTime()
         return super().form_valid(form)
