@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from .models import Booking, BOOKING_TIME
+from .models import Booking, Services, BOOKING_TIME
 from datetime import date
-from .forms import BookingForm
+from .forms import BookingForm, SelectHaircut
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -25,8 +25,29 @@ class BookingsListView(LoginRequiredMixin, ListView):
                     date_of_booking__gte=date.today())
 
 
+class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Booking
+
+    def test_func(self):
+        booking = self.get_object()
+        if self.request.username == booking.username:
+            return True
+        return False
+
+
 class BookingDetailView(LoginRequiredMixin, DetailView):
     model = Booking
+
+
+class SelectHaircutView(LoginRequiredMixin, CreateView):
+    model = Booking
+    template_name = 'booking_system/select_haircut.html' # booking_system/booking_form.html is the default
+    form_class = SelectHaircut
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['services'] = Services.objects.all()
+        return context
 
 
 class CreateBooking(LoginRequiredMixin, CreateView):
