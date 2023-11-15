@@ -216,13 +216,14 @@ Chrome LightHouse extension - for testing performance<br>
 
 ### Python packages
 
-* Django (Framework)
-* django-allauth (Library)
-* django-bootstrap-datepicker-plus (Library)
-* django-crispy-forms (Library)
-* cloudinary (Library)
-* gunicorn (Web Server)
-* psycopg2 (Library)
+- Django (Framework)
+- django-allauth (Library)
+- django-bootstrap-datepicker-plus (Library)
+- django-crispy-forms (Library)
+- cloudinary (Library)
+- gunicorn (Web Server)
+- psycopg2 (Library)
+- django-formtools==2.3 
 
 
 ## Testing
@@ -282,6 +283,8 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 - Help with Bootstrap from their [documentation](https://getbootstrap.com)
 - Database setup and much more with [Codemy.com](https://www.youtube.com/watch?v=A1nqCgAM6CE)
 - Automated testing with [CodingEntrepeneurs](https://www.youtube.com/watch?v=5E_xLmQXOZg)
+
+- Form Wizard https://www.youtube.com/watch?v=8xb9s3jnRF8
 
 ## Acknowledgements
 

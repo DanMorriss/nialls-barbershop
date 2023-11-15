@@ -1,11 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date
-from .forms import BookingForm, SelectHaircut
+from .forms import (BookingForm,
+                    # SelectHaircut,
+                    SelectHaircutForm,
+                    SelectDateForm,
+                    SelectTimeForm)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from formtools.wizard.views import SessionWizardView
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
@@ -25,6 +31,21 @@ class BookingsListView(LoginRequiredMixin, ListView):
                     date_of_booking__gte=date.today())
 
 
+class CreateBooking(LoginRequiredMixin, CreateView):
+    model = Booking
+    template_name = 'booking_system/create_booking.html'
+    success_url = reverse_lazy('booking-home')
+    form_class = BookingForm
+
+    def form_valid(self, form):
+        form.instance.username = self.request.user
+        form.instance.calculateEndTime()
+        return super().form_valid(form)
+
+class BookingDetailView(LoginRequiredMixin, DetailView):
+    model = Booking
+
+
 class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Booking
     success_url = reverse_lazy('booking-home')
@@ -36,28 +57,21 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
-class BookingDetailView(LoginRequiredMixin, DetailView):
-    model = Booking
+# TEST VIEW FOR SELECTING A HAIRCUT
+# class SelectHaircutView(LoginRequiredMixin, CreateView):
+#     model = Booking
+#     template_name = 'booking_system/select_haircut.html'  # booking_system/booking_form.html is the default
+#     form_class = SelectHaircut
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['services'] = Services.objects.all()
+#         return context
 
 
-class SelectHaircutView(LoginRequiredMixin, CreateView):
-    model = Booking
-    template_name = 'booking_system/select_haircut.html' # booking_system/booking_form.html is the default
-    form_class = SelectHaircut
+class BookingWizardView(LoginRequiredMixin, SessionWizardView):
+    form_list = [SelectHaircutForm, SelectDateForm, SelectTimeForm]
+    template_name = 'booking_system/booking_select_haircut.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['services'] = Services.objects.all()
-        return context
-
-
-class CreateBooking(LoginRequiredMixin, CreateView):
-    model = Booking
-    template_name = 'booking_system/create_booking.html'
-    success_url = reverse_lazy('booking-home')
-    form_class = BookingForm
-
-    def form_valid(self, form):
-        form.instance.username = self.request.user
-        form.instance.calculateEndTime()
-        return super().form_valid(form)
+    def done(self, form_list, **kwargs):
+        return HttpResponse("Form submitted")
