@@ -52,7 +52,12 @@ class SelectHaircutForm(forms.ModelForm):
     class Meta:
         model = Services
         fields = ('service_name',)
-        # widgets = {'service_name': forms.Select(attrs={'class': 'service-dropdown'})}  # to use buttons for the options
+        # widgets = {'service_name': forms.Select(attrs={'class': 'service-buttons'})}  # to use buttons for the options
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['services'] = Services.objects.all()
+        return context
 
 
 class SelectDateForm(forms.ModelForm):

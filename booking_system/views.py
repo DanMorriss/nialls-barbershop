@@ -10,7 +10,7 @@ from .forms import (BookingForm,
                     SelectTimeForm)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from formtools.wizard.views import SessionWizardView
 
 
@@ -71,7 +71,12 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class BookingWizardView(LoginRequiredMixin, SessionWizardView):
     form_list = [SelectHaircutForm, SelectDateForm, SelectTimeForm]
-    template_name = 'booking_system/booking_select_haircut.html'
+    template_name = 'booking_system/booking_create.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['services'] = Services.objects.all()
+        return context
 
     def done(self, form_list, **kwargs):
-        return HttpResponse("Form submitted")
+        return HttpResponseRedirect(reverse('booking-home'))

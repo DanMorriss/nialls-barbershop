@@ -13,5 +13,5 @@ urlpatterns = [
          name='booking-delete'),
 #     path('booking/select_haircut/', views.SelectHaircutView.as_view(),
 #          name='select-haircut'),  # was called booking_form.html
-    path('booking/booking-create/', views.BookingWizardView.as_view([views.SelectHaircutForm, views.SelectDateForm, views.SelectTimeForm])),  # form wizard
+    path('booking/booking-create/', views.BookingWizardView.as_view([views.SelectHaircutForm, views.SelectDateForm, views.SelectTimeForm]), name='booking-wizard'),
 ]
