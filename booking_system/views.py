@@ -27,10 +27,11 @@ class BookingsListView(LoginRequiredMixin, ListView):
 
 class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Booking
+    success_url = reverse_lazy('booking_home')
 
     def test_func(self):
         booking = self.get_object()
-        if self.request.username == booking.username:
+        if self.request.user == booking.username or self.request.username.is_superuser:
             return True
         return False
 
