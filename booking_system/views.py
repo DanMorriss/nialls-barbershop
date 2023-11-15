@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 
 class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
-    template_name = 'booking_system/booking-home.html'  #  Without this line django would look here: <app>/<model>_<viewtype>.html booking_system/booking_list
+    template_name = 'booking_system/booking_home.html'  #  Without this line django would look here: <app>/<model>_<viewtype>.html booking_system/booking_list
     paginate_by = 25
 
     def get_queryset(self):
@@ -27,7 +27,7 @@ class BookingsListView(LoginRequiredMixin, ListView):
 
 class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Booking
-    success_url = reverse_lazy('booking_home')
+    success_url = reverse_lazy('booking-home')
 
     def test_func(self):
         booking = self.get_object()
@@ -53,8 +53,8 @@ class SelectHaircutView(LoginRequiredMixin, CreateView):
 
 class CreateBooking(LoginRequiredMixin, CreateView):
     model = Booking
-    template_name = 'booking_system/create-booking.html'
-    success_url = reverse_lazy('booking_home')
+    template_name = 'booking_system/create_booking.html'
+    success_url = reverse_lazy('booking-home')
     form_class = BookingForm
 
     def form_valid(self, form):
