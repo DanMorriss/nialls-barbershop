@@ -56,7 +56,7 @@
         <div class="row justify-content-md-center ">
             {% for service in services %}
             <div class="col-md-4 mt-4">
-                <a href="{% url 'createbooking' %}" class="haircut-hover">
+                <a href="{% url 'booking-create' %}" class="haircut-hover">
                     <div class="card p-2 pt-3 dark-background light-text haircut-hover">
                         <i class="fa-solid fa-scissors"></i>
                         <h4 class="pt-2">{{ service.service_name }}</h4> 
@@ -100,7 +100,7 @@
             <h5 class="fw-bold fs-5">Come Visit Us</h5> 
             <p>Unit 1,<br>The Arcade,<br>29c Wood Street,<br>Swindon<br>SN1 4AN</p>
             <a href="mailto: niallsbarbershop@gmail.com">niallsbarbershop@gmail.com</a><br><br>
-            <a href="{% url 'createbooking' %}" class="link-underline link-underline-opacity-0">
+            <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
                 <div class="">
                     <button class="btn custom-button-dark-gold pt-3 haircut-hover" type="button"><h2>Book a Haircut</h2></button>
                 </div>

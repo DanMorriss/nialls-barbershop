@@ -61,7 +61,7 @@
     {% endif %}
 
     <div class="m-3">
-        <form method="POST" action="{% url 'createbooking' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
+        <form method="POST" action="{% url 'booking-create' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
             <h1 class="text-center pt-5">Book a Haircut</h1>
             {% csrf_token %}
             {{ form | crispy }}

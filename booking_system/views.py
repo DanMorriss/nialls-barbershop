@@ -31,9 +31,9 @@ class BookingsListView(LoginRequiredMixin, ListView):
                     date_of_booking__gte=date.today())
 
 
-class CreateBooking(LoginRequiredMixin, CreateView):
+class CreateBookingView(LoginRequiredMixin, CreateView):
     model = Booking
-    template_name = 'booking_system/create_booking.html'
+    template_name = 'booking_system/booking_form.html'
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
 

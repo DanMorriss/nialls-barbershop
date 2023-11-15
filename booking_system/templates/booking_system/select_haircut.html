@@ -11,7 +11,7 @@
         <p>Your haircut is a statement of style and individuality. Niall is passionate about delivering more than just a haircut; he creates an experience tailored to you. Explore the diverse range of haircut services below and book your appointment for an unparalleled grooming experience at Niall's Barbershop.</p>
         
         <div class="m-3">
-            <form method="POST" action="{% url 'createbooking' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'booking-create' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
                 <h1 class="text-center pt-5">Book a Haircut</h1>
                 {% csrf_token %}
                 {{ form | crispy }}
@@ -28,7 +28,7 @@
         <div class="row justify-content-md-center ">
             {% for service in services %}
             <div class="col-md-4 mt-4">
-                <a href="{% url 'createbooking' %}" class="haircut-hover">
+                <a href="{% url 'booking-create' %}" class="haircut-hover">
                     <div class="card p-2 pt-3 dark-background light-text haircut-hover">
                         <i class="fa-solid fa-scissors"></i>
                         <h4 class="pt-2">{{ service.service_name }}</h4> 
