@@ -3,7 +3,7 @@
 {% block content %}
 {% load account %}
 
-<!-- booking should be object to compy with djamgo's default -->
+<!-- booking should be object to comply with djamgo's default -->
 
 <div class="container mt-5">
     <h1 class="pt-5 text-center ">Welcome, {% user_display user %}!</h1>
@@ -16,7 +16,7 @@
                 {% endif %}
                 <p>{{ booking.service_name }} at {{ booking.start_time|date:"g a" }} until {{ booking.end_time }}</p>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button">Edit Appointment</button>
+                    <a href="{% url 'booking-update' booking.id %}" class="btn btn-primary" type="button">Edit Appointment</a>
                     <a href="{%  url 'booking-delete' booking.id  %}" class="btn btn-danger" type="button">Cancel Appointment</a>
                 </div>
             </div>

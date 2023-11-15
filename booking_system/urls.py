@@ -9,6 +9,8 @@ urlpatterns = [
          name='booking-create'),  # original booking form
     path('booking/<int:pk>/', views.BookingDetailView.as_view(),
          name='booking-detail'),
+    path('booking/<int:pk>/update/', views.UpdateBookingView.as_view(),
+         name='booking-update'),
     path('booking/<int:pk>/delete/', views.BookingDeleteView.as_view(),
          name='booking-delete'),
 #     path('booking/select_haircut/', views.SelectHaircutView.as_view(),
