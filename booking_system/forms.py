@@ -50,14 +50,9 @@ class BookingForm(forms.ModelForm):
 # Form Wizard Forms
 class SelectHaircutForm(forms.ModelForm):
     class Meta:
-        model = Services
+        model = Booking
         fields = ('service_name',)
-        # widgets = {'service_name': forms.Select(attrs={'class': 'service-buttons'})}  # to use buttons for the options
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['services'] = Services.objects.all()
-        return context
+        widgets = {'service_name': forms.Select()}
 
 
 class SelectDateForm(forms.ModelForm):

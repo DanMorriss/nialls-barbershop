@@ -73,10 +73,16 @@ class BookingWizardView(LoginRequiredMixin, SessionWizardView):
     form_list = [SelectHaircutForm, SelectDateForm, SelectTimeForm]
     template_name = 'booking_system/booking_create.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['services'] = Services.objects.all()
-        return context
+    def form_valid(self, form):
+        form.instance.username = self.request.user
+        form.instance.calculateEndTime()
+
+        print(form.instance.date_of_booking)
+        print(form.instance.start_time)
+
+        return super().form_valid(form)
 
     def done(self, form_list, **kwargs):
+        for form in form_list:
+            form.save()
         return HttpResponseRedirect(reverse('booking-home'))
