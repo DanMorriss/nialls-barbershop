@@ -31,7 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['niallsbarbershop-e4e7dc2878db.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['niallsbarbershop-e4e7dc2878db.herokuapp.com',
+                 'localhost', '127.0.0.1', '8000-danmorriss-nialls-barber-cq05j7lu1l.us2.codeanyapp.com']
 
 
 # Application definition
@@ -65,7 +66,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-MESSAGE_TAGS =  {
+MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
     messages.SUCCESS: 'alert-success',
