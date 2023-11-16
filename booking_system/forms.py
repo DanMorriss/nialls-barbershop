@@ -34,31 +34,18 @@ class BookingForm(forms.ModelForm):
             }
 
 
-# class SelectHaircut(forms.ModelForm):
-#     class Meta:
-#         model = Booking
-#         fields = ["date_of_booking", "service_name",]
-#         widgets = {'date_of_booking': DateInput(attrs={'type': 'date'}),
-#                    'service_name': forms.HiddenInput(), }
-
-#         labels = {
-#             'date_of_booking': 'Date',
-#             'service_name': 'Haircut',
-#             }
-
-
 # Form Wizard Forms
 class SelectHaircutForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ('service_name',)
+        fields = ['service_name',]
         widgets = {'service_name': forms.Select()}
 
 
 class SelectDateForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ('date_of_booking',)
+        fields = ['date_of_booking',]
         widgets = {'date_of_booking': DateInput(attrs={'type': 'date'})}
 
 
