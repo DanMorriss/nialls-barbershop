@@ -72,9 +72,11 @@ h1, h2, h3, h4, h5 {
     box-shadow: 0 0.2rem 1rem var(--clr-gold);
 }
 
-/* Login Page */
+.gold-shadow {
+    box-shadow: 0 0.2rem 1rem var(--clr-gold);
+}
 
-.login-card {
+.push-down {
     position: relative;
     top: 3rem;
 }
