@@ -12,11 +12,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from formtools.wizard.views import SessionWizardView
+from django.core.exceptions import PermissionDenied
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
-    template_name = 'booking_system/booking_home.html'  #  Without this line django would look here: <app>/<model>_<viewtype>.html booking_system/booking_list
+    # Without this line django would look here: 
+    # <app>/<model>_<viewtype>.html booking_system/booking_list
+    template_name = 'booking_system/booking_home.html'
     paginate_by = 25
 
     def get_queryset(self):
@@ -48,6 +51,10 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = 'booking_system/booking_form.html'
     success_url = reverse_lazy('booking-home')
     form_class = BookingForm
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Booking, pk=pk)
 
     def form_valid(self, form):
         form.instance.username = self.request.user

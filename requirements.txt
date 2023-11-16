@@ -22,6 +22,7 @@ dj3-cloudinary-storage==0.0.6
 Django==3.2.22
 django-allauth==0.57.0
 django-crispy-forms==1.14.0
+django-formtools==2.3
 django-summernote==0.8.20.0
 filelock==3.12.2
 Flask==2.3.3
