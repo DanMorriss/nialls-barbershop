@@ -52,4 +52,4 @@ class SelectDateForm(forms.ModelForm):
 class SelectTimeForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ('start_time',)
+        fields = ['start_time',]
