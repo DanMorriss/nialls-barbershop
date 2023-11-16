@@ -9,7 +9,11 @@ from .forms import (BookingForm,
                     SelectDateForm,
                     SelectTimeForm)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import (CreateView,
+                                  ListView,
+                                  DetailView,
+                                  UpdateView,
+                                  DeleteView)
 from django.urls import reverse_lazy, reverse
 from formtools.wizard.views import SessionWizardView
 from django.core.exceptions import PermissionDenied
@@ -17,7 +21,7 @@ from django.core.exceptions import PermissionDenied
 
 class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
-    # Without this line django would look here: 
+    # Without this next line django would look here:
     # <app>/<model>_<viewtype>.html booking_system/booking_list
     template_name = 'booking_system/booking_home.html'
     paginate_by = 25
