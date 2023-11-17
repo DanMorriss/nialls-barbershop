@@ -18,12 +18,12 @@
         {{ booking.end_time }}
       </p>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <!-- <a
+         <a
           href="{% url 'booking-update' booking.id %}"
           class="btn custom-button-light-gold pt-3"
           type="button"
           ><h5>Edit Appointment</h5></a
-        > -->
+        > 
         <form method="post">
             {% csrf_token %}
             {{ booking_form.as_p }}
