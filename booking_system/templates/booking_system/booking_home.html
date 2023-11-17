@@ -2,29 +2,40 @@
 {% block content %}
 {% load account %}
 
-<div class="container mt-5">
-    <p class="pt-5">Welcome, {% user_display user %}!</p>
-    <h1 class="text-center">Upcoming Appointments</h1>
+<div class="container mt-5 text-center push-down">
+    <div class="container heading">
+        <hr>
+        <h1>Upcoming Appointments</h1>
+        <hr>
+    </div>
+        <h2 class="pt-3">Welcome, {% user_display user %}!</h2>
+    
+    <p>Please select an applointment for more details, or update it.</p>
+    
         {% if object_list %}
             {% for booking in object_list %}
-            <a href="{% url 'booking-detail' booking.id %}"><div class='d-flex justify-content-center'>
-                <div class="card shadow p-3 m-3 text-center w-75 haircut-hover">
-                    <p>{{ booking.date_of_booking|date:"l j F Y" }}</p> 
-                    {% if user.is_superuser %}
-                    <p>{{ booking.username }}</p>
-                    {% endif %}
-                    <p>{{ booking.service_name }} at {{ booking.start_time|date:"g a" }}</p>
-                    <p>End time: {{ booking.end_time }}</p>
-                        
-                    </a>
-                </div>
+            <div class=''>
+                <div class="d-flex justify-content-center ">
+                <a href="{% url 'booking-detail' booking.id %}" class="link-underline link-underline-opacity-0">
+                    <div class="card shadow p-3 m-3 text-center custom-button-light-gold">
+                        <div class="card-header">
+                            <p class="p-0 m-0">{{ booking.date_of_booking|date:"l j F Y" }}</p>
+                        </div> 
+                        <h5 class="mt-3">{{ booking.service_name }}</h5>
+                        <h5>{{ booking.start_time|date:"g a" }} </h5>
+                        {% if user.is_superuser %}
+                        <p>{{ booking.username }}</p>
+                        {% endif %}
+                    </div>
+                </a> 
+            </div>       
             </div>
             
             {% endfor %}
 
             <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
-                <div class="d-grid gap-2 md-col-5 mx-auto pt-3">
-                    <button class="btn custom-button-dark-gold pt-3 haircut-hover" type="button"><h2>Book Another Appointment</h2></button>
+                <div class="d-flex justify-content-center p-3">
+                    <button class="btn custom-button-dark-gold pt-3 " type="button"><h2>Book Another Appointment</h2></button>
                 </div>
             </a>
 
@@ -34,8 +45,8 @@
                 <p class="pt-3">No upcoming apppointments.</p> 
                 
                 <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
-                    <div class="d-grid gap-2 md-col-6 mx-auto p-3">
-                        <button class="btn custom-button-dark-gold pt-3 haircut-hover" type="button"><h2>Book An Appointment</h2></button>
+                    <div class="d-flex justify-content-center p-3">
+                        <button class="btn custom-button-dark-gold pt-3 " type="button"><h2>Book An Appointment</h2></button>
                     </div>
                 </a>
 
