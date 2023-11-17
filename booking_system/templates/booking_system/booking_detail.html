@@ -1,33 +1,57 @@
-{% extends "base.html" %}
-
-{% block content %}
-{% load account %}
+{% extends "base.html" %} {% block content %} {% load account %}
 
 <!-- booking should be object to comply with djamgo's default -->
 
 <div class="container mt-5">
-    {% comment %} <h1 class="pt-5 text-center ">Welcome, {% user_display user %}!</h1> {% endcomment %}
+  {% comment %}
+  <h1 class="pt-5 text-center">Welcome, {% user_display user %}!</h1>
+  {% endcomment %}
 
-        <div class='d-flex justify-content-center push-down'>
-            <div class="card gold-shadow p-3 m-3 text-center w-75">
-                <h2>{{ booking.date_of_booking|date:"l j F Y" }}</h2> 
-                {% if user.is_superuser %}
-                <p>{{ booking.username }} has booked:</p>
-                {% endif %}
-                <p>{{ booking.service_name }} at {{ booking.start_time|date:"g a" }} until {{ booking.end_time }}</p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <a href="{% url 'booking-update' booking.id %}" class="btn custom-button-light-gold pt-3" type="button"><h5>Edit Appointment</h5></a>
-                    <a href="{%  url 'booking-delete' booking.id  %}" class="btn custom-button-dark-gold pt-3 light-text" type="button"><h5>Cancel Appointment</h5></a>
-                </div>
-            </div>
-        </div>
-        
-        <a href="{% url 'booking-home' %}" class="link-underline link-underline-opacity-0 push-down">
-            <div class="d-flex justify-content-center p-3">
-                <button class="btn custom-button-light-gold pt-3 haircut-hover" type="button"><h5><i class="fa-solid fa-left-long"></i></h5></button>
-            </div>
-        </a>
+  <div class="d-flex justify-content-center push-down">
+    <div class="card gold-shadow p-3 m-3 text-center w-75">
+      <h2>{{ booking.date_of_booking|date:"l j F Y" }}</h2>
+      {% if user.is_superuser %}
+      <p>{{ booking.username }} has booked:</p>
+      {% endif %}
+      <p>
+        {{ booking.service_name }} at {{ booking.start_time|date:"g a" }} until
+        {{ booking.end_time }}
+      </p>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <!-- <a
+          href="{% url 'booking-update' booking.id %}"
+          class="btn custom-button-light-gold pt-3"
+          type="button"
+          ><h5>Edit Appointment</h5></a
+        > -->
+        <form method="post">
+            {% csrf_token %}
+            {{ booking_form.as_p }}
+            <input type="submit" value="Save">
+        </form>
+        <a
+          href="{%  url 'booking-delete' booking.id  %}"
+          class="btn custom-button-dark-gold pt-3 light-text"
+          type="button"
+          ><h5>Cancel Appointment</h5></a
+        >
+      </div>
+    </div>
+  </div>
 
+  <a
+    href="{% url 'booking-home' %}"
+    class="link-underline link-underline-opacity-0 push-down"
+  >
+    <div class="d-flex justify-content-center p-3">
+      <button
+        class="btn custom-button-light-gold pt-3 haircut-hover"
+        type="button"
+      >
+        <h5><i class="fa-solid fa-left-long"></i></h5>
+      </button>
+    </div>
+  </a>
 </div>
 
 {% endblock %}
