@@ -3,18 +3,6 @@
 <div class="container mt-5 justify-content-center align-items-center">
   <div class="row justify-content-center">
     <div class="col-md-6 card push-down gold-shadow">
-      {% if form.errors %}
-      <div class="alert bg-danger text-center container-sm">
-        <h2>We had an issue booking your haircut</h2>
-        <br />
-
-        {% for field, errors in form.errors.items %}
-
-        <p>{{ field }}: {{ errors.0 }}</p>
-
-        {% endfor %}
-      </div>
-      {% endif %}
 
       <div class="m-3">
         <form

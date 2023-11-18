@@ -34,12 +34,17 @@ class BookingForm(forms.ModelForm):
             'start_time': 'Time',
             }
 
-        def clean(self):
-            cleaned_data = super().clean()
-            date_of_booking = cleaned_data.get('date_of_booking')
+    def clean(self):
+        cleaned_data = super().clean()
+        date_of_booking = cleaned_data.get('date_of_booking')
+        start_time = cleaned_data.get('start_time')
 
-            if date_of_booking and date_of_booking < date.today():
-                raise ValidationError('Please select a date in the future.')
+        if date_of_booking and date_of_booking < date.today():
+            raise ValidationError('Please select a date in the future.')
+
+        if date_of_booking == date.today() and \
+                start_time < datetime.now().time():
+            raise ValidationError('Please select a time in the future.')
 
 
 # Form Wizard Forms
