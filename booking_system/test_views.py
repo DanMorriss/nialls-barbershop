@@ -1,9 +1,8 @@
 from django.test import TestCase
 from .models import User, Booking
-from django.urls import reverse
 
 
-class BaseTest(TestCase):
+class SetupTests(TestCase):
 
     def setUp(self):
 
@@ -13,13 +12,13 @@ class BaseTest(TestCase):
 
         self.customer2 = User.objects.create_user(
             username='Testy McTester',
-            password='WordyPass1'
-        )
+            password='WordyPass1')
 
         self.admin = User.objects.create_user(
             username='admin',
             password='TheSafestPasswordEver',
-            is_superuser=True)
+            is_superuser=True
+        )
 
         self.booking1 = Booking.objects.create({
             'date_of_booking': '2040-24-02',
@@ -41,7 +40,27 @@ class TestBookingsListView(TestCase):
         self.assertRedirects(response, '/accounts/login/?next=%2Fbooking%2F')
 
     # def test_if_admin_get_all_bookings(self):
-    #     self.client.login(username='admin',
-    #                       password='TheSafestPasswordEver')
+    #     self.client.login(username='admin', password='TheSafestPasswordEver')
     #     response = self.client.get('/booking/')
     #     self.assertEqual(response.status_code, 200)
+    #     bookings = response.context.get('object_list', [])
+
+    #     for booking in bookings:
+    #         self.assertContains(response, booking.service_name)
+    #         self.assertContains(response, booking.username)
+
+    def test_if_admin_get_all_bookings(self):
+
+        login_successful = self.client.login(username='admin', password='TheSafestPasswordEver')
+
+        if login_successful:
+            response = self.client.get('/booking/')
+            print(response.content.decode('utf-8'))  # Print the response content
+            self.assertEqual(response.status_code, 200)
+
+            bookings = response.context.get('object_list', [])
+            for booking in bookings:
+                self.assertContains(response, booking.service_name)
+                self.assertContains(response, booking.username.username)
+        else:
+            print("Login failed for the admin user.")

@@ -21,8 +21,6 @@ from django.core.exceptions import PermissionDenied
 
 class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
-    # Without this next line django would look here:
-    # <app>/<model>_<viewtype>.html booking_system/booking_list
     template_name = 'booking_system/booking_home.html'
     paginate_by = 25
 
@@ -68,6 +66,7 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Booking
+    # <app>/<model>_<viewtype>.html booking_system/booking_detail.html
 
     def test_func(self):
         booking = self.get_object()
