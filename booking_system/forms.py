@@ -1,6 +1,7 @@
 from .models import Booking, Services, BOOKING_TIME
 from django import forms
-from datetime import datetime
+from datetime import datetime, date
+from django.utils import timezone
 from django.forms.widgets import DateInput
 from django.core.exceptions import ValidationError
 
@@ -33,6 +34,13 @@ class BookingForm(forms.ModelForm):
             'start_time': 'Time',
             }
 
+        def clean(self):
+            cleaned_data = super().clean()
+            date_of_booking = cleaned_data.get('date_of_booking')
+
+            if date_of_booking and date_of_booking < date.today():
+                raise ValidationError('Please select a date in the future.')
+
 
 # Form Wizard Forms
 class SelectHaircutForm(forms.ModelForm):
@@ -47,6 +55,13 @@ class SelectDateForm(forms.ModelForm):
         model = Booking
         fields = ['date_of_booking',]
         widgets = {'date_of_booking': DateInput(attrs={'type': 'date'})}
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date_of_booking = cleaned_data.get('date_of_booking')
+
+        if date_of_booking and date_of_booking < date.today():
+            raise ValidationError('Please select a date in the future.')
 
 
 class SelectTimeForm(forms.ModelForm):
