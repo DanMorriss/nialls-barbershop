@@ -14,7 +14,7 @@
       <p>{{ booking.username }} has booked:</p>
       {% endif %}
       <p>
-        {{ booking.service_name }} at {{ booking.start_time|date:"g a" }} until
+        {{ booking.service_name }} at {{ booking.start_time|date:"g:i a" }} until
         {{ booking.end_time }}
       </p>
       <div class="d-grid gap-2 col-6 mx-auto">
@@ -24,11 +24,6 @@
           type="button"
           ><h5>Edit Appointment</h5></a
         > 
-        <form method="post">
-            {% csrf_token %}
-            {{ booking_form.as_p }}
-            <input type="submit" value="Save">
-        </form>
         <a
           href="{%  url 'booking-delete' booking.id  %}"
           class="btn custom-button-dark-gold pt-3 light-text"

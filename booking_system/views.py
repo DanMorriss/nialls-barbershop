@@ -60,10 +60,10 @@ class UpdateBookingView(UpdateView):
     #     pk = self.kwargs.get('pk')
     #     return get_object_or_404(Booking, pk=pk)
 
-    # def form_valid(self, form):
-    #     form.instance.username = self.request.user
-    #     form.instance.calculateEndTime()
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.username = self.request.user
+        form.instance.calculateEndTime()
+        return super().form_valid(form)
 
     # def test_func(self):
     #     booking = self.get_object()

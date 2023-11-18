@@ -281,8 +281,11 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 ### Code
 
 - Help with Bootstrap from their [documentation](https://getbootstrap.com)
+https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#date
 - Database setup and much more with [Codemy.com](https://www.youtube.com/watch?v=A1nqCgAM6CE)
 - Automated testing with [CodingEntrepeneurs](https://www.youtube.com/watch?v=5E_xLmQXOZg)
+
+https://stackoverflow.com/questions/30244042/django-updateview-creates-a-new-object-instead-of-updating-the-current-object
 
 - Form Wizard https://www.youtube.com/watch?v=8xb9s3jnRF8
 

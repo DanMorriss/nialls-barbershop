@@ -22,7 +22,7 @@
                             <p class="p-0 m-0">{{ booking.date_of_booking|date:"l j F Y" }}</p>
                         </div> 
                         <h5 class="mt-3">{{ booking.service_name }}</h5>
-                        <h5>{{ booking.start_time|date:"g a" }} </h5>
+                        <h5>{{ booking.start_time|date:"g:i a" }} </h5>
                         {% if user.is_superuser %}
                         <p>{{ booking.username }}</p>
                         {% endif %}
