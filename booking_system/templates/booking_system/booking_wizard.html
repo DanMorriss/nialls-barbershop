@@ -6,6 +6,17 @@
 {% endblock %}
 
 {% block content %}
+
+    <!-- Error message -->
+    {% if form.errors %}
+        <div class="alert bg-danger text-center container-sm ">
+            <h2>We had an issue booking your haircut</h2><br>
+                {% for field, errors in form.errors.items %}
+                        <p>{{ field }}: {{ errors.0 }}</p>
+                {% endfor %}
+        </div>
+    {% endif %}
+
     <div class="container mt-5">
         <p class="pt-5">Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
         <form action="" method="post">{% csrf_token %}
@@ -21,10 +32,10 @@
             {% endif %}
             </table>
             {% if wizard.steps.prev %}
-            <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
-            <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
+            {% comment %} <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button> {% endcomment %}
+            <button class="btn form-style font-sancreek custom-button-light-gold mt-3" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "back" %}</button>
             {% endif %}
-            <input type="submit" value="{% translate "submit" %}"/>
+            <input class="btn form-style font-sancreek custom-button-dark-gold mt-3" type="submit" value="{% translate "next" %}"/>
         </form>
     </div>
 {% endblock %}
@@ -36,19 +47,11 @@
 
 
 
-{% comment %} {% extends "base.html" %}{% load crispy_forms_tags %}{% load account %}
-{% block content %}
+
+{% comment %} {% block content %} 
 <div class="container mt-5">
 
-    <!-- Error message -->
-    {% if form.errors %}
-        <div class="alert bg-danger text-center container-sm ">
-            <h2>We had an issue booking your haircut</h2><br>
-                {% for field, errors in form.errors.items %}
-                        <p>{{ field }}: {{ errors.0 }}</p>
-                {% endfor %}
-        </div>
-    {% endif %}
+
 
     <div class="m-3">
         <form method="POST" action="{% url 'booking-create' %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
@@ -62,4 +65,4 @@
 
 </div>    
 
-{% endblock content %} {% endcomment %}
+{% endblock content %}{% endcomment %}
