@@ -49,7 +49,7 @@ class BookingForm(forms.ModelForm):
         existing_bookings = Booking.objects.filter(
             date_of_booking=date_of_booking,
             start_time=start_time
-        )
+        ).exclude(id=self.instance.id)
 
         if existing_bookings:
             raise ValidationError('That time is already taken, '
