@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5 {
     font-family: 'Sancreek', serif;
 }
 
-/* Text Colors */
+/* Text */
 .gold-text {
     transition: .5s ease-in-out;
     color: var(--clr-gold)
@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5 {
 
 .dark-text {
     color: var(--clr-dark);
+}
+
+.font-sancreek {
+    font-family: 'Sancreek', serif;
 }
 
 /* Background Colors */
@@ -94,6 +98,15 @@ h1, h2, h3, h4, h5 {
     transform: scale(1.01);
 }
 
+.custom-close-btn {
+    transition: .5s ease-in-out;
+}
+
+.custom-close-btn:hover {
+    transition: .5s ease-in-out;
+    transform: scale(1.15) rotateZ(-20deg);
+}
+
 .gold-shadow {
     box-shadow: 0 0.2rem 1rem var(--clr-gold);
 }
@@ -101,10 +114,6 @@ h1, h2, h3, h4, h5 {
 .push-down {
     position: relative;
     top: 3rem;
-}
-
-.font-sancreek {
-    font-family: 'Sancreek', serif;
 }
 
 /* Home Page */
@@ -139,4 +148,21 @@ h1, h2, h3, h4, h5 {
     color: var(--clr-dark);
     transform: scale(1.01);
 
+}
+
+.open-haircut-modal-btn {
+    width: 80%;
+    transition: .5s ease-in-out;
+    box-shadow: 0 0.2rem 1rem var(--clr-gold);
+    border-radius: .5rem;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    font-family: 'Sancreek', serif;
+}
+
+.open-haircut-modal-btn:hover {
+    transition: .5s ease-in-out;
+    transform: scale(1.1);
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
 }

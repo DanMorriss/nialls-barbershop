@@ -48,29 +48,46 @@
     </div>
     <div class="container light-text">
         <p>Your haircut is a statement of style and individuality. Niall is passionate about delivering more than just a haircut; he creates an experience tailored to you. Explore the diverse range of haircut services below and book your appointment for an unparalleled grooming experience at Niall's Barbershop.</p>
-        <h2 class="gold-text p-3">Book a Haircut <br/><br/>
-            <i class="fa-solid fa-hand-point-down fs-1"></i></h2>
+
+            <i class="fa-solid fa-hand-point-down fs-1 gold-text"></i></h2>
     </div>
 
-    <div class="container col-12">
-        <div class="row justify-content-md-center ">
-            {% for service in services %}
-            <div class="col-md-4 mt-4">
-                <a href="{% url 'booking-create' %}" class="haircut-hover">
-                    <div class="card p-2 pt-3 dark-background light-text haircut-hover">
-                        <i class="fa-solid fa-scissors"></i>
-                        <h4 class="pt-2">{{ service.service_name }}</h4> 
+    <!-- Button to trigger modal -->
+    <div class="row justify-content-center">
+    {% for service in services%}
+        <div class="col-md-5 pt-3 pt-md-5">
+            <button type="button" class="open-haircut-modal-btn p-4 fs-3" data-bs-toggle="modal" data-bs-target="#serviceModal{{ service.id}}">
+            {{ service.service_name}}
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="serviceModal{{ service.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{ service.id}}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel{{ service.id}}">{{ service.service_name }}</h1>
+                        <button type="button" class="btn custom-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-scissors"></i></button>
+                    </div>
+
+                    <div class="modal-body">
                         <p>£{{ service.cost }}</p>
                     </div>
-                </a>
+
+                    <div class="modal-footer justify-content-center ">
+                        {% comment %} <button type="button" class="btn custom-button-light-gold font-sancreek me-3" data-bs-dismiss="modal">Close</button> {% endcomment %}
+                        <a href="{% url 'booking-create' %}" type="button" class="btn custom-button-dark-gold font-sancreek fs-4">Book a cut</a>
+                    </div>
+
+                </div>
             </div>
-        {% if forloop.counter|divisibleby:2%}
         </div>
-        <div class="row justify-content-md-center">
-        {% endif %}
-            {% endfor %}
-        </div>
+
+    {% endfor %}
     </div>
+    
+
 </div>
 
 
