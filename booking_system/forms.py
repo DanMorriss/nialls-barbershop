@@ -4,22 +4,32 @@ from django.core.exceptions import ValidationError
 from datetime import datetime, date
 from .models import Booking
 
+
 class BookingForm(forms.ModelForm):
     """
-    Form to create and edit a haircut booking.
+    Form for creating and editing haircut bookings.
 
     Fields:
         - date_of_booking: Date field for selecting the booking date.
         - service_name: Dropdown for selecting the haircut service.
         - start_time: Time field for selecting the booking time.
 
-    Widget:
+    Widgets:
         - date_of_booking: DateInput widget with type 'date' for a date picker.
 
     Labels:
         - date_of_booking: 'Date'
         - service_name: 'Haircut'
         - start_time: 'Time'
+
+    Custom Clean Method:
+        - Ensures that the selected date and time are in the future.
+        - Checks for existing bookings and raises errors if there is a clash.
+
+    Raises:
+        - ValidationError: If the selected date is not in the future.
+        - ValidationError: If the selected time is not in the future.
+        - ValidationError: If the selected date and time are already booked.
     """
     class Meta:
         model = Booking

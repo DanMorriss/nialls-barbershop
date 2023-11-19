@@ -18,6 +18,28 @@ import time
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
+    """
+    ListView for displaying a paginated list of bookings on booking-home page.
+
+    Attributes:
+        - model: Booking from models.py
+        - template_name: The path to the template for rendering the view.
+        - paginate_by: The number of bookings to display per page.
+
+    Methods:
+        - get_queryset(): Retrieves the queryset of bookings to be displayed,
+        and filters out past bookings.
+        Superusers see all bookings, regular users only see their own bookings.
+
+    Usage:
+        - This view displays a paginated list of bookings.
+        - If the user is a superuser, the view shows all future bookings.
+        - Otherwise, it displays future bookings for the authenticated user.
+
+    Returns:
+        - QuerySet: A filtered and ordered QuerySet of bookings to be displayed
+        on the template.
+    """
     model = Booking
     template_name = 'booking_system/booking_home.html'
     paginate_by = 25
@@ -29,19 +51,31 @@ class BookingsListView(LoginRequiredMixin, ListView):
             queryset = Booking.objects.filter(
                 Q(date_of_booking__gt=current_date) |
                 Q(date_of_booking=current_date, start_time__gte=current_time)
-            )
-            queryset = queryset.order_by('date_of_booking', 'start_time')
+            ).order_by('date_of_booking', 'start_time')
         else:
             queryset = Booking.objects.filter(
                 username=self.request.user).filter(
                     Q(date_of_booking__gt=current_date) |
                     Q(date_of_booking=current_date,
                       start_time__gte=current_time)
-                )
+                ).order_by('date_of_booking', 'start_time')
         return queryset
 
 
 class CreateBookingView(LoginRequiredMixin, CreateView):
+    """
+    View for creating a new booking.
+
+    Attributes:
+        - model: Booking from models.py
+        - template_name: The path to the template for rendering the view.
+        - success_url: Redirects to booking-home after a successful form.
+        - form_class: The form class to use for creating a new booking.
+
+    Methods:
+        - form_valid(form): Overrides the form_valid method.
+        Sets the username and calculates the end time.
+    """
     model = Booking
     template_name = 'booking_system/booking_form.html'
     success_url = reverse_lazy('booking-home')
@@ -54,6 +88,23 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
 
 
 class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    View for updating an existing booking.
+
+    Attributes:
+        - model: Booking from models.py
+        - template_name: The path to the template for rendering the view.
+        - success_url: Redirect to booking-home after a successful form.
+        - form_class: The form class to use for updating a booking.
+
+    Methods:
+        - form_valid(form): Overrides the form_valid method for customization.
+        Calculates the end time after a successful form submission.
+
+        - test_func(): Checks if the current user is allowed to update the
+        booking.
+        Users that created the booking and admins have the ability to update.
+    """
     model = Booking
     template_name = 'booking_system/booking_form.html'
     success_url = reverse_lazy('booking-home')
@@ -70,8 +121,22 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    """
+    View for displaying details of a booking.
+
+    Attributes:
+        - model: Booking from models.py
+        - No template name as the Django default path was used for naming.
+        <app>/<model>_<viewtype>.html : booking_system/booking_detail.html
+
+    Methods:
+        - test_func(): Checks if the current user is allowed to view the
+        booking details. Users that created the booking and admins have access.
+
+    Returns:
+        Rendered template with booking details.
+    """
     model = Booking
-    # <app>/<model>_<viewtype>.html booking_system/booking_detail.html
 
     def test_func(self):
         booking = self.get_object()
@@ -80,6 +145,17 @@ class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
 
 class BookingDeleteView(DeleteView):
+    """
+    View for deleting an existing booking.
+
+    Attributes:
+        - model: Booking from models.py
+        - success_url: Redirect to booking-home after a successful deletion.
+
+    Methods:
+        - test_func(): Checks if the current user is allowed to delete
+        the booking. Users that created the booking and admins have access.
+    """
     model = Booking
     success_url = reverse_lazy('booking-home')
 
