@@ -77,7 +77,7 @@
 
                     <div class="modal-footer justify-content-center ">
                         {% comment %} <button type="button" class="btn custom-button-light-gold font-sancreek me-3" data-bs-dismiss="modal">Close</button> {% endcomment %}
-                        <a href="{% url 'booking-create' %}" type="button" class="btn custom-button-dark-gold font-sancreek fs-4">Book a cut</a>
+                        <a href="{% url 'booking-create' %}?next={{ request.get_full_path }}" type="button" class="btn custom-button-dark-gold font-sancreek fs-4">Book a cut</a>
                     </div>
 
                 </div>

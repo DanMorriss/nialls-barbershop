@@ -6,7 +6,7 @@ urlpatterns = [
     path('booking/', views.BookingsListView.as_view(),
          name='booking-home'),
     path('booking/create', views.CreateBookingView.as_view(),
-         name='booking-create'),  # original booking form
+         name='booking-create'),
     path('booking/<int:pk>/', views.BookingDetailView.as_view(),
          name='booking-detail'),
     path('booking/<int:pk>/update/', views.UpdateBookingView.as_view(),

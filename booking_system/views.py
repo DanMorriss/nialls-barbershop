@@ -1,24 +1,19 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views import View
-from django.http import HttpResponse, HttpResponseRedirect
-from django.utils import timezone
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
+from formtools.wizard.views import SessionWizardView
 from django.db.models import Q
-from .models import Booking, Services, BOOKING_TIME
-from datetime import date, datetime
-from .forms import (BookingForm,
-                    # SelectHaircut,
-                    SelectHaircutForm,
-                    SelectDateForm,
-                    SelectTimeForm)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (CreateView,
                                   ListView,
                                   DetailView,
                                   UpdateView,
                                   DeleteView)
-from django.urls import reverse_lazy, reverse
-from formtools.wizard.views import SessionWizardView
-from django.core.exceptions import PermissionDenied
+from .models import Booking
+from .forms import (BookingForm,
+                    SelectHaircutForm,
+                    SelectDateForm,
+                    SelectTimeForm)
+from datetime import date, datetime
 import time
 
 

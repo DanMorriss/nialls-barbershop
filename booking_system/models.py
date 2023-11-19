@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
-from django.urls import reverse
 
 BOOKING_TIME = ((datetime.time(9, 0, 0), '9:00am'),
                 (datetime.time(9, 30, 0), '9:30am'),
