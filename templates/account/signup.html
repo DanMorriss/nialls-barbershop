@@ -1,29 +1,38 @@
-{% extends "base.html" %}
-
-{% load i18n %}
-
+{% extends "base.html" %} {% load crispy_forms_tags %} {% load i18n %}
 {% block head_title %}{% trans "Signup" %}{% endblock %}
-
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign Up" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the code|star blog. Do you already have an account? Then please <a
-                    class="link" href="{{ login_url }}">sign in</a> instead.{% endblocktrans %}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign Up" %} &raquo;</button>
-            </form>
+<div class="container mt-5 justify-content-center align-items-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 card push-down gold-shadow mb-5">
+            
+            <div class="row text-center">
+                <div class="col-md-8 mt-3 pt-3 offset-md-2">
+                    <h1>{% trans "Sign Up" %}</h1>
+
+                    <p>{% blocktrans %} Welcome to Niall's Barbershop, signup to book and manage your haircuts!<br>
+                        Already have an account?
+                        <a class="link" href="{{ login_url }}">Login</a> instead.{% endblocktrans %}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 mt-3 offset-md-2">
+                    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                        {% csrf_token %}
+                        {{ form | crispy }} {{ form.media }}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <div class="row text-center">
+                            <div class="col">
+                                <button class="btn custom-button-dark-gold font-sancreek m-3 fs-4" type="submit">{% trans "Sign Up" %} &raquo;</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

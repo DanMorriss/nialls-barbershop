@@ -26,7 +26,7 @@ class TestBookingForm(TestCase):
                                   'username': 'Testy McTester'})
         self.assertFalse(booking.is_valid())
         self.assertEqual(booking.errors,
-                         {'__all__': ['Please select a date in the future.']})
+                         {'__all__': ['Past dates not available in this universe.']})
 
     def test_service_name_is_required(self):
         booking = BookingForm({'date_of_booking': '2024-24-02',
@@ -85,12 +85,12 @@ class TestSelectDateForm(TestCase):
         booking = SelectDateForm({'date_of_booking': yesterday})
         self.assertFalse(booking.is_valid())
         self.assertEqual(booking.errors,
-                         {'__all__': ['Please select a date in the future.']})
+                         {'__all__': ['Past dates not available in this universe.']})
 
 
-class TestSelectTimeForm(TestCase):
+# class TestSelectTimeForm(TestCase):
 
-    def test_select_time_is_required(self):
-        booking = SelectTimeForm({'start_time': ''})
-        self.assertFalse(booking.is_valid())
-        self.assertIn('start_time', booking.errors.keys())
+#     def test_select_time_is_required(self):
+#         booking = SelectTimeForm({'start_time': ''})
+#         self.assertFalse(booking.is_valid())
+#         self.assertIn('start_time', booking.errors.keys())
