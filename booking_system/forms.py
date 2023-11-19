@@ -34,6 +34,13 @@ class BookingForm(forms.ModelForm):
             'start_time': 'Time',
             }
 
+    def get_queryset(self):
+        cleaned_data = super().clean()
+        date_of_booking = cleaned_data.get('date_of_booking')
+        queryset = Booking.objects.filter(date_of_booking=date.today())
+        print(queryset)
+        return queryset
+
     def clean(self):
         cleaned_data = super().clean()
         date_of_booking = cleaned_data.get('date_of_booking')
@@ -45,6 +52,14 @@ class BookingForm(forms.ModelForm):
         if date_of_booking == date.today() and \
                 start_time < datetime.now().time():
             raise ValidationError('Please select a time in the future.')
+
+        existing_bookings = Booking.objects.filter(
+            date_of_booking=date_of_booking,
+            start_time=start_time
+        )
+
+        if existing_bookings:
+            raise ValidationError('That time is already taken, please select a different time.')
 
 
 # Form Wizard Forms
