@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
+from django.utils import timezone
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date, datetime
 from .forms import (BookingForm,
@@ -27,13 +28,15 @@ class BookingsListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         if self.request.user.is_superuser:
             queryset = Booking.objects.filter(
-                date_of_booking__gte=date.today()).order_by(
-                    'date_of_booking', 'start_time')
-            return queryset
+                date_of_booking__gte=timezone.now().date(),
+                start_time__gte=timezone.now()
+                ).order_by('date_of_booking', 'start_time')
         else:
-            return Booking.objects.filter(
-                username=self.request.user).filter(
-                    date_of_booking__gte=date.today())
+            queryset = Booking.objects.filter(
+                date_of_booking__gte=timezone.now().date(),
+                start_time__gte=timezone.now()
+                ).order_by('date_of_booking', 'start_time')
+        return queryset
 
 
 class CreateBookingView(LoginRequiredMixin, CreateView):
