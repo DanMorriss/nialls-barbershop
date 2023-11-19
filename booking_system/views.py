@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
+from django.db.models import Q
 from .models import Booking, Services, BOOKING_TIME
 from datetime import date, datetime
 from .forms import (BookingForm,
@@ -18,6 +19,7 @@ from django.views.generic import (CreateView,
 from django.urls import reverse_lazy, reverse
 from formtools.wizard.views import SessionWizardView
 from django.core.exceptions import PermissionDenied
+import time
 
 
 class BookingsListView(LoginRequiredMixin, ListView):
@@ -26,16 +28,21 @@ class BookingsListView(LoginRequiredMixin, ListView):
     paginate_by = 25
 
     def get_queryset(self):
+        current_date = date.today()
+        current_time = time.strftime("%H:%M:%S", time.gmtime())
         if self.request.user.is_superuser:
             queryset = Booking.objects.filter(
-                date_of_booking__gte=timezone.now().date(),
-                start_time__gte=timezone.now()
-                ).order_by('date_of_booking', 'start_time')
+                Q(date_of_booking__gt=current_date) |
+                Q(date_of_booking=current_date, start_time__gte=current_time)
+            )
+            queryset = queryset.order_by('date_of_booking', 'start_time')
         else:
             queryset = Booking.objects.filter(
-                date_of_booking__gte=timezone.now().date(),
-                start_time__gte=timezone.now()
-                ).order_by('date_of_booking', 'start_time')
+                username=self.request.user).filter(
+                    Q(date_of_booking__gt=current_date) |
+                    Q(date_of_booking=current_date,
+                      start_time__gte=current_time)
+                )
         return queryset
 
 
