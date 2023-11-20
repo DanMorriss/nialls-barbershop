@@ -100,6 +100,8 @@
                 {% endif %}
                 <p><i class="fa-regular fa-calendar"></i> Member Since: {{ user.date_joined }}</p>
                 <p><i class="fa-regular fa-clock"></i> Last Login: {{ user.last_login }}</p>
+                <a href="{% url 'account_email' %}">Update Email</a>
+                <a href="{% url 'account_change_password' %}">Change Password</a><br>
             </div>
         </div>
     </div>
