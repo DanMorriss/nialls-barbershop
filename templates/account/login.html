@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load i18n %} {% load crispy_forms_tags %} {% load account socialaccount %} 
 {% block head_title %}{% trans "Sign In" %}{% endblock head_title %} {% block content %}
-
+<!-- might not need to load crispy tags as its now in the base file -->
 <div class="container mt-5 justify-content-center align-items-center">
   <div class="row justify-content-center">
     <div class="col-lg-6 card push-down gold-shadow">
@@ -25,6 +25,9 @@
             <input type="hidden" name="{{ redirect_field_name }} "value="{{ redirect_field_value }}"/>
             {% endif %}
             <div class="row text-center">
+              <div class="justify-content-end">
+                <p class="text-end"><a href="{% url 'account_reset_password' %}">Reset Password</a></p>
+              </div>
               <div class="col mb-4">
                 <button class="btn custom-button-dark-gold font-sancreek m-3 fs-4" type="submit"> {% trans "Sign In" %}</button>
               </div>
