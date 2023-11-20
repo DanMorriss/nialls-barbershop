@@ -79,6 +79,7 @@ class Booking(models.Model):
     start_time = models.TimeField(choices=BOOKING_TIME)
     end_time = models.TimeField(editable=False, blank=True, null=True)
     confirmed = models.BooleanField(default=False)
+    message = models.CharField(max_length=500, blank=True)
 
     class Meta:
         ordering = ['date_of_booking', 'start_time']

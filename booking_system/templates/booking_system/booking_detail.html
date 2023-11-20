@@ -9,13 +9,18 @@
 
   <div class="d-flex justify-content-center push-down">
     <div class="card gold-shadow p-3 m-3 text-center w-75">
-      <h2>{{ booking.date_of_booking|date:"l j F Y" }}</h2>
+      <h2>{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
       {% if user.is_superuser %}
-      <p>{{ booking.username }} has booked:</p>
+      <h5><i class="fa-regular fa-user"></i> User: {{ booking.username }}</h5>
       {% endif %}
-      <p>
+      <h5>
         {{ booking.service_name }} at {{ booking.start_time|date:"g:i a" }} until
-        {{ booking.end_time }}
+        {{ booking.end_time }}</h5>
+        {% if booking.message %}
+
+        <h5><i class="fa-regular fa-comment"></i> Message:</h5>
+        <p>{{ booking.message }}</p>
+        {% endif %}
       </p>
       <div class="d-grid gap-2 col-6 mx-auto">
          <a

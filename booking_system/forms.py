@@ -13,6 +13,7 @@ class BookingForm(forms.ModelForm):
         - date_of_booking: Date field for selecting the booking date.
         - service_name: Dropdown for selecting the haircut service.
         - start_time: Time field for selecting the booking time.
+        - message: A CharField for users to enter a message.
 
     Widgets:
         - date_of_booking: DateInput widget with type 'date' for a date picker.
@@ -21,6 +22,7 @@ class BookingForm(forms.ModelForm):
         - date_of_booking: 'Date'
         - service_name: 'Haircut'
         - start_time: 'Time'
+        - message: 'Message'
 
     Custom Clean Method:
         - Ensures that the selected date and time are in the future.
@@ -33,13 +35,14 @@ class BookingForm(forms.ModelForm):
     """
     class Meta:
         model = Booking
-        fields = ["date_of_booking", "service_name", "start_time"]
+        fields = ["date_of_booking", "service_name", "start_time", 'message']
         widgets = {'date_of_booking': DateInput(attrs={'type': 'date'}), }
 
         labels = {
             'date_of_booking': 'Date',
             'service_name': 'Haircut',
             'start_time': 'Time',
+            'message': 'Message'
             }
 
     def clean(self):
