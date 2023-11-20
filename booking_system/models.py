@@ -29,6 +29,7 @@ class Services(models.Model):
         - `service_name` (CharField): The name of the service.
         - `session_length` (DurationField): The duration of the service.
         - `cost` (DecimalField): The cost of the service.
+        - `description` (CharField): A description of the service.
 
     Methods:
         - `__str__`: Human-readable string representation of the service.
@@ -42,6 +43,7 @@ class Services(models.Model):
     service_name = models.CharField(max_length=250)
     session_length = models.DurationField()
     cost = models.DecimalField(max_digits=8, decimal_places=2)
+    description = models.CharField(max_length=500, blank=True)
 
     def __str__(self):
         return self.service_name
