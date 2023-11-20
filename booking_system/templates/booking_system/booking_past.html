@@ -8,31 +8,30 @@
         <h1>Welcome, {% user_display user %}!</h1>
         <hr>
     </div>
-        <h2 class="pt-3">Upcoming Bookings</h2>
-    
-    <p>Please select an applointment for more details, or update it.<br>
-    If you would like to see your past bookings click <a href="{% url 'booking-past' %}">here</a>.</p>
+        <h2 class="pt-3">Past Bookings</h2>
+    <p>If you would like to see your upcoming bookings click <a href="{% url 'booking-home' %}">here</a>.</p>
     
         {% if object_list %}
             {% for booking in object_list %}
             <div>
                 <div class="d-flex justify-content-center ">
-                <a href="{% url 'booking-detail' booking.id %}" class="link-underline link-underline-opacity-0">
-                    <div class="card shadow m-3 text-center custom-button-light-gold">
-                        <div class="card-header dark-background">
+
+                    <div class="card shadow m-3 text-center custom-card-light-gold">
+                        <div class="card-header dark-background gold-text">
                             <p class="p-0 m-0 font-sancreek fs-4">{{ booking.date_of_booking|date:"l j F Y" }}</p>
                         </div> 
                         <h5 class="mt-3 fs-3">{{ booking.service_name }}</h5>
                         <h5>{{ booking.start_time|date:"g:i a" }} </h5>
                         {% if user.is_superuser %}
                         <p>{{ booking.username }}
+                        {% endif %}
                             {% if booking.message %}
-                            <i class="fa-regular fa-comment"></i>
+                            <p><i class="fa-regular fa-comment"></i> {{ booking.message }}</p>
                             {% endif %}
                         </p>
-                        {% endif %}
+                        
                     </div>
-                </a> 
+ 
             </div>       
             </div>
             
@@ -47,7 +46,7 @@
         {% else %}
         <div class='d-flex justify-content-center '>
             <div class="card shadow p-3 m-3 text-center w-75">
-                <p class="pt-3">No upcoming apppointments.</p> 
+                <p class="pt-3">No previous apppointments.</p> 
                 
                 <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
                     <div class="d-flex justify-content-center p-3">

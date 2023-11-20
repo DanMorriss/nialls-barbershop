@@ -113,6 +113,12 @@ h1, h2, h3, h4, h5 {
     top: 3rem;
 }
 
+.custom-card-light-gold {
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    box-shadow: 0 0.2rem 1rem var(--clr-gold);
+}
+
 /* Home Page */
 
 .hero-container {

@@ -62,6 +62,29 @@ class BookingsListView(LoginRequiredMixin, ListView):
         return queryset
 
 
+class PastBookingsView(LoginRequiredMixin, ListView):
+    model = Booking
+    template_name = 'booking_system/booking_past.html'
+    paginate_by = 25
+
+    def get_queryset(self):
+        current_date = date.today()
+        current_time = time.strftime("%H:%M:%S", time.gmtime())
+        if self.request.user.is_superuser:
+            queryset = Booking.objects.filter(
+                Q(date_of_booking__lt=current_date) |
+                Q(date_of_booking=current_date, start_time__lte=current_time)
+            ).order_by('date_of_booking', 'start_time')
+        else:
+            queryset = Booking.objects.filter(
+                username=self.request.user).filter(
+                    Q(date_of_booking__lt=current_date) |
+                    Q(date_of_booking=current_date,
+                      start_time__lte=current_time)
+                ).order_by('date_of_booking', 'start_time')
+        return queryset
+
+
 class CreateBookingView(LoginRequiredMixin, CreateView):
     """
     View for creating a new booking.
