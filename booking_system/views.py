@@ -115,15 +115,21 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.username = self.request.user
         form.instance.calculateEndTime()
-        response = super().form_valid(form)
-
+        service = form.instance.service_name
+        date = form.instance.date_of_booking
+        time = form.instance.start_time
         email_subject = 'Booking Confirmed'
-        email_message = 'Your booking has been made!'
+        email_message = (f'{form.instance.username},\n'
+                         f'Your {service} on {date} '
+                         f'at {time} has been booked!\n'
+                         f'Looking forward to seeing you then.'
+                         )
+
         send_email_confirmation(self.request.user,
                                 email_subject,
                                 email_message)
 
-        return response
+        return super().form_valid(form)
 
 
 class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
