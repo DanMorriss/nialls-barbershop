@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from formtools.wizard.views import SessionWizardView
 from django.db.models import Q
+from django.core.mail import send_mail
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (CreateView,
                                   ListView,
@@ -85,6 +86,13 @@ class PastBookingsView(LoginRequiredMixin, ListView):
         return queryset
 
 
+def send_email_confirmation(user, subject, message):
+    from_email = 'danielmorriss1@gmail.com'
+    to_email = [user.email]
+
+    send_mail(subject, message, from_email, to_email, fail_silently=False)
+
+
 class CreateBookingView(LoginRequiredMixin, CreateView):
     """
     View for creating a new booking.
@@ -107,7 +115,15 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.username = self.request.user
         form.instance.calculateEndTime()
-        return super().form_valid(form)
+        response = super().form_valid(form)
+
+        email_subject = 'Booking Confirmed'
+        email_message = 'Your booking has been made!'
+        send_email_confirmation(self.request.user,
+                                email_subject,
+                                email_message)
+
+        return response
 
 
 class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
