@@ -43,6 +43,11 @@
                                         <i class="fa-regular fa-comment"></i>
                                         {% endif %}
                                     </p>
+                                    {% if booking.confirmed %}
+                                    <p>Booking Confirmed</p>
+                                    {% else %}
+                                    <p>Not Yet Confirmed</p>
+                                    {% endif %}
                                     {% endif %}
                                 </div>
                             </a> 

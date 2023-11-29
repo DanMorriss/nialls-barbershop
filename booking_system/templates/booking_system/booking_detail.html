@@ -28,7 +28,12 @@
         <h5><i class="fa-regular fa-comment"></i> Message:</h5>
         <p>{{ booking.message }}</p>
         {% endif %}
-      </p>
+      
+      {% if booking.confirmed %}
+        <p>Booking Confirmed</p>
+        {% else %}
+        <p>Not Yet Confirmed</p>
+        {% endif %}
       <div class="d-grid gap-2 col-6 mx-auto">
          <a
           href="{% url 'booking-update' booking.id %}"

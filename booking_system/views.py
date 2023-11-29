@@ -110,7 +110,7 @@ class PastBookingsView(LoginRequiredMixin, ListView):
 
 def send_email_confirmation(user, subject, message):
     from_email = 'danielmorriss1@gmail.com'
-    to_email = [user.email]
+    to_email = [user]
 
     send_mail(subject, message, from_email, to_email, fail_silently=False)
 
@@ -144,6 +144,7 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
             service = form.instance.service_name
             date = form.instance.date_of_booking
             time = form.instance.start_time
+            user_email = form.instance.username.email
             email_subject = 'Booking Confirmed'
             email_message = (f'{form.instance.username},\n\n'
                              f'Your {service} on {date} '
@@ -151,7 +152,7 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
                              f'Comments: {form.instance.message}\n\n'
                              f'Looking forward to seeing you then.'
                              )
-            send_email_confirmation(self.request.user,
+            send_email_confirmation(user_email,
                                     email_subject,
                                     email_message)
 
@@ -196,13 +197,14 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             date = form.instance.date_of_booking
             time = form.instance.start_time
             email_subject = 'Booking Updated'
+            user_email = form.instance.username.email
             email_message = (f'{form.instance.username},\n\n'
                              f'Your {service} on {date} '
                              f'at {time} has been updated!\n\n'
                              f'Comments: {form.instance.message}\n\n'
                              f'Looking forward to seeing you then.'
                              )
-            send_email_confirmation(self.request.user,
+            send_email_confirmation(user_email,
                                     email_subject,
                                     email_message)
 
