@@ -1,9 +1,11 @@
-from django.http import HttpResponseRedirect
+from typing import Any
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from formtools.wizard.views import SessionWizardView
 from django.db.models import Q
 from django.core.mail import send_mail
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
 from django.views.generic import (CreateView,
                                   ListView,
                                   DetailView,
@@ -106,7 +108,8 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
     Methods:
         - form_valid(form): Overrides the form_valid method.
         Sets the username and calculates the end time
-        and sends a confirmation email.
+        and sends a confirmation email
+        and alerts the user of a successful booking.
     """
     model = Booking
     template_name = 'booking_system/booking_form.html'
@@ -131,6 +134,12 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
             send_email_confirmation(self.request.user,
                                     email_subject,
                                     email_message)
+
+        messages.success(
+            self.request,
+            "Your booking has been made successfully!",
+            extra_tags="alert alert-success alert-dismissible",
+        )
 
         return super().form_valid(form)
 
@@ -177,6 +186,12 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
                                     email_subject,
                                     email_message)
 
+        messages.success(
+            self.request,
+            "Your booking has been successfully updated!",
+            extra_tags="alert alert-success alert-dismissible",
+        )
+
         return super().form_valid(form)
 
     def test_func(self):
@@ -220,9 +235,18 @@ class BookingDeleteView(DeleteView):
     Methods:
         - test_func(): Checks if the current user is allowed to delete
         the booking. Users that created the booking and admins have access.
+        The user is shown a success message once the booking has been deleted.
     """
     model = Booking
     success_url = reverse_lazy('booking-home')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(
+            self.request,
+            "Your booking has been successfully deleted!",
+            extra_tags="alert alert-danger alert-dismissible",
+        )
+        return super().delete(request, *args, **kwargs)
 
     def test_func(self):
         booking = self.get_object()
