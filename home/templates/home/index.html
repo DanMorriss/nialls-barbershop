@@ -1,9 +1,15 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% load static %}
 {% block content %}
 
 <!-- Hero Image -->
 <div class="hero-container">
-    <div class="hero-image"></div>
+    <div class="hero-image d-flex justify-content-center align-items-center">
+        <div class="logo-div d-flex justify-content-center align-items-center">
+            <img src="{% static 'images/nialls-barbershop-logo.png' %}" alt="Niall's Barbershop Logo" class="logo">
+            <img src="{% static 'images/outer-logo-shell.png' %}" alt="Niall's Barbershop Logo" class="outer-logo-shell">
+        </div>
+    </div>
+    
 </div>
 
 <!-- About -->
