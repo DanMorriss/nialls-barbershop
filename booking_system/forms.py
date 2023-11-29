@@ -67,46 +67,5 @@ class BookingForm(forms.ModelForm):
                                   'please select a different time.')
 
 
-# Form Wizard Forms
-class SelectHaircutForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = ['service_name',]
-        widgets = {'service_name': forms.Select()}
-
-
-class SelectDateForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = ['date_of_booking',]
-        widgets = {'date_of_booking': DateInput(attrs={'type': 'date'})}
-
-    def clean(self):
-        cleaned_data = super().clean()
-        date_of_booking = cleaned_data.get('date_of_booking')
-
-        if date_of_booking and date_of_booking < date.today():
-            raise ValidationError('Past dates not available in this universe.')
-
-
-class SelectTimeForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = ['start_time',]
-
-    def clean(self):
-        cleaned_data = super().clean()
-        start_time = cleaned_data.get('start_time')
-        date_of_booking = cleaned_data.get('date_of_booking')
-
-        if start_time < datetime.now().time():
-            raise ValidationError('Past dates not available in this universe.')
-
-        existing_bookings = Booking.objects.filter(
-            date_of_booking=date_of_booking,
-            start_time=start_time
-        )
-
-        if existing_bookings:
-            raise ValidationError('That time is already taken, '
-                                  'please select a different time.')
+class BookingSearchForm(forms.Form):
+    search_query = forms.CharField(required=False, label='Search Bookings')

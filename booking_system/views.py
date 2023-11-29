@@ -9,7 +9,7 @@ from django.views.generic import (CreateView,
                                   UpdateView,
                                   DeleteView)
 from .models import Booking
-from .forms import BookingForm
+from .forms import BookingForm, BookingSearchForm
 from datetime import date
 import time
 
@@ -40,23 +40,44 @@ class BookingsListView(LoginRequiredMixin, ListView):
     model = Booking
     template_name = 'booking_system/booking_home.html'
     paginate_by = 25
+    form_class = BookingSearchForm
 
     def get_queryset(self):
         current_date = date.today()
         current_time = time.strftime("%H:%M:%S", time.gmtime())
-        if self.request.user.is_superuser:
-            queryset = Booking.objects.filter(
-                Q(date_of_booking__gt=current_date) |
-                Q(date_of_booking=current_date, start_time__gte=current_time)
-            ).order_by('date_of_booking', 'start_time')
+        form = BookingSearchForm(self.request.GET)
+
+        if form.is_valid():
+            search_query = form.cleaned_data['search_query']
+
+            # Allow admin to search bookings
+            if self.request.user.is_superuser:
+                queryset = Booking.objects.filter(
+                    Q(username__username__icontains=search_query) |
+                    Q(service_name__service_name__icontains=search_query)
+                ).order_by('date_of_booking', 'start_time')
         else:
-            queryset = Booking.objects.filter(
-                username=self.request.user).filter(
+            # Show Admin all future bookings
+            if self.request.user.is_superuser:
+                queryset = Booking.objects.filter(
                     Q(date_of_booking__gt=current_date) |
                     Q(date_of_booking=current_date,
                       start_time__gte=current_time)
                 ).order_by('date_of_booking', 'start_time')
+            else:
+                # Show user their future bookings
+                queryset = Booking.objects.filter(
+                    username=self.request.user).filter(
+                        Q(date_of_booking__gt=current_date) |
+                        Q(date_of_booking=current_date,
+                          start_time__gte=current_time)
+                ).order_by('date_of_booking', 'start_time')
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = BookingSearchForm()
+        return context
 
 
 class PastBookingsView(LoginRequiredMixin, ListView):

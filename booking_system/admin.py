@@ -5,8 +5,13 @@ from .models import Services, Booking
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     """Class to view the Bookings in the admin panel"""
-    list_display = ('username', 'date_of_booking', 'service_name', 'start_time', 'end_time', 'confirmed')
-    list_filter = ('date_of_booking',)
+    list_display = ('username',
+                    'date_of_booking',
+                    'service_name',
+                    'start_time',
+                    'end_time',
+                    'confirmed')
+    list_filter = ('date_of_booking', 'username')
     search_fields = ['username', 'service_name']
     actions = ['conform_booking']
 
