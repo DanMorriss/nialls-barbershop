@@ -15,7 +15,4 @@ urlpatterns = [
          name='booking-update'),
     path('booking/<int:pk>/delete/', views.BookingDeleteView.as_view(),
          name='booking-delete'),
-    path('booking/booking-wizard/', views.BookingWizardView.as_view(
-        [views.SelectHaircutForm, views.SelectDateForm, views.SelectTimeForm]),
-         name='booking-wizard'),
 ]

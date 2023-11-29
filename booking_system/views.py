@@ -1,7 +1,4 @@
-from typing import Any
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.urls import reverse_lazy, reverse
-from formtools.wizard.views import SessionWizardView
+from django.urls import reverse_lazy
 from django.db.models import Q
 from django.core.mail import send_mail
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -12,11 +9,8 @@ from django.views.generic import (CreateView,
                                   UpdateView,
                                   DeleteView)
 from .models import Booking
-from .forms import (BookingForm,
-                    SelectHaircutForm,
-                    SelectDateForm,
-                    SelectTimeForm)
-from datetime import date, datetime
+from .forms import BookingForm
+from datetime import date
 import time
 
 
@@ -252,39 +246,3 @@ class BookingDeleteView(DeleteView):
         booking = self.get_object()
         return (self.request.user == booking.username or
                 self.request.user.is_superuser)
-
-
-class BookingWizardView(LoginRequiredMixin, SessionWizardView):
-    form_list = [SelectHaircutForm, SelectDateForm, SelectTimeForm]
-    template_name = 'booking_system/booking_wizard.html'
-
-    def form_valid(self, form):
-        form.instance.username = self.request.user
-        form.instance.date_of_booking = form.cleaned_data.get('date_of_booking')
-        form.instance.calculateEndTime()
-        return super().form_valid(form)
-
-    def done(self, form_list, **kwargs):
-        # Extract data from the forms
-        service_name = form_list[0].cleaned_data.get('service_name')
-        date_of_booking = form_list[1].cleaned_data.get('date_of_booking')
-        start_time = form_list[2].cleaned_data.get('start_time')
-
-        # Create a new Booking instance
-        booking = Booking(
-            username=self.request.user,
-            date_of_booking=date_of_booking,
-            service_name=service_name,
-            start_time=start_time,
-            confirmed=False
-        )
-
-        # Calculate and set the end time
-        start_datetime = datetime.combine(date_of_booking, start_time)
-        session_length = service_name.session_length
-        end_datetime = start_datetime + session_length
-        booking.end_time = end_datetime.time()
-
-        booking.save()
-
-        return HttpResponseRedirect(reverse('booking-home'))
