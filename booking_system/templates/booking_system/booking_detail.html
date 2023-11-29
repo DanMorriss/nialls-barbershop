@@ -30,10 +30,15 @@
         {% endif %}
       
       {% if booking.confirmed %}
-        <p>Booking Confirmed</p>
+        <p><i class="fa-regular fa-circle-check"></i> Booking Confirmed</p>
         {% else %}
-        <p>Not Yet Confirmed</p>
-        {% endif %}
+        <p><i class="fa-regular fa-circle-xmark"></i> Not Yet Confirmed</p>
+        {% if user.is_superuser %}
+        <form method="post" action="{% url 'confirm-booking' pk=object.pk %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success mb-3 gold-shadow">Confirm Booking</button>
+      </form>        {% endif %}
+          {% endif %}
       <div class="d-grid gap-2 col-6 mx-auto">
          <a
           href="{% url 'booking-update' booking.id %}"

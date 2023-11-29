@@ -274,3 +274,23 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         booking = self.get_object()
         return (self.request.user == booking.username or
                 self.request.user.is_superuser)
+
+
+class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Booking
+    template_name = 'booking_system/booking_confirm.html'
+    fields = ['confirmed']
+    success_url = reverse_lazy('booking-home')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def form_valid(self, form):
+        form.instance.confirmed = True
+        form.save()
+
+        messages.success(self.request,
+                         "The booking has been confirmed!",
+                         extra_tags="alert alert-success alert-dismissible",
+                         )
+        return super().form_valid(form)
