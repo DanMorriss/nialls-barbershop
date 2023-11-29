@@ -97,12 +97,19 @@ h1, h2, h3, h4, h5 {
 
 .custom-close-btn {
     transition: .5s ease-in-out;
+    
 }
 
 .custom-close-btn:hover {
     transition: .5s ease-in-out;
     transform: scale(1.15) rotateZ(-20deg);
 }
+
+/* #close-button {
+    position: relative;
+    left: 47%;
+    top: -55%
+} */
 
 .gold-shadow {
     box-shadow: 0 0.2rem 1rem var(--clr-gold);

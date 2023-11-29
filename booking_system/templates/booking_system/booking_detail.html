@@ -8,8 +8,15 @@
   {% endcomment %}
 
   <div class="d-flex justify-content-center push-down">
-    <div class="card gold-shadow p-3 m-3 text-center w-75">
-      <h2>{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
+    <div class="card gold-shadow p-3 m-3 text-center w-75 pb-5">
+      
+      <div class="d-flex justify-content-end ">
+        <a href="{% url 'booking-home' %}" class="btn btn-outline-dark gold-shadow custom-close-btn"><i class="fa-solid fa-scissors"></i></a>
+      </div>
+      <div>
+        <h2 class="text-center">{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
+      </div>
+
       {% if user.is_superuser %}
       <h5><i class="fa-regular fa-user"></i> User: {{ booking.username }}</h5>
       {% endif %}
@@ -39,19 +46,6 @@
     </div>
   </div>
 
-  <a
-    href="{% url 'booking-home' %}"
-    class="link-underline link-underline-opacity-0 push-down"
-  >
-    <div class="d-flex justify-content-center p-3">
-      <button
-        class="btn custom-button-light-gold pt-3 haircut-hover"
-        type="button"
-      >
-        <h5><i class="fa-solid fa-left-long"></i></h5>
-      </button>
-    </div>
-  </a>
 </div>
 
 {% endblock %}
