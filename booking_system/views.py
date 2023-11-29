@@ -49,12 +49,17 @@ class BookingsListView(LoginRequiredMixin, ListView):
 
         if form.is_valid():
             search_query = form.cleaned_data['search_query']
+            selected_date = form.cleaned_data['selected_date']
 
             # Allow admin to search bookings
             if self.request.user.is_superuser:
                 queryset = Booking.objects.filter(
+                    Q(date_of_booking__gt=current_date) |
+                    Q(date_of_booking=current_date,
+                      start_time__gte=current_time),
                     Q(username__username__icontains=search_query) |
-                    Q(service_name__service_name__icontains=search_query)
+                    Q(service_name__service_name__icontains=search_query),
+                    Q(date_of_booking=selected_date) if selected_date else Q()
                 ).order_by('date_of_booking', 'start_time')
         else:
             # Show Admin all future bookings

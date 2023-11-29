@@ -98,11 +98,14 @@
             </div>
             
             {% if user.is_superuser %}
-            <div class="container mt-1 text-center font-sancreek card gold-shadow p-3">
+            <div class="container mt-1 text-center card gold-shadow p-3">
+                <h3 class="font-sancreek">Search Bookings</h3>
                 <form method="get" action="{% url 'booking-home' %}">
                     {{ form | crispy }}
-                    <button type="submit" class="btn btn-primary mt-2">Search</button>
+                    <button type="submit" class="btn btn-primary font-sancreek mt-2">Search</button>
+                    <a href="{% url "booking-home" %}" class="btn btn-outline-secondary font-sancreek mt-2">Reset</a>
                 </form>
+                
             </div>
             {% endif %}
 
