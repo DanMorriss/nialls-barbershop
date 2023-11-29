@@ -105,7 +105,8 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
 
     Methods:
         - form_valid(form): Overrides the form_valid method.
-        Sets the username and calculates the end time.
+        Sets the username and calculates the end time
+        and sends a confirmation email.
     """
     model = Booking
     template_name = 'booking_system/booking_form.html'
@@ -115,19 +116,21 @@ class CreateBookingView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.username = self.request.user
         form.instance.calculateEndTime()
-        service = form.instance.service_name
-        date = form.instance.date_of_booking
-        time = form.instance.start_time
-        email_subject = 'Booking Confirmed'
-        email_message = (f'{form.instance.username},\n'
-                         f'Your {service} on {date} '
-                         f'at {time} has been booked!\n'
-                         f'Looking forward to seeing you then.'
-                         )
 
-        send_email_confirmation(self.request.user,
-                                email_subject,
-                                email_message)
+        if self.request.user.email:
+            service = form.instance.service_name
+            date = form.instance.date_of_booking
+            time = form.instance.start_time
+            email_subject = 'Booking Confirmed'
+            email_message = (f'{form.instance.username},\n\n'
+                             f'Your {service} on {date} '
+                             f'at {time} has been booked!\n\n'
+                             f'Comments: {form.instance.message}\n\n'
+                             f'Looking forward to seeing you then.'
+                             )
+            send_email_confirmation(self.request.user,
+                                    email_subject,
+                                    email_message)
 
         return super().form_valid(form)
 
@@ -144,7 +147,8 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     Methods:
         - form_valid(form): Overrides the form_valid method for customization.
-        Calculates the end time after a successful form submission.
+        Calculates the end time after a successful form submission and sends a 
+        confirmation email to the user.
 
         - test_func(): Checks if the current user is allowed to update the
         booking.
@@ -157,6 +161,22 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.calculateEndTime()
+
+        if self.request.user.email:
+            service = form.instance.service_name
+            date = form.instance.date_of_booking
+            time = form.instance.start_time
+            email_subject = 'Booking Updated'
+            email_message = (f'{form.instance.username},\n\n'
+                             f'Your {service} on {date} '
+                             f'at {time} has been updated!\n\n'
+                             f'Comments: {form.instance.message}\n\n'
+                             f'Looking forward to seeing you then.'
+                             )
+            send_email_confirmation(self.request.user,
+                                    email_subject,
+                                    email_message)
+
         return super().form_valid(form)
 
     def test_func(self):
