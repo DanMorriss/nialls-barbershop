@@ -218,7 +218,7 @@ class BookingDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
                 self.request.user.is_superuser)
 
 
-class BookingDeleteView(DeleteView):
+class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     View for deleting an existing booking.
 
