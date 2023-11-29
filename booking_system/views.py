@@ -289,6 +289,22 @@ class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         form.instance.confirmed = True
         form.save()
 
+        if self.request.user.email:
+            service = form.instance.service_name
+            date = form.instance.date_of_booking
+            time = form.instance.start_time
+            email_subject = 'Booking Confirmed'
+            user_email = form.instance.username.email
+            email_message = (f'{form.instance.username},\n\n'
+                             f'Your {service} on {date} '
+                             f'at {time} has been confirmed!\n\n'
+                             f'Comments: {form.instance.message}\n\n'
+                             f'Looking forward to seeing you then.'
+                             )
+            send_email_confirmation(user_email,
+                                    email_subject,
+                                    email_message)
+
         messages.success(self.request,
                          "The booking has been confirmed!",
                          extra_tags="alert alert-success alert-dismissible",
