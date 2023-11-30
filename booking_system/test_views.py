@@ -93,3 +93,24 @@ class TestBookingsListView(SetupTests):
         yesterday = today - timedelta(days=1)
         for booking in response.context['object_list']:
             self.assertTrue(booking.date_of_booking > yesterday.date())
+
+
+class TestPastBookingsView(SetupTests):
+    def test_redirect_to_login_if_not_logged_in(self):
+        response = self.client.get('/booking/booking-past')
+        self.assertRedirects(response,
+                             '/accounts/login/?next=%2Fbooking%2Fbooking-past')
+
+    def test_only_past_bookings_shown(self):
+        self.client.login(username='test_user1', password='getmein123')
+        response = self.client.get('/booking/booking-past')
+        # Check user can view the page
+        self.assertEqual(response.status_code, 200)
+        # Check only the users bookings are available
+        self.assertEqual(len(response.context['object_list']), 1)
+        self.assertEqual(response.context['object_list'][0].username.username,
+                         'test_user1')
+        # Check bookings are in the past
+        today = datetime.now()
+        for booking in response.context['object_list']:
+            self.assertTrue(booking.date_of_booking < today.date())
