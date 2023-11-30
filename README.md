@@ -286,10 +286,12 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 ### Code
 
 - Help with Bootstrap from their [documentation](https://getbootstrap.com)
-https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#date
-https://docs.python.org/3/library/time.html
-https://www.codesnail.com/django-allauth-email-authentication-tutorial/ 
-https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-queries-with-q-objects
+- https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#date
+- https://docs.python.org/3/library/time.html
+- https://www.codesnail.com/django-allauth-email-authentication-tutorial/ 
+- https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-queries-with-q-objects
+- https://docs.djangoproject.com/en/3.2/topics/email/#email-backends
+- https://stackoverflow.com/questions/3728528/testing-email-sending-in-django
 
 - Automated testing with [CodingEntrepeneurs](https://www.youtube.com/watch?v=5E_xLmQXOZg)
 

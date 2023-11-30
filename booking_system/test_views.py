@@ -2,6 +2,7 @@ from django.test import TestCase
 from .models import Booking, Services
 from django.contrib.auth.models import User
 from datetime import timedelta, datetime
+from django.core import mail
 
 
 class SetupTests(TestCase):
@@ -114,3 +115,24 @@ class TestPastBookingsView(SetupTests):
         today = datetime.now()
         for booking in response.context['object_list']:
             self.assertTrue(booking.date_of_booking < today.date())
+
+
+class EmailTest(TestCase):
+    def test_send_email_confirmation(self):
+        subject = 'Subject'
+        message = 'Message'
+        mail.send_mail(subject, message, 'from@me.com', ['to@you.com'],
+                       fail_silently=False)
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, subject)
+
+
+class TestCreateBookingView(SetupTests):
+    """
+    - Can Create a booking
+    - Get confirmation message
+    - End time is calculated
+    - Uses 'booking_system/booking_form.html'
+    - Send the user to booking-home once completed
+    - Uses the BookingForm
+    """

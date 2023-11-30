@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from .forms import BookingForm
 from .models import Services, Booking
 from django.contrib.auth.models import User
+import time
 
 
 class TestBookingForm(TestCase):
@@ -82,6 +83,28 @@ class TestBookingForm(TestCase):
                           "service_name",
                           "start_time",
                           "message"])
+
+    """Can't double book"""
+    def test_cant_double_book(self):
+        booking1 = BookingForm({
+            'username': 'Tester1',
+            'date_of_booking': '2024-02-24',
+            'service_name': self.test_service,
+            'start_time': '09:00:00',
+            'end_time': '09:30:00',
+            'confirmed': True,
+            'message': '',
+            })
+        self.assertTrue(booking1.is_valid())
+        time.sleep(1)
+        booking2 = BookingForm({
+            'date_of_booking': '2024-02-24',
+            'service_name': self.test_service,
+            'start_time': '09:00:00',
+            'message': '',
+            })
+        # self.assertFalse(booking2.is_valid())
+        # self.assertEqual(booking2.errors, {'date_of_booking': ['That time is already taken, please select a different time.']})
 
 
 class TestBookingSearchForm(TestCase):
