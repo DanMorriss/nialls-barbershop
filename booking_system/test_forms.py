@@ -1,7 +1,8 @@
 from django.test import TestCase
 from datetime import datetime, timedelta
 from .forms import BookingForm
-from .models import Services
+from .models import Services, Booking
+from django.contrib.auth.models import User
 
 
 class TestBookingForm(TestCase):
@@ -81,3 +82,87 @@ class TestBookingForm(TestCase):
                           "service_name",
                           "start_time",
                           "message"])
+
+
+class TestBookingSearchForm(TestCase):
+
+    def setUp(self):
+        # Create a test service entry
+        self.test_service = Services.objects.create(
+            service_name='Test Service',
+            session_length=timedelta(hours=0.5),
+            cost=20.00,
+            description='Test description'
+        )
+
+        # Create an admin user
+        self.admin = User.objects.create_superuser(
+            username='admin',
+            password='Superuser123'
+        )
+
+        # Create test users
+        self.test_user1 = User.objects.create_user(
+            username='Test User 1',
+            password='getmein123'
+        )
+
+        self.test_user2 = User.objects.create_user(
+            username='Test User 2',
+            password='getmein234'
+        )
+
+        # Create bookings
+        Booking.objects.create(
+            username=self.test_user1,
+            date_of_booking='2024-02-24',
+            service_name=self.test_service,
+            start_time='09:00:00',
+            end_time='09:30:00',
+            confirmed=False,
+            message='',
+        )
+
+        Booking.objects.create(
+            username=self.test_user2,
+            date_of_booking='2024-02-26',
+            service_name=self.test_service,
+            start_time='10:00:00',
+            end_time='10:30:00',
+            confirmed=False,
+            message='Test message.',
+        )
+
+    def test_return_all_future_bookings(self):
+        self.client.login(username='admin', password='Superuser123')
+        response = self.client.get('/booking/')
+        # Check admin can view the page
+        self.assertEqual(response.status_code, 200)
+        # Check both bookings are on the page
+        self.assertEqual(len(response.context['object_list']), 2)
+
+    def test_search_by_username(self):
+        self.client.login(username='admin', password='Superuser123')
+        search_data = {'search_query': 'Test User 1'}
+        response = self.client.get('/booking/', data=search_data)
+        # Check the page is displaying
+        self.assertEqual(response.status_code, 200)
+        # Check the list only contains the searched for data
+        self.assertEqual(len(response.context['object_list']), 1)
+        self.assertEqual(
+            response.context['object_list'][0].username.username,
+            'Test User 1'
+        )
+
+    def test_search_by_date(self):
+        self.client.login(username='admin', password='Superuser123')
+        search_data = {'selected_date': '2024-02-26'}
+        response = self.client.get('/booking/', data=search_data)
+        # Check the page is displaying
+        self.assertEqual(response.status_code, 200)
+        # Check the list only contains the searched for data
+        self.assertEqual(len(response.context['object_list']), 1)
+        self.assertEqual(
+            response.context['object_list'][0].username.username,
+            'Test User 2'
+        )

@@ -232,6 +232,7 @@ The testing documentation can be found at [TESTING.md](TESTING.md)
 ## Bugs
 
 - Adding the searchbox to the admin panel was causing a user to not be able to view the account home page. I all code related to the search panel inside an if statement to fix the error.
+- While testing I needed to create a test service as the services list is taken from the database. So, without creating one nothing cloud be valid.
 
 ## Deployment
 
