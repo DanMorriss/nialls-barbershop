@@ -47,36 +47,28 @@ class BookingsListView(LoginRequiredMixin, ListView):
         current_time = time.strftime("%H:%M:%S", time.gmtime())
         form = BookingSearchForm(self.request.GET)
 
-        if form.is_valid():
-            search_query = form.cleaned_data['search_query']
-            selected_date = form.cleaned_data['selected_date']
-
-            # Allow admin to search bookings
-            if self.request.user.is_superuser:
+        # Allow admin to search bookings
+        if self.request.user.is_superuser:
+            if form.is_valid():
+                search_query = form.cleaned_data['search_query']
+                selected_date = form.cleaned_data['selected_date']
                 queryset = Booking.objects.filter(
                     Q(date_of_booking__gt=current_date) |
                     Q(date_of_booking=current_date,
-                      start_time__gte=current_time),
+                    start_time__gte=current_time),
                     Q(username__username__icontains=search_query) |
                     Q(service_name__service_name__icontains=search_query),
                     Q(date_of_booking=selected_date) if selected_date else Q()
                 ).order_by('date_of_booking', 'start_time')
+            # return queryset
         else:
-            # Show Admin all future bookings
-            if self.request.user.is_superuser:
-                queryset = Booking.objects.filter(
+            # Show user their future bookings
+            queryset = Booking.objects.filter(
+                username=self.request.user).filter(
                     Q(date_of_booking__gt=current_date) |
                     Q(date_of_booking=current_date,
-                      start_time__gte=current_time)
-                ).order_by('date_of_booking', 'start_time')
-            else:
-                # Show user their future bookings
-                queryset = Booking.objects.filter(
-                    username=self.request.user).filter(
-                        Q(date_of_booking__gt=current_date) |
-                        Q(date_of_booking=current_date,
-                          start_time__gte=current_time)
-                ).order_by('date_of_booking', 'start_time')
+                        start_time__gte=current_time)
+            ).order_by('date_of_booking', 'start_time')
         return queryset
 
     def get_context_data(self, **kwargs):
