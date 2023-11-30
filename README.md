@@ -229,6 +229,10 @@ Chrome LightHouse extension - for testing performance<br>
 ## Testing
 The testing documentation can be found at [TESTING.md](TESTING.md)
 
+## Bugs
+
+- Adding the searchbox to the admin panel was causing a user to not be able to view the account home page. I all code related to the search panel inside an if statement to fix the error.
+
 ## Deployment
 
 ### Deploy on Heroku
