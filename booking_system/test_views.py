@@ -187,3 +187,15 @@ class TestBookingDeleteView(SetupTests):
         self.client.login(username='admin', password='Superuser123')
         response = self.client.get(reverse('booking-delete', args=[1]))
         self.assertEqual(response.status_code, 200)
+
+
+class TestConfirmBookingView(SetupTests):
+    def test_admin_can_confirm_booking(self):
+        self.client.login(username='admin', password='Superuser123')
+        response = self.client.get(reverse('confirm-booking', args=[1]))
+        self.assertEqual(response.status_code, 200)
+
+    def test_users_cant_confirm_bookings(self):
+        self.client.login(username='test_user2', password='getmein123')
+        response = self.client.get(reverse('confirm-booking', args=[1]))
+        self.assertEqual(response.status_code, 302)
