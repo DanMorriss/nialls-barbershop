@@ -1,66 +1,95 @@
 from django.test import TestCase
-from .models import User, Booking
+from .models import Booking, Services
+from django.contrib.auth.models import User
+from datetime import timedelta, datetime
 
 
 class SetupTests(TestCase):
 
     def setUp(self):
-
-        self.customer1 = User.objects.create_user(
-            username='TestCustomer',
-            password='YoullNeverGuessThis')
-
-        self.customer2 = User.objects.create_user(
-            username='Testy McTester',
-            password='WordyPass1')
-
-        self.admin = User.objects.create_user(
-            username='admin',
-            password='TheSafestPasswordEver',
-            is_superuser=True
+        # Create a test service entry
+        self.test_service = Services.objects.create(
+            service_name='Test Service',
+            session_length=timedelta(hours=0.5),
+            cost=20.00,
+            description='Test description'
         )
 
-        self.booking1 = Booking.objects.create({
-            'date_of_booking': '2040-24-02',
-            'service_name': 'Haircut',
-            'start_time': '09:00:00',
-            'username': 'Testy McTester'})
+        # Create an admin user
+        self.admin = User.objects.create_superuser(
+            username='admin',
+            password='Superuser123'
+        )
 
-        self.booking2 = Booking.objects.create({
-            'date_of_booking': '2040-12-08',
-            'service_name': 'Haircut',
-            'start_time': '12:30:00',
-            'username': 'TestCustomer'})
+        # Create test users
+        self.test_user1 = User.objects.create_user(
+            username='test_user1',
+            password='getmein123'
+        )
+
+        self.test_user2 = User.objects.create_user(
+            username='test_user2',
+            password='getmein234'
+        )
+
+        # Create bookings
+        Booking.objects.create(
+            username=self.test_user1,
+            date_of_booking='2023-08-24',
+            service_name=self.test_service,
+            start_time='09:00:00',
+            end_time='09:30:00',
+            confirmed=False,
+            message='',
+        )
+
+        Booking.objects.create(
+            username=self.test_user1,
+            date_of_booking='2025-08-24',
+            service_name=self.test_service,
+            start_time='09:00:00',
+            end_time='09:30:00',
+            confirmed=False,
+            message='',
+        )
+
+        Booking.objects.create(
+            username=self.test_user2,
+            date_of_booking='2024-08-24',
+            service_name=self.test_service,
+            start_time='10:00:00',
+            end_time='10:30:00',
+            confirmed=False,
+            message='Test message.',
+        )
 
 
-class TestBookingsListView(TestCase):
+class TestBookingsListView(SetupTests):
 
     def test_redirect_to_login_if_not_logged_in(self):
         response = self.client.get('/booking/')
         self.assertRedirects(response, '/accounts/login/?next=%2Fbooking%2F')
 
-    # def test_if_admin_get_all_bookings(self):
-    #     self.client.login(username='admin', password='TheSafestPasswordEver')
-    #     response = self.client.get('/booking/')
-    #     self.assertEqual(response.status_code, 200)
-    #     bookings = response.context.get('object_list', [])
+    def test_if_admin_gets_all__future_bookings(self):
+        self.client.login(username='admin', password='Superuser123')
+        response = self.client.get('/booking/')
+        # Check admin can view the page
+        self.assertEqual(response.status_code, 200)
+        # Check only the future booking is on the page
+        self.assertEqual(len(response.context['object_list']), 2)
+        self.assertEqual(response.context['object_list'][0].username.username,
+                         'test_user2')
 
-    #     for booking in bookings:
-    #         self.assertContains(response, booking.service_name)
-    #         self.assertContains(response, booking.username)
-
-    def test_if_admin_get_all_bookings(self):
-
-        login_successful = self.client.login(username='admin', password='TheSafestPasswordEver')
-
-        if login_successful:
-            response = self.client.get('/booking/')
-            print(response.content.decode('utf-8'))  # Print the response content
-            self.assertEqual(response.status_code, 200)
-
-            bookings = response.context.get('object_list', [])
-            for booking in bookings:
-                self.assertContains(response, booking.service_name)
-                self.assertContains(response, booking.username.username)
-        else:
-            print("Login failed for the admin user.")
+    def test_user_is_shown_their_future_bookings(self):
+        self.client.login(username='test_user1', password='getmein123')
+        response = self.client.get('/booking/')
+        # Check user can view the page
+        self.assertEqual(response.status_code, 200)
+        # Check only their bookings are on the page
+        for booking in response.context['object_list']:
+            self.assertEqual(booking.username.username, 'test_user1')
+        # Check bookings are in the future
+        today = datetime.now()
+        yesterday = today - timedelta(days=1)
+        for booking in response.context['object_list']:
+            self.assertTrue(booking.date_of_booking > yesterday.date())
