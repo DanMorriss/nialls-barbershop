@@ -3,6 +3,7 @@ from .models import Booking, Services
 from django.contrib.auth.models import User
 from datetime import timedelta, datetime
 from django.core import mail
+from django.urls import reverse
 
 
 class SetupTests(TestCase):
@@ -128,12 +129,6 @@ class EmailTest(TestCase):
 
 
 class TestCreateBookingView(SetupTests):
-    """
-    - Uses 'booking_system/booking_form.html'
-    - Must be logged in to see form
-    - End time is calculated
-    - Send the user to booking-home once completed
-    """
     def test_load_booking_form(self):
         self.client.login(username='test_user1', password='getmein123')
         response = self.client.get('/booking/create')
@@ -143,3 +138,35 @@ class TestCreateBookingView(SetupTests):
         response = self.client.get('/booking/create')
         self.assertRedirects(response,
                              '/accounts/login/?next=%2Fbooking%2Fcreate')
+
+
+class TestUpdateBookingView(SetupTests):
+    def test_load_booking_form(self):
+        self.client.login(username='test_user1', password='getmein123')
+        response = self.client.get(reverse('booking-update', args=[1]))
+        self.assertEqual(response.status_code, 200)
+
+    def test_user_must_be_booking_owner(self):
+        self.client.login(username='test_user2', password='getmein123')
+        response = self.client.get(reverse('booking-update', args=[1]))
+        self.assertEqual(response.status_code, 302)
+
+    def test_user_must_be_logged_in(self):
+        response = self.client.get(reverse('booking-update', args=[1]))
+        self.assertEqual(response.status_code, 302)
+
+
+class TestBookingDetailView(SetupTests):
+    def test_load_booking_detail(self):
+        self.client.login(username='test_user1', password='getmein123')
+        response = self.client.get(reverse('booking-detail', args=[1]))
+        self.assertEqual(response.status_code, 200)
+
+    def test_user_must_be_booking_owner(self):
+        self.client.login(username='test_user2', password='getmein123')
+        response = self.client.get(reverse('booking-detail', args=[1]))
+        self.assertEqual(response.status_code, 302)
+
+    def test_user_must_be_logged_in(self):
+        response = self.client.get(reverse('booking-detail', args=[1]))
+        self.assertEqual(response.status_code, 302)
