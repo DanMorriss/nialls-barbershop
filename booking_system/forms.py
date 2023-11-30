@@ -68,7 +68,8 @@ class BookingForm(forms.ModelForm):
 
 
 class BookingSearchForm(forms.Form):
-    search_query = forms.CharField(required=False, label='Search Username/Service')
+    search_query = forms.CharField(required=False,
+                                   label='Search Username/Service')
     selected_date = forms.DateField(
         required=False,
         label='Select Date',

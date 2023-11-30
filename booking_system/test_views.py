@@ -129,10 +129,17 @@ class EmailTest(TestCase):
 
 class TestCreateBookingView(SetupTests):
     """
-    - Can Create a booking
-    - Get confirmation message
-    - End time is calculated
     - Uses 'booking_system/booking_form.html'
+    - Must be logged in to see form
+    - End time is calculated
     - Send the user to booking-home once completed
-    - Uses the BookingForm
     """
+    def test_load_booking_form(self):
+        self.client.login(username='test_user1', password='getmein123')
+        response = self.client.get('/booking/create')
+        self.assertEqual(response.status_code, 200)
+
+    def test_user_must_be_logged_in(self):
+        response = self.client.get('/booking/create')
+        self.assertRedirects(response,
+                             '/accounts/login/?next=%2Fbooking%2Fcreate')
