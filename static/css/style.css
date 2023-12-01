@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .logo-div:hover {
-    transition: 1.5s ease-in-out;
+    transition: 3s ease-in-out;
     transform: rotateY(360deg);
 }
 
