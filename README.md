@@ -292,7 +292,7 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 - https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-queries-with-q-objects
 - https://docs.djangoproject.com/en/3.2/topics/email/#email-backends
 - https://stackoverflow.com/questions/3728528/testing-email-sending-in-django
-
+- https://whitenoise.readthedocs.io/en/stable/django.html 
 - Automated testing with [CodingEntrepeneurs](https://www.youtube.com/watch?v=5E_xLmQXOZg)
 
 https://stackoverflow.com/questions/30244042/django-updateview-creates-a-new-object-instead-of-updating-the-current-object
