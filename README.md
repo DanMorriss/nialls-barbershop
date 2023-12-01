@@ -235,6 +235,7 @@ The testing documentation can be found at [TESTING.md](TESTING.md)
 - While testing I needed to create a test service as the services list is taken from the database. So, without creating one nothing cloud be valid.
 - Static files were not being issued on Heroku, I needed to install and setup whitenoise.
 - On deployment, the email confirmations were causing an internal server error the user. I needed to give Heroku assess to the email password.
+- collectstatic needs to be run on any static changes.
 
 ## Deployment
 
