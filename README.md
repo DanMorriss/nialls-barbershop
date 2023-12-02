@@ -177,7 +177,7 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 
 ## Features
 
-### Existing Features and sub-pages<hr>
+### Existing Features and sub-pages
 
 #### Feature 1
 
@@ -188,46 +188,52 @@ How the breakpoints are set.
 
 **Tested devices:**
 
-    - iPhone 13
-    - MacBook Pro 
+- iPhone 13
+- MacBook Pro
+- Samsung Galaxy Z flip 5
 
 
 ## Tools Used
 
-- [GitHub](https://github.com/) - used for hosting the source code of the program<br>
-- [VS Code](https://code.visualstudio.com/) - for writing and testing the code<br>
-- [Heroku](https://dashboard.heroku.com/) - used for deploying the project<br>
-- [ElephantSQL](https://www.elephantsql.com/) - For PostgreSQL database<br>
-- [Balsamiq](https://balsamiq.com/wireframes/) - for creating the wireframes<br>
-- [Canva](https://www.canva.com/) - for images logo creation<br>
-- [LucidChart](https://www.lucidchart.com/) - used for creating the Flowchart and Database relational schema<br>
-- [Favicon.io](https://favicon.io/) - used for generating the website favicon<br>
-- [TinyPNG](https://tinypng.com/) - for compressing the images<br>
-- [Font Awesome](https://fontawesome.com/) - for the site's icons<br>
-- [Bootstrap5](https://getbootstrap.com/) - for out of the box initial CSS styling<br>
-- [Google Fonts](https://fonts.google.com/) - for typography<br>
-- [Code Institute Pylint](https://pep8ci.herokuapp.com/) - used for validating the python code<br>
-- [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br>
-- [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
-- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - for debugging the project<br>
-- [W.A.V.E.](https://wave.webaim.org/) - for testing accessibility<br>
-- [Cloudinary](https://cloudinary.com/) - for storing static data<br>
-Chrome LightHouse extension - for testing performance<br>
+- [GitHub](https://github.com/) for hosting the source code of the program and version control
+- [VS Code](https://code.visualstudio.com/) for writing and testing the code
+- [Heroku](https://dashboard.heroku.com/) used for deploying the project
+- [ElephantSQL](https://www.elephantsql.com/) for the PostgreSQL database
+- [Balsamiq](https://balsamiq.com/wireframes/) for creating the wireframes
+- [Canva](https://www.canva.com/) for creating the logo
+- [LucidChart](https://www.lucidchart.com/) for creating the Flowchart and Database schema
+- [Favicon.io](https://favicon.io/) for converting the sites favicon
+- [Font Awesome](https://fontawesome.com/) for the site's icons
+- [Bootstrap4](https://getbootstrap.com/) for the initial styling of of the site
+- [Google Fonts](https://fonts.google.com/) for the typography
+- [Code Institute Pylint](https://pep8ci.herokuapp.com/) for validating the python code
+- [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) for validating the HTML
+- [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) for validating the CSS
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) for debugging the project
+- [W.A.V.E.](https://wave.webaim.org/) for testing accessibility
+- [Cloudinary](https://cloudinary.com/) for storing static data
+- [Chrome LightHouse extension](https://developer.chrome.com/docs/lighthouse/overview/) for testing performance
 
 ### Python packages
 
-- Django (Framework)
-- django-allauth (Library)
-- django-bootstrap-datepicker-plus (Library)
-- django-crispy-forms (Library)
-- cloudinary (Library)
-- gunicorn (Web Server)
-- psycopg2 (Library)
-- django-formtools==2.3 
+- [Django](https://www.djangoproject.com/) was used as the framework for the site.
+- [Allauth](https://django-allauth.readthedocs.io/) for the login authentication.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/) for help styling the forms.
+- [Cloudinary](https://cloudinary.com/) for hosting the images.
+- [Gunicorn](https://gunicorn.org/) for handling the HTTP requests in production.
+- [Psycopg2](https://www.psycopg.org/) for aiding communication between Django and PostgresSQL
+- [Formtools](https://django-formtools.readthedocs.io/) for additional form utilities.
+- [Whitenoise](http://whitenoise.evans.io/en/stable/) for deploying the static files to Heroku.
 
+A full list of the requirements and the versions used can be found in the reqquirements.txt file. To install them and run them on your own machine first setup a virtual environment with the command to create a venv... <br>
+`python3 -m venv venv` <br>
+Then this command to run it... <br>
+`source venv/bin/activate` <br>
+To stop running the environment simply type the command... <br>
+`deactivate`
 
 ## Testing
-The testing documentation can be found at [TESTING.md](TESTING.md)
+Testing
 
 ## Bugs
 
@@ -279,52 +285,33 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 
 ## Credits
 
-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date 
-
-
 ### Content
+All the content was created for the site by myself.
 
 ### Media
+The logo was designed and created using [Canva](https://www.canva.com/en_gb/) by myself.
 
 ### Code
 
 - Help with Bootstrap from their [documentation](https://getbootstrap.com)
-- https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#date
-- https://docs.python.org/3/library/time.html
-- https://www.codesnail.com/django-allauth-email-authentication-tutorial/ 
-- https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-queries-with-q-objects
-- https://docs.djangoproject.com/en/3.2/topics/email/#email-backends
-- https://stackoverflow.com/questions/3728528/testing-email-sending-in-django
-- https://whitenoise.readthedocs.io/en/stable/django.html 
-- Automated testing with [CodingEntrepeneurs](https://www.youtube.com/watch?v=5E_xLmQXOZg)
-
-https://stackoverflow.com/questions/30244042/django-updateview-creates-a-new-object-instead-of-updating-the-current-object
-
-- Form Wizard https://www.youtube.com/watch?v=8xb9s3jnRF8
+- Django's docs have been invaluable:
+  - [Date](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date)
+  - [Time](https://docs.python.org/3/library/time.html)
+  - [Email](https://docs.djangoproject.com/en/3.2/topics/email/#email-backends)
+  - [Q Objects and advanced queries](https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-queries-with-q-objects)
+- Additional help with email authentication from this article on [Code Snail](https://www.codesnail.com/django-allauth-email-authentication-tutorial/)
+- This article from [Stack Overflow](https://stackoverflow.com/questions/3728528/testing-email-sending-in-django) also helped with setting up email.
+- The [Whitenoise Docs](https://whitenoise.readthedocs.io/en/stable/django.html)
+- This link from [Stack Overflow](https://stackoverflow.com/questions/30244042/django-updateview-creates-a-new-object-instead-of-updating-the-current-object) helped when I was having issues updating a booking.
+- This video by [BuyBytes](https://www.youtube.com/watch?v=8xb9s3jnRF8) of using a Form Wizard was useful, even though I didn't end up using it in the final deployment.
+- This video from [Corey Schafer](https://www.youtube.com/watch?v=Kg1Yvry_Ydk) on using venv was great for understanding virtual environments.
 
 ## Acknowledgements
 
-- Roman Rakic
+- Roman Rakic for his help on Slack with linking up my urls.
+- Tomislav for his help understanding venv, cloudinary & how django works with static. His patience helping me understand the settings in a full stack application has been amazing.
+- Precious Ijege my Code Institute mentor.
+- Kent Yates for testing my application and supplying moral support.
+- Selina Sheerin for her continued encouregment and keen eye for spelling and grammar mistakes. 
 
-
-
-
-
-
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-
-
-
-Make sure to remove the DISABLE_COLLECTSTATIC config var from heroku before final deployment.
+Make sure to remove the DISABLE_COLLECTSTATIC = 1 config var from heroku before final deployment.
