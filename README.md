@@ -99,18 +99,47 @@ To create a website with good UI and UX to promote Niall's Barbershop where pote
 ### Structure<hr>
 Introduction:
 
-The main landing page...
+#### Navigation
+
+#### Footer
+
+#### Pages
+
+##### Landing Page
+
+The main landing page has hero image with moving, interactive logo to spark the users interest right away. 
+
+Below the hero image is an about section giving the user some information about the barbershop.
+
+Below the about section is some information on the different services available. Each one can be clicked on and a modal appears with more information about that service including a 'Book a Haircut' button. 
+
+The information on the different services is taken from the database, so an admin user can update it from the django admin panel.
+
+At the bottom of the landing page is a contact section with address, opening times and a 'Book a Haircut' button.
+
+If the user is logged in, the 'Book a Haircut' buttons will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
+
+##### Sign Up Page
+##### Sign In Page
+##### Account Home Page
+##### Admin Account Home Page
+##### Booking Form
+##### Update Booking Page
+##### Booking Detail Page
+##### Admin Booking Detail Page
+
+
 
 #### Sitemap
-The project flowcharts for the site structure was created using <b>LucidChart</b>.
-https://lucid.app/lucidspark/555215a4-f33d-4e81-9a84-f9966d26e96c/edit?beaconFlowId=5B1214176B988F10&invitationId=inv_308a82e1-de92-41cb-8dec-6d03f4e7d8c1&page=0_0#
+The project flowcharts for the site structure was created using [LucidChart](https://www.lucidchart.com/).
 <details>
 <summary>Sitemap:</summary>
-<img src="media/sitemap.png"><br>
+<img src="media/sitemap2.png"><br>
 </details>
 
 ### Skeleton<hr>
-**Wireframes**<br>
+**Wireframes**
+
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
 <summary>Here:</summary>
 Homepage<br>
@@ -123,10 +152,9 @@ Book a haircut<br>
 
 **Database**
 The project uses ElephantSQL as PostgreSQL relational database for storing the data.
-https://lucid.app/lucidchart/2e594f61-9a74-4848-9fe6-caf7fd3e236d/edit?beaconFlowId=57CA775DFDACD84D&invitationId=inv_4abd5981-3808-4cba-9b7c-974200dde00d&page=0_0# 
 <details>
   <summary>Model</summary>
-<img src="media/database-schema.png"><br>
+  <img src="media/database-schema2.png"><br>
 </details><br>
 
 ### Surface
@@ -139,11 +167,11 @@ https://lucid.app/lucidchart/2e594f61-9a74-4848-9fe6-caf7fd3e236d/edit?beaconFlo
 <img src="media/fonts.png" width="60%">
 
 - The colors used were based on the the colors in the logo.
-  - #000000
-  - #af7f1f
-  - #ffffff
+  - #212529 --clr-gold
+  - #af7f1f --clr-light
+  - #faf8f2 --clr-dark
 
-<img src="media/color-palette.png" width="60%">
+<img src="media/color-palette2.png" width="60%">
 
 
 
