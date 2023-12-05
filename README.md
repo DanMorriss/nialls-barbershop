@@ -205,6 +205,7 @@ There are also 2 pages available to users who aren't singed in:
 
 
 #### Navigation
+
 The navbar along the top of the page is always displayed, allowing the user to easily navigate around the site. The styling is consistent across the site but has different links on display for users that are signed in.
 All users will see:
 - Niall's Barbershop logo taking them to the landing page
@@ -221,11 +222,27 @@ A user who is signed in will see:
 - My Account
 - Logout
 
+On smaller screen sizes a hamburger menu is displayed with a smooth dropdown effect.
+
+Each of the links had a hover effect where the color smoothly changes to indicate to the user it is an active link.
+
 #### Footer
+
+The footer is the same across all the pages and includes:
+- Social Media Icons (Facebook, Instagram, Github)
+- A copyright statement
+
+The active links have a hover effect where the color slowly changes from gold to white indicating to the user that the link is active.
 
 #### Pages
 
 ##### Landing Page
+
+The landing page is divided into 4 sections:
+- Hero Image  Logo
+- About section
+- Services section
+- Contact Section
 
 The main landing page has hero image with moving, interactive logo to spark the users interest right away. 
 
@@ -241,6 +258,8 @@ If the user is logged in, the 'Book a Haircut' buttons will take them to the boo
 
 ##### Sign Up Page
 
+<img src="media/signup.png" alt="Display of the signup page">
+
 This page uses the allauth page as a base with custom design added.
 The upername and pssword fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
 - Creating a booking
@@ -250,10 +269,29 @@ The upername and pssword fields are mandatory but the email is optional. If the 
 
 ##### Sign In Page
 
+<img src="media/login.png" alt="Display of the login page">
+
 This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
 It also includes a remember me button to make using the site in future easer, and a reset password link that will send the user a password reset email if they included an email when signing up.
 
 ##### Account Home Page
+
+<img src="media/account-home.gif" alt="Display of the account home page">
+
+This page is displayed when the user first logs in, unless they clicked a "Book a Haircut" button before logging in.
+On a large screen it is divided into 2 sections:
+- Upcoming bookings
+- Your Account
+
+On a mobile device the two sections are stacked with the upcoming bookings at the top of the page.
+
+Each booking is displayed on a card and contains:
+- The date
+- The service
+- The time of the booking
+- If the user added a message, a message icon
+- The confirmation status of the booking
+
 ##### Admin Account Home Page
 ##### Booking Form
 ##### Update Booking Page
