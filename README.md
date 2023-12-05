@@ -1,15 +1,14 @@
-
-[GitHub Repo](https://github.com/DanMorriss/nialls-barbershop)
-
-
-
-
 # Niall's Barbershop 
-[Live Site](https://niallsbarbershop-e4e7dc2878db.herokuapp.com/)
 <img src="" ><br>
+- [Live Site](https://niallsbarbershop-e4e7dc2878db.herokuapp.com/)
+- [GitHub Repo](https://github.com/DanMorriss/nialls-barbershop)
 <hr>
 Introduction.
 <hr>
+Niall's Barbershop is a website with a booking system for a Barber Shop in Swindon, Wiltshire. 
+The web application allows users to create an account, login and logout of the site.
+The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a haircut both easy and enjoyable. 
+<br><br>
 
 ## Table of contents
   * [Overview](#overview)
@@ -53,38 +52,41 @@ This site was created according to the Five Planes Of Website Design:<br>
 
 **User Stories:** <br>
 
-|   EPIC                                |ID|                                User Story                                                   |
-| :-------------------------------------|--|:------------------------------------------------------------------------------------------- |
-|**Authentication**                     |  ||
-|                                       |1A| As a site user I can|
-|                                       |1B| As a site user I can|
-|                                       |1C| As a site user I can|
-|                                       |1D| As a site user I can|
+|EPIC|ID|User Story|
+| :--|--|:--|
+|**Authentication**| | |
+| |1A| As a site user I can|
+| |1B| As a site user I can|
+| |1C| As a site user I can|
+| |1D| As a site user I can|
 
 **Project Goal:**<br>
-To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login and book an appointment. 
+To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login, book and update an appointment. 
 
 **Project Objectives:**<br>
-- Create a sleek, modern website to promote Niall's Barbershop, containt all the information customers might want.
+- Create a sleek, modern website to promote Niall's Barbershop, containing all the information customers might want.
 - Allow users to create an account.
-- Allow users to see any available appointments and make a booking.
+- Allow users to create an appointment at a time when here are no other bookings to avoid double bookings.
 - Allow users to see their upcoming and past appointments.
 - Allow users to cancel or modify an existing appointment.
 - Allow staff to login to an admin area.
 - Allow staff to view all upcoming booked appointments.
-- Allow staff to view all site members.
-- Allow staff to add new site member.
+- Allow staff to search bookings by date and username.
 - Allow staff to create a booking for a customer.
 - Allow staff to modify an existing booking.
 - Allow staff to remove/cancel an existing appointment.
 - Provide feedback to users when they have made changes.
+- Send email updates to customers when a booking has been made of modified.
+- Allow staff to confirm appointments from the admin panel.
+- Allow users to update their password, username and email address.
 - Show different site functionality to logged in members than to non logged in users.
 
 ### Scope<hr>
 **Simple and Intuitive UX**<br>
 - Create a website that portrays the mood and feel of the barbershop.
 - Create a responsive navigation menu.
-- Create a footer with social links and store location.
+- Create a footer with social links.
+- Include store location and opening times.
 - Ensure that the user is visually notified of all changed to their account, eg booking conformation.
 - Ensure that the user keeps their orientation throughout their website experience. 
 
