@@ -11,59 +11,157 @@ The site was created using Django and has full CRUD functionality and an intuiti
 <br><br>
 
 ## Table of contents
-  * [Overview](#overview)
-  * [UX](#ux)
-    + [Strategy](#strategy)
-    + [Scope](#scope-hr-)
-    + [Structure](#structure-hr-)
-    + [Skeleton](#skeleton-hr-)
-    + [Surface](#surface-hr-)
-      - [Color Scheme & Fonts](#color-scheme-and-fonts)
-      - [Visual Effects](#visual-effects)
-  * [Agile Methodology](#agile-methodology)
-  * [Features](#features)
-    + [Existing Features](#existing-features)
-      - [Client bookints management](#client-bookings-management)
-      - [Staff bookings management](#staff-bookings-management)
-      - [Create bookings](#create-bookings)
-      - [Menu](#menu)
-      - [Information](#information)
-    + [Potential Future Features](#pontential-future-features)
-  * [Responsive Layout and Design](#responsive-layout-and-design)
-  * [Tools Used](#tools-used)
-    + [Python packages](#python-packages)
-  * [Testing](#testing)
-  * [Deployment](#deployment)
-    + [Deploy on heroku](#deploy-on-heroku)
-    + [FORK THE REPOSITORY](#fork-the-repository)
-    + [CLONE THE REPOSITORY](#clone-the-repository)
-  * [Credits](#credits)
-    + [Content](#content)
-    + [Media](#media)
-    + [Code](#code)
-  * [Acknowledgements](#acknowledgements)
+
 
 ## Overview
 Overview.
 
 ## UX
 This site was created according to the Five Planes Of Website Design:<br>
-### Strategy<hr>
-
-**User Stories:** <br>
-
-|EPIC|ID|User Story|
-| :--|--|:--|
-|**Authentication**| | |
-| |1A| As a site user I can|
-| |1B| As a site user I can|
-| |1C| As a site user I can|
-| |1D| As a site user I can|
+### 1. Strategy<hr>
 
 **Project Goal:**<br>
 To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login, book and update an appointment. 
 
-**Project Objectives:**<br>
+The project objectives can be broken into Epics and then further into User Stories. The user stories were allocated into sprints.
+
+- Project Setup
+  - Create Django application
+  - Set file structure
+  - Database Models
+  - Link CSS, JavaScript & Bootstrap
+  - Create base.html
+  - Link Google Fonts
+- UX
+  - Favicon
+  - View Services
+  - Style allauth pages
+  - Homepage
+  - Contact Section
+  - 403, 500 & 404 pages
+
+- Navigation
+  - Navbar
+  - Footer
+- CRUD
+  - View upcoming bookings
+  - Book a haircut
+  - Delete a booking
+  - Admin CRUD capabilities
+  - Update booking
+- Authentication
+  - Add user emails
+  - Create User Account
+  - Setup allauth
+  - Login
+- Validation
+  - Booking validation
+- Administration
+  - 1
+- Deployment
+  - Cloudinary
+  - ElephantSQL
+  - Heroku
+  - Whitenoise
+- Testing
+  - 1
+- Documentation
+  - 1
+
+#### Agile Methodology
+This project was developed using the Agile methodology.<br>
+All epics and user stories implementation progress was registered using [GitHub](https://github.com/). As the user stories were accomplished, they were moved in the GitHub Kanban board from **ToDo**, to **In Progress**, **Done** and **Not Implemented** lists.
+The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
+
+- **KANBAN BOARD**<br><br>
+    <img src="static/images/kanban.png" width="60%"><br><br>
+
+<details>
+<summary>Sprint 1: Base Setup</summary>
+
+|EPIC|User Story|Description|
+|:--|:--|:--|
+|Project Setup|Project setup|As a developer, I need to set up the project so that it is ready for implementing the core features.|
+|Deployment|Cloiudinary|As a developer I need to setup a cloudinary account so that the image I need for the site can be hosted on an external database.|
+|Deployment|ElephantSQL|As a developer I need to setup an ElephantSQL account so that my SQL database can be linked to the project.|
+|Deployment|Heroku|As a developer I need to deploy the finished project to Heroku so that it can be accessed by everyone.|
+|Project Setup|File structure|As a developer I need to set up the file structure in the project so that all the files can be accessed and created in the correct place.|
+|Project Setup|Database models|As a developer I need to create the database models so that the can be used by the app.|
+|Project Setup|Link CSS, JS & Bootstrap|As a developer I can link up boostrap and custom CSS & JavaScript into base.html so that the site can be styled.|
+|Project Setup|base.html|As a developer I need to create the base.html page and structure so that other pages can use the layout.|
+|Project Setup|Google Fonts|As a developer I can link in google fonts so that the site can have custom fonts.|
+|UX|Favicon|As a developer I can add a favicon so the user can see the site logo easily in the web browser.|
+</details><br>
+
+<details>
+<summary>Sprint 2: Navigation & Account Creation</summary>
+
+|EPIC|User Story|Description|
+|:--|:--|:--|
+|**Project Setup**|||
+|Navigation|Navbar|As a developer I need to create a navbar so that users can navigate the site.|
+|CRUD|View upcoming bookings|"As a barber I can see all the upcoming appointments so that I know what work I have coming up.|
+|Navigation|Footer|As a developer I need to create a footer so that users can find more information about the site.|
+|UX|Whitenoise|As a developer I need to setup whitenoice so that my static files can be served in deployment.|
+|Authentication|Add email address|As a site user I can supply my email address so that I will receive booking confirmation to my inbox.|
+|Authentication|Create Account|As a site user I can create an account so that I can log in and create a booking.|
+|Authentication|allauth|As a developer I need to inplement allauth so that user can signup and have access to the sites full features.|
+|Authentication|Login|As a site member I can login to my account so that I can see my appointments (past and upcoming) and make a new booking.|
+</details><br>
+
+<details>
+<summary>Sprint 3: Styling</summary>
+
+|EPIC|User Story|Description|
+|:--|:--|:--|
+|CRUD|Book a haircut|As a logged in user I can book a haircut so that I can get a haircut.|
+|UX|View sevices|As a site user I can view a list of the available haircuts with cost and how long it will take so that I can choose the correct service for me.|
+|UX|Style allauth|As a site owner I should style the allauth pages so that they fit in with the styling of the rest of the site.|
+|UX|Homepage|As a barber I would like a home page with information about my babershop so that customers can find out everything they need to about my shop.|
+|UX|Contact Section|As a user I can easily see how to get in contact with the barbers so I can ask any questions.|
+|UX|UX|As a site user I can experience good UX when visiting the site so that I am more likely to stay on the site and book a haircut.|
+</details><br>
+
+<details>
+<summary>Sprint 4: CRUD</summary>
+
+|EPIC|User Story|Description|
+|:--|:--|:--|
+|CRUD|Delete booking|As a logged in user I can delete a booking so that cancel my appointment if I can no longer make it.|
+|CRUD|Admin CRUD|As a site admin I want to be able to create, edit, delete and view bookings for customers so that I can edit appointments for customers.|
+|CRUD|Update booking|As a logged in user I can update my booking so that I can make changes if needed.|
+|UX|403|As a developer I need to create a 403 page to redirect unauthorised users so that I can secure my views.|
+|UX|500|As a developer I need to create a 500 page to alert users when an internal service error occurs.|
+|UX|404|As a developer I need to create a 404 page so that users know when they visit a page that doesn't exist.|
+|Validation|Booking validation|As a user I cannot book invalid appointments to I can turn up without any in person issues.|
+|UX|Past Bookings|As a logged in user I can see all my upcoming and past bookings so that I can check how long it's been since my last appointment and see any upcoming bookings.|
+</details><br>
+
+<details>
+<summary>Sprint 5: Search & Email</summary>
+
+|EPIC|User Story|Description|
+|:--|:--|:--|
+|Administration|Admin search|As an admin I can filter and search the bookings so that I can find more relevant details easily.|
+|Administration|Update account|As a user I can have more account details available to me so that I can update my account.|
+|UX|Past Bookings|As a user I can see my past bookings so that I have a history of my haircuts.|
+|Administration|Message in booking form|As a user I can add a message to the booking form so that I can let the barber know of any special requirements I have.|
+|Administration|Message alerts|As a user I can see messages informing me of my actions so that I know I have logged in etc successfully.|
+|Authentication|Email notification|As a user I can be notified by email when a modification has been made to my booking so that I know if any change has been made to my booking.|
+|Administration|Admin confirm booking|As an admin I can confirm a booking so that I can make sure I am available.|
+</details><br>
+
+<details>
+<summary>Sprint 6: Testing & Documentation</summary>
+
+|EPIC|User Story|Description|
+|:--|:--|:--|
+|Testing|Testing|As a developer I need to use testing so that I an sure my code is free of bugs and will not result in site errors.|
+|Deployment|DEBUG to False|As a developer I need to set DEBUG to False before final deployment so that private information ins't available to the public.|
+|Documentation|Readme|As a developer I need to complete a readme file so that my site is fully documented.|
+|Testing|Manual Testing|As a developer I need to manually test the site to make sure everything works properly for the user.|
+</details><br><br>
+
 - Create a sleek, modern website to promote Niall's Barbershop, containing all the information customers might want.
 - Allow users to create an account.
 - Allow users to create an appointment at a time when here are no other bookings to avoid double bookings.
@@ -72,7 +170,6 @@ To create a website with good UI and UX to promote Niall's Barbershop where pote
 - Allow staff to login to an admin area.
 - Allow staff to view all upcoming booked appointments.
 - Allow staff to search bookings by date and username.
-- Allow staff to create a booking for a customer.
 - Allow staff to modify an existing booking.
 - Allow staff to remove/cancel an existing appointment.
 - Provide feedback to users when they have made changes.
@@ -81,7 +178,11 @@ To create a website with good UI and UX to promote Niall's Barbershop where pote
 - Allow users to update their password, username and email address.
 - Show different site functionality to logged in members than to non logged in users.
 
-### Scope<hr>
+
+
+
+
+### 2. Scope<hr>
 **Simple and Intuitive UX**<br>
 - Create a website that portrays the mood and feel of the barbershop.
 - Create a responsive navigation menu.
@@ -98,7 +199,7 @@ To create a website with good UI and UX to promote Niall's Barbershop where pote
 **Responsiveness**<br>
 - Create a responsive website that works on every device and screen size.<br><br>
 
-### Structure<hr>
+### 3. Structure<hr>
 Introduction:
 
 #### Navigation
@@ -139,7 +240,7 @@ The project flowcharts for the site structure was created using [LucidChart](htt
 <img src="media/sitemap2.png"><br>
 </details>
 
-### Skeleton<hr>
+### 4. Skeleton<hr>
 **Wireframes**
 
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
@@ -159,7 +260,8 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
   <img src="media/database-schema2.png"><br>
 </details><br>
 
-### Surface
+### 5. Surface
+
 #### Color Scheme and Fonts
 
 - The fonts I used for this site were imported from [Google Fonts](https://fonts.google.com/):
@@ -190,20 +292,6 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 </details>
 <br>
 <br>
-
-## Agile Methodology
-This project was developed using the Agile methodology.<br>
-All epics and user stories implementation progress was registered using [GitHub](https://github.com/). As the user stories were accomplished, they were moved in the GitHub Kanban board from **ToDo**, to **In Progress**, **Done** and **Not Implemented** lists.
-The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
-<details>
-<summary>Sprint Details</summary>
-
-- **KANBAN BOARD**<br><br>
-    <img src="static/images/kanban.png" width="60%"><br><br>
-- **EPIC 1 - BASE SETUP**<br>
-    -1A Create<br>
-    <img src="static/images/epic-1.png" width="60%"><br><br>
-</details><br><br>
 
 ## Features
 
