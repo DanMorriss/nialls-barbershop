@@ -6,75 +6,84 @@
 Introduction.
 <hr>
 Niall's Barbershop is a website with a booking system for a Barber Shop in Swindon, Wiltshire. 
-The web application allows users to create an account, login and logout of the site.
-The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a haircut both easy and enjoyable. 
+The web application allows users to create an account, login and create a booking.
 <br><br>
 
 ## Table of contents
 
 
 ## Overview
-Overview.
+The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a haircut both easy and enjoyable. 
+The user is notified of any change to their account or booking with an alert box and email notification where necessary. 
+The user can see their past bookings and is notified when the booking has been conformed by the barber.
+The admin users have extra functionality, being able to search bookings by date and username.
 
 ## UX
 This site was created according to the Five Planes Of Website Design:<br>
 ### 1. Strategy<hr>
 
-**Project Goal:**<br>
 To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login, book and update an appointment. 
 
-The project objectives can be broken into Epics and then further into User Stories. The user stories were allocated into sprints.
+The project objectives can be broken into Epics and then further into User Stories. To implement the user stories they were allocated into sprints.
 
 - Project Setup
-  - Create Django application
-  - Set file structure
-  - Database Models
-  - Link CSS, JavaScript & Bootstrap
-  - Create base.html
-  - Link Google Fonts
+  - Create the initial Django application
+  - Set file structure in accordance with Django common practices
+  - Deefine and create the Database Models
+  - Link custom CSS & JavaScript as well as Bootstrap
+  - Create a base.html file for the other template to use
+  - Link Google Fonts for custom fonts
 - UX
-  - Favicon
-  - View Services
-  - Style allauth pages
-  - Homepage
-  - Contact Section
-  - 403, 500 & 404 pages
-
+  - Include a Favicon logo
+  - Install Whitenoise to link up the custom styles
+  - View a list of services with information
+  - Style the default allauth pages
+  - Create a Homepage
+  - Include a contact section
+  - Include 403, 500 & 404 pages
+  - Allow users and admins to view past bookings
+  - Display alerts and messages to the user
 - Navigation
-  - Navbar
-  - Footer
+  - Have a Navbar that is the same across all the pages
+  - Have a Footer that is the same across all the pages
 - CRUD
   - View upcoming bookings
   - Book a haircut
   - Delete a booking
-  - Admin CRUD capabilities
-  - Update booking
+  - Enhanced Admin CRUD capabilities
+  - Update a booking
 - Authentication
   - Add user emails
   - Create User Account
   - Setup allauth
-  - Login
+  - Allow users and admins to login
+  - Send the users email notification when bookings are made, updated, deleted or confirmed
 - Validation
-  - Booking validation
+  - Include validation in the booking form to make sure bookings are valid and the time is not already taken
 - Administration
-  - 1
+  - Allow admins to search for date of booking and user
+  - Allow users to update their account details including email and password
+  - Let admins conform bookings
 - Deployment
   - Cloudinary
   - ElephantSQL
   - Heroku
-  - Whitenoise
+  - Set Debug to False
 - Testing
-  - 1
+  - Unit Tests
+  - Manual Testing
 - Documentation
-  - 1
+  - Readme
 
-#### Agile Methodology
+<br>
+
+**Agile Methodology**<br><br>
 This project was developed using the Agile methodology.<br>
 All epics and user stories implementation progress was registered using [GitHub](https://github.com/). As the user stories were accomplished, they were moved in the GitHub Kanban board from **ToDo**, to **In Progress**, **Done** and **Not Implemented** lists.
 The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 
-- **KANBAN BOARD**<br><br>
-    <img src="static/images/kanban.png" width="60%"><br><br>
+**Kanban Board**<br><br>
+<img src="media/kanban.png"><br><br>
 
 <details>
 <summary>Sprint 1: Base Setup</summary>
@@ -145,8 +154,8 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 |Administration|Admin search|As an admin I can filter and search the bookings so that I can find more relevant details easily.|
 |Administration|Update account|As a user I can have more account details available to me so that I can update my account.|
 |UX|Past Bookings|As a user I can see my past bookings so that I have a history of my haircuts.|
-|Administration|Message in booking form|As a user I can add a message to the booking form so that I can let the barber know of any special requirements I have.|
-|Administration|Message alerts|As a user I can see messages informing me of my actions so that I know I have logged in etc successfully.|
+|CRUD|Message in booking form|As a user I can add a message to the booking form so that I can let the barber know of any special requirements I have.|
+|UX|Message alerts|As a user I can see messages informing me of my actions so that I know I have logged in etc successfully.|
 |Authentication|Email notification|As a user I can be notified by email when a modification has been made to my booking so that I know if any change has been made to my booking.|
 |Administration|Admin confirm booking|As an admin I can confirm a booking so that I can make sure I am available.|
 </details><br>
@@ -156,31 +165,11 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 
 |EPIC|User Story|Description|
 |:--|:--|:--|
-|Testing|Testing|As a developer I need to use testing so that I an sure my code is free of bugs and will not result in site errors.|
+|Testing|Unit Tests|As a developer I need to use testing so that I an sure my code is free of bugs and will not result in site errors.|
 |Deployment|DEBUG to False|As a developer I need to set DEBUG to False before final deployment so that private information ins't available to the public.|
 |Documentation|Readme|As a developer I need to complete a readme file so that my site is fully documented.|
 |Testing|Manual Testing|As a developer I need to manually test the site to make sure everything works properly for the user.|
 </details><br><br>
-
-- Create a sleek, modern website to promote Niall's Barbershop, containing all the information customers might want.
-- Allow users to create an account.
-- Allow users to create an appointment at a time when here are no other bookings to avoid double bookings.
-- Allow users to see their upcoming and past appointments.
-- Allow users to cancel or modify an existing appointment.
-- Allow staff to login to an admin area.
-- Allow staff to view all upcoming booked appointments.
-- Allow staff to search bookings by date and username.
-- Allow staff to modify an existing booking.
-- Allow staff to remove/cancel an existing appointment.
-- Provide feedback to users when they have made changes.
-- Send email updates to customers when a booking has been made of modified.
-- Allow staff to confirm appointments from the admin panel.
-- Allow users to update their password, username and email address.
-- Show different site functionality to logged in members than to non logged in users.
-
-
-
-
 
 ### 2. Scope<hr>
 **Simple and Intuitive UX**<br>
