@@ -240,7 +240,19 @@ At the bottom of the landing page is a contact section with address, opening tim
 If the user is logged in, the 'Book a Haircut' buttons will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
 
 ##### Sign Up Page
+
+This page uses the allauth page as a base with custom design added.
+The upername and pssword fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
+- Creating a booking
+- Updating a booking
+- Deleting a booking
+- An admin confirming a booking
+
 ##### Sign In Page
+
+This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
+It also includes a remember me button to make using the site in future easer, and a reset password link that will send the user a password reset email if they included an email when signing up.
+
 ##### Account Home Page
 ##### Admin Account Home Page
 ##### Booking Form
