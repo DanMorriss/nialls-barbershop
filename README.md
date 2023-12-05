@@ -1,5 +1,5 @@
 # Niall's Barbershop 
-<img src="" ><br>
+<img src="media/mockup.png" ><br>
 - [Live Site](https://niallsbarbershop-e4e7dc2878db.herokuapp.com/)
 - [GitHub Repo](https://github.com/DanMorriss/nialls-barbershop)
 
