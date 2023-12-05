@@ -292,13 +292,56 @@ Each booking is displayed on a card and contains:
 - If the user added a message, a message icon
 - The confirmation status of the booking
 
+The card has a hover effect to indicate that it is a clickable link taking the user to the details of the booking.
+
+The bookings are displayed in order starting from the one closest to the current date and time, descending as you go down the page. There is a link to view past bookings at the top of the list of bookings.
+
 ##### Admin Account Home Page
+
+The account home page for an Admin user has the addition of a Search Bookings panel giving the admin user the ability to search by:
+- Date of booking
+- Username
+
+If the number of bookings exceeds 25 the page paginates.
+
 ##### Booking Form
-##### Update Booking Page
+
+The booking form has 4 inputs:
+- A date picker
+- A haircut dropdown list
+- A time dropdown list
+- An optional message box
+
+The form has built in validation alerting the user when an error has been made or the booking cannot be made. Reasons for an error include:
+- Booking a date in the past
+- Booking a time in the past
+- Trying to book an appointment at a time that is already booked.
+
+Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.
+
 ##### Booking Detail Page
-##### Admin Booking Detail Page
 
+If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
+- Date
+- Username (if an admin user)
+- Appointment type
+- Start time
+- End time
+- Message (if the user added one)
+- The confirmation status
+- A confirm booking button (if the user is admin and the booking is not yet confirmed)
+- An edit appointment button
+- A cancel appointment button
+- A close button
 
+##### Update Booking Page
+
+If the user clicks on the edit appointment button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
+If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
+
+##### Confirm Delete Booking Page
+
+If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
 #### Sitemap
 The project flowcharts for the site structure was created using [LucidChart](https://www.lucidchart.com/).
@@ -331,7 +374,7 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 #### Color Scheme and Fonts
 
-- The fonts I used for this site were imported from [Google Fonts](https://fonts.google.com/):
+- The fonts used for this site were imported from [Google Fonts](https://fonts.google.com/):
   - Sancreek for the headings
   - Tenor Sans for the body
 
@@ -344,32 +387,107 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 <img src="media/color-palette2.png" width="60%">
 
-
-
 #### Visual Effects
 
-* **Hover effects**<br>
-<details>
-  <summary>NavBar</summary>
-<img src="static/images/hover.gif" width="40%"><br>
-</details>
-<details>
-  <summary>Bootstrap standard button hover effect</summary>
-<img src="static/images/buttonhover.gif" width="40%"><br>
-</details>
-<br>
-<br>
+**Hover effects**<br>
+NavBar
+<img src="" width="40%"><br>
+Footer
+<img src="" width="40%"><br>
+Service Buttons
+<img src="" width="40%"><br>
+Book a haircut button
+<img src="" width="40%"><br>
+Booking card
+<img src="" width="40%"><br>
+Booking Details Edit Button
+<img src="" width="40%"><br>
+Booking Details Cancel Button
+<img src="" width="40%"><br>
+Booking Details Close Button
+<img src="" width="40%"><br>
+
+**Logo**<br>
+Rotating Outer Logo
+<img src="" width="40%"><br>
+Spinning hover effect
+<img src="" width="40%"><br>
 
 ## Features
 
-### Existing Features and sub-pages
+### Existing Features
 
-#### Feature 1
+#### Haircut Information Modal
+On the homepage the Services section includes a list of services taken from the database of services offered. Each services is displayed as a button and when clicked a modal is displayed containing information about the service including:
+- Service name
+- Description
+- Cost
+- A book haircut button
+
+#### Book a haircut
+The booking form has 4 inputs:
+- A date picker
+- A haircut dropdown list
+- A time dropdown list
+- An optional message box
+
+The form has built in validation alerting the user when an error has been made or the booking cannot be made. Reasons for an error include:
+- Booking a date in the past
+- Booking a time in the past
+- Trying to book an appointment at a time that is already booked.
+
+Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.
+
+##### Booking List
+Each booking is displayed on a card on the account home page and contains:
+- The date
+- The service
+- The time of the booking
+- If the user added a message, a message icon
+- The confirmation status of the booking
+
+##### Booking Detail Page
+If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
+- Date
+- Username (if an admin user)
+- Appointment type
+- Start time
+- End time
+- Message (if the user added one)
+- The confirmation status
+- A confirm booking button (if the user is admin and the booking is not yet confirmed)
+- An edit appointment button
+- A cancel appointment button
+- A close button
+
+##### Update Booking Page
+If the user clicks on the edit appointment button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
+If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
+
+##### Confirm Delete Booking Page
+If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
+
+##### Admin Search Panel
+Admin users have a Search Bookings panel on the account home page giving the admin user the ability to search by:
+- Date of booking
+- Username
+
+##### Update Email
+Users can update the email address attached to their account from the account panel in the account home page. They can:
+- Add an email address
+- Remove an email address
+- Make an email address primary
+
+##### Change Password
+Users can change their password from the account panel in the account home page.
 
 ### Potential Future Features
+- Allow admin users to edit the services from the account home rather than from the django backend panel
+- Social media signup
+- Change username
 
 ## Responsive Layout and Design
-How the breakpoints are set.
+The bootstrap grid system and flexbox was used to create a fully responsive layout and testing on multiple screen sizes and devices was carried out to make sure it each page looks good in many settings.
 
 **Tested devices:**
 
@@ -426,7 +544,16 @@ Testing
 - While testing I needed to create a test service as the services list is taken from the database. So, without creating one nothing cloud be valid.
 - Static files were not being issued on Heroku, I needed to install and setup whitenoise.
 - On deployment, the email confirmations were causing an internal server error the user. I needed to give Heroku assess to the email password.
-- collectstatic needs to be run on any static changes.
+- When changes were pushed to git hub the static files stopped working. The command `collectstatic` needs to be run on any static changes and pushed to github.
+- I had an issue linking up the urls when the name didn't have an underscore between the words. Changing the name `createbooking` to `create_booking` in urls.py fixed it.
+- Adding whitenoise to MIDDLEWARE caused the project to break. It needed to be installed.
+- When a booking was updated a new one was created and the old one was still in the database. The url needed to be removed from the form button so the form can complete it's function rather than creating a new booking.
+- Validating the form to not alow past bookings was causing errors. The format for the time needed to be set properly. Using datetime.now().time() displayed the time properly.
+- Allauth was not working, the order in MIDDLWARE was wrong, it needed to go at the end of the list.
+- I had a different version of one of the requirements installed on my machine during a hackathon and when I tried to run the project again it didn't work. I setup a virtual environment (venv) to fix the issue.
+- The nested if statements in the account home page was causing the searchbox to be hidden. The statements needed rearranging.
+- Setting up email confirmation was causing an SMTPAuthenticationError. I needed to setup a special password that works with Django.
+- The CreateBooking class wasn't working. There was type in the form_class attribute. It was set to from_class.
 
 ## Deployment
 
