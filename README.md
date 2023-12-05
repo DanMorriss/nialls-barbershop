@@ -218,13 +218,19 @@ A user who isn't signed in will see:
 - Register
 - Login
 
+<img src="media/non-signed-in-navbar.png" alt="Image of the navbar for a non-signed-in user">
+
 A user who is signed in will see:
 - My Account
 - Logout
 
+<img src="media/signed-in-navbar.png" alt="Image of the navbar for a signed-in user">
+
 On smaller screen sizes a hamburger menu is displayed with a smooth dropdown effect.
+<img src="media/" alt="Video of the hamburger navbar">
 
 Each of the links had a hover effect where the color smoothly changes to indicate to the user it is an active link.
+<img src="media/" alt="Video of the hover effect in the navbar">
 
 #### Footer
 
@@ -233,6 +239,7 @@ The footer is the same across all the pages and includes:
 - A copyright statement
 
 The active links have a hover effect where the color slowly changes from gold to white indicating to the user that the link is active.
+<img src="media/" alt="Video of the footer">
 
 #### Pages
 
@@ -244,39 +251,43 @@ The landing page is divided into 4 sections:
 - Services section
 - Contact Section
 
-The main landing page has hero image with moving, interactive logo to spark the users interest right away. 
+The main landing page has hero image with moving, interactive logo to spark the users interest right away.
+<img src="media/" alt="Video of the interactive logo">
 
 Below the hero image is an about section giving the user some information about the barbershop.
+<img src="media/about-section.png" alt="Image of the about section">
 
-Below the about section is some information on the different services available. Each one can be clicked on and a modal appears with more information about that service including a 'Book a Haircut' button. 
-
+Below the about section is some information on the different services available. Each one can be clicked on and a modal appears with more information about that service including a 'Book a Haircut' button.
 The information on the different services is taken from the database, so an admin user can update it from the django admin panel.
+<img src="media/" alt="Video of the services list and modal">
 
 At the bottom of the landing page is a contact section with address, opening times and a 'Book a Haircut' button.
+<img src="media/contact-section.png" alt="Image of the contact section">
 
 If the user is logged in, the 'Book a Haircut' buttons will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
 
 ##### Sign Up Page
 
-<img src="media/signup.png" alt="Display of the signup page">
+<img src="media/sign-up-page.png" alt="Image of the signup page">
 
 This page uses the allauth page as a base with custom design added.
-The upername and pssword fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
+The username and password fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
 - Creating a booking
 - Updating a booking
 - Deleting a booking
 - An admin confirming a booking
+<img src="media/" alt="Video of the booking form being filled out causing an error.">
 
 ##### Sign In Page
 
-<img src="media/login.png" alt="Display of the login page">
+<img src="media/log-in-page.png" alt="Image of the login page">
 
 This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
 It also includes a remember me button to make using the site in future easer, and a reset password link that will send the user a password reset email if they included an email when signing up.
 
 ##### Account Home Page
 
-<img src="media/account-home.gif" alt="Display of the account home page">
+<img src="media/account-home.png" alt="Image of the account home page">
 
 This page is displayed when the user first logs in, unless they clicked a "Book a Haircut" button before logging in.
 On a large screen it is divided into 2 sections:
@@ -293,16 +304,18 @@ Each booking is displayed on a card and contains:
 - The confirmation status of the booking
 
 The card has a hover effect to indicate that it is a clickable link taking the user to the details of the booking.
+<img src="media/" alt="Video of the hover effect for the booking card">
 
 The bookings are displayed in order starting from the one closest to the current date and time, descending as you go down the page. There is a link to view past bookings at the top of the list of bookings.
 
 ##### Admin Account Home Page
-
+<img src="media/search-bookings.png" alt="Image of the admin search panel">
 The account home page for an Admin user has the addition of a Search Bookings panel giving the admin user the ability to search by:
 - Date of booking
 - Username
 
 If the number of bookings exceeds 25 the page paginates.
+<img src="media/" alt="Image of page pagination controls">
 
 ##### Booking Form
 
@@ -316,11 +329,14 @@ The form has built in validation alerting the user when an error has been made o
 - Booking a date in the past
 - Booking a time in the past
 - Trying to book an appointment at a time that is already booked.
+<img src="media/" alt="Video of the booking form being filled out and causing an error">
 
 Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.
+<img src="media/" alt="Video of the booking success message">
 
 ##### Booking Detail Page
-
+<img src="media/user-booking-detail.png" alt="Image of the user booking detail page">
+<img src="media/admin-booking-detail.png" alt="Image of the admin booking detail page">
 If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
 - Date
 - Username (if an admin user)
@@ -340,7 +356,7 @@ If the user clicks on the edit appointment button on the booking detail page the
 If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
 
 ##### Confirm Delete Booking Page
-
+<img src="media/confirm-delete-booking.png" alt="Image of the confirm delete page">
 If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
 #### Sitemap
