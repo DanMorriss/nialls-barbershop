@@ -2,12 +2,10 @@
 <img src="" ><br>
 - [Live Site](https://niallsbarbershop-e4e7dc2878db.herokuapp.com/)
 - [GitHub Repo](https://github.com/DanMorriss/nialls-barbershop)
-<hr>
-Introduction.
-<hr>
+
 Niall's Barbershop is a website with a booking system for a Barber Shop in Swindon, Wiltshire. 
 The web application allows users to create an account, login and create a booking.
-<br><br>
+<br>
 
 ## Table of contents
 
@@ -169,7 +167,7 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 |Deployment|DEBUG to False|As a developer I need to set DEBUG to False before final deployment so that private information ins't available to the public.|
 |Documentation|Readme|As a developer I need to complete a readme file so that my site is fully documented.|
 |Testing|Manual Testing|As a developer I need to manually test the site to make sure everything works properly for the user.|
-</details><br><br>
+</details><br>
 
 ### 2. Scope<hr>
 **Simple and Intuitive UX**<br>
@@ -189,9 +187,39 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 - Create a responsive website that works on every device and screen size.<br><br>
 
 ### 3. Structure<hr>
-Introduction:
+The website is designed with the user in mind and once the user is logged in they have access to 7 different pages:
+- Landing page
+  - About
+  - Services
+  - Contact
+- Account Home
+- Past Bookings
+- Booking Form
+- Booking Details
+- Update Email Address
+- Change Password
+
+There are also 2 pages available to users who aren't singed in:
+- Create Account
+- Login
+
 
 #### Navigation
+The navbar along the top of the page is always displayed, allowing the user to easily navigate around the site. The styling is consistent across the site but has different links on display for users that are signed in.
+All users will see:
+- Niall's Barbershop logo taking them to the landing page
+- About
+- Services
+- Contact
+- Book a Haircut
+
+A user who isn't signed in will see:
+- Register
+- Login
+
+A user who is signed in will see:
+- My Account
+- Logout
 
 #### Footer
 
