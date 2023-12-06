@@ -411,28 +411,24 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 #### Visual Effects
 
 **Hover effects**<br>
-NavBar
-<img src="" width="40%"><br>
-Footer
-<img src="" width="40%"><br>
-Service Buttons
-<img src="" width="40%"><br>
-Book a haircut button
-<img src="" width="40%"><br>
-Booking card
-<img src="" width="40%"><br>
-Booking Details Edit Button
-<img src="" width="40%"><br>
-Booking Details Cancel Button
-<img src="" width="40%"><br>
-Booking Details Close Button
-<img src="" width="40%"><br>
+NavBar<br>
+<img src="media/nav-hover.gif"><br>
+Footer<br>
+<img src="media/footer-hover.gif"><br>
+Service Buttons<br>
+<img src="media/service-button-hover.gif" width="40%"><br>
+Book a haircut button<br>
+<img src="media/book-button-hover.gif" width="40%"><br>
+Booking card<br>
+<img src="media/booking-card-hover.gif" width="40%"><br>
+Booking Details Edit & Cancel Buttons<br>
+<img src="media/edit-cancel-buttons-hover.gif" width="40%"><br>
+Booking Details Close Button<br>
+<img src="media/close-button-hover.gif" width="20%"><br>
 
 **Logo**<br>
-Rotating Outer Logo
-<img src="" width="40%"><br>
-Spinning hover effect
-<img src="" width="40%"><br>
+Rotating Outer Logo with spinning effect when hovered<br>
+<img src="media/interactive-logo.gif" width="40%"><br>
 
 ## Features
 
