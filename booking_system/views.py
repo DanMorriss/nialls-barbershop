@@ -55,7 +55,7 @@ class BookingsListView(LoginRequiredMixin, ListView):
                 queryset = Booking.objects.filter(
                     Q(date_of_booking__gt=current_date) |
                     Q(date_of_booking=current_date,
-                    start_time__gte=current_time),
+                      start_time__gte=current_time),
                     Q(username__username__icontains=search_query) |
                     Q(service_name__service_name__icontains=search_query),
                     Q(date_of_booking=selected_date) if selected_date else Q()
@@ -77,6 +77,28 @@ class BookingsListView(LoginRequiredMixin, ListView):
 
 
 class PastBookingsView(LoginRequiredMixin, ListView):
+    """
+    View for viewing past bookings
+    
+    Attributes:
+        - model: Booking from models.py
+        - template_name: The path to the template for rendering the view.
+        - paginate_by: The number of bookings to display per page.
+
+    Methods:
+        - get_queryset(): Retrieves the queryset of bookings to be displayed,
+        and filters out future bookings.
+        Superusers see all bookings, regular users only see their own bookings.
+
+    Usage:
+        - This view displays a paginated list of bookings.
+        - If the user is a superuser, the view shows all past bookings.
+        - Otherwise, it displays past bookings for the authenticated user.
+
+    Returns:
+        - QuerySet: A filtered and ordered QuerySet of bookings to be displayed
+        on the template.
+    """
     model = Booking
     template_name = 'booking_system/booking_past.html'
     paginate_by = 25
@@ -100,6 +122,15 @@ class PastBookingsView(LoginRequiredMixin, ListView):
 
 
 def send_email_confirmation(user, subject, message):
+    """
+    Function to send users email.
+    
+    Takes
+    - Subject
+    - Message
+    - From email address
+    - To email address
+    """
     from_email = 'danielmorriss1@gmail.com'
     to_email = [user]
 
@@ -168,7 +199,7 @@ class UpdateBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     Methods:
         - form_valid(form): Overrides the form_valid method for customization.
-        Calculates the end time after a successful form submission and sends a 
+        Calculates the end time after a successful form submission and sends a
         confirmation email to the user.
 
         - test_func(): Checks if the current user is allowed to update the
@@ -269,6 +300,21 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class ConfirmBookingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    View for an admin user to confirm an existing booking.
+
+    Attributes:
+        - model: Booking from models.py
+        - success_url: Redirect to booking-home after a successful
+        confirmation.
+
+    Methods:
+        - test_func(): Tests if the user is a superuser
+        - form_valid(): If the user has an email address attached to their
+        account they will be send a confirmation email.
+        The admin user will be shown a success message when the booking has
+        been successfully confirmed.
+    """
     model = Booking
     template_name = 'booking_system/booking_confirm.html'
     fields = ['confirmed']

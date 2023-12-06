@@ -68,6 +68,12 @@ class BookingForm(forms.ModelForm):
 
 
 class BookingSearchForm(forms.Form):
+    """
+    Form for searching bookings available in the admin panel.
+    Can search for:
+    - Username
+    - Date of booking
+    """
     search_query = forms.CharField(required=False,
                                    label='Search Username/Service')
     selected_date = forms.DateField(
