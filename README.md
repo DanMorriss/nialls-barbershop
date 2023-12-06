@@ -268,7 +268,7 @@ If the user is logged in, the 'Book a Haircut' buttons will take them to the boo
 
 ##### Sign Up Page
 
-<img src="media/sign-up-page.png" alt="Image of the signup page">
+<img src="media/sign-up-page.png" alt="Image of the signup page" width="60%">
 
 This page uses the allauth page as a base with custom design added.
 The username and password fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
@@ -280,7 +280,7 @@ The username and password fields are mandatory but the email is optional. If the
 
 ##### Sign In Page
 
-<img src="media/log-in-page.png" alt="Image of the login page">
+<img src="media/log-in-page.png" alt="Image of the login page" width="60%">
 
 This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
 It also includes a remember me button to make using the site in future easer, and a reset password link that will send the user a password reset email if they included an email when signing up.
@@ -305,12 +305,12 @@ Each booking is displayed on a card and contains:
 
 The card has a hover effect to indicate that it is a clickable link taking the user to the details of the booking.
 
-<img src="media/booking-card-hover.gif" alt="Video of the hover effect for the booking card">
+<img src="media/booking-card-hover.gif" alt="Video of the hover effect for the booking card" width="40%">
 
 The bookings are displayed in order starting from the one closest to the current date and time, descending as you go down the page. There is a link to view past bookings at the top of the list of bookings.
 
 ##### Admin Account Home Page
-<img src="media/search-bookings.png" alt="Image of the admin search panel">
+<img src="media/search-bookings.png" alt="Image of the admin search panel" width="60%">
 The account home page for an Admin user has the addition of a Search Bookings panel giving the admin user the ability to search by:
 - Date of booking
 - Username
@@ -350,10 +350,10 @@ If a user clicks on a booking from the account home page they are taken to the a
 - A cancel appointment button
 - A close button
 
-User's View
-<img src="media/user-booking-detail.png" alt="Image of the user booking detail page">
-Admin's View
-<img src="media/admin-booking-detail.png" alt="Image of the admin booking detail page">
+User's View<br>
+<img src="media/user-booking-detail.png" alt="Image of the user booking detail page" width="70%"><br>
+Admin's View<br>
+<img src="media/admin-booking-detail.png" alt="Image of the admin booking detail page" width="70%">
 
 ##### Update Booking Page
 
@@ -361,7 +361,7 @@ If the user clicks on the edit appointment button on the booking detail page the
 If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
 
 ##### Confirm Delete Booking Page
-<img src="media/confirm-delete-booking.png" alt="Image of the confirm delete page">
+<img src="media/confirm-delete-booking.png" alt="Image of the confirm delete page" width="60%"><br>
 If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
 #### Sitemap
@@ -412,9 +412,9 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 **Hover effects**<br>
 NavBar<br>
-<img src="media/nav-hover.gif"><br>
+<img src="media/nav-hover.gif" width="100%"><br>
 Footer<br>
-<img src="media/footer-hover.gif"><br>
+<img src="media/footer-hover.gif" width="100%"><br>
 Service Buttons<br>
 <img src="media/service-button-hover.gif" width="40%"><br>
 Book a haircut button<br>
@@ -618,7 +618,7 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 All the content was created for the site by myself.
 
 ### Media
-The logo was designed and created using [Canva](https://www.canva.com/en_gb/) by myself.
+The logo was designed and created using [Canva](https://www.canva.com/en_gb/).
 
 ### Code
 
