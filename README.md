@@ -230,7 +230,7 @@ On smaller screen sizes a hamburger menu is displayed with a smooth dropdown eff
 <img src="media/" alt="Video of the hamburger navbar">
 
 Each of the links had a hover effect where the color smoothly changes to indicate to the user it is an active link.
-<img src="media/" alt="Video of the hover effect in the navbar">
+<img src="media/nav-hover.gif" alt="Video of the hover effect in the navbar">
 
 #### Footer
 
@@ -239,7 +239,7 @@ The footer is the same across all the pages and includes:
 - A copyright statement
 
 The active links have a hover effect where the color slowly changes from gold to white indicating to the user that the link is active.
-<img src="media/" alt="Video of the footer">
+<img src="media/footer-hover.gif" alt="Video of the footer">
 
 #### Pages
 
@@ -252,14 +252,14 @@ The landing page is divided into 4 sections:
 - Contact Section
 
 The main landing page has hero image with moving, interactive logo to spark the users interest right away.
-<img src="media/" alt="Video of the interactive logo">
+<img src="media/interactive-logo.gif" alt="Video of the interactive logo">
 
 Below the hero image is an about section giving the user some information about the barbershop.
 <img src="media/about-section.png" alt="Image of the about section">
 
 Below the about section is some information on the different services available. Each one can be clicked on and a modal appears with more information about that service including a 'Book a Haircut' button.
 The information on the different services is taken from the database, so an admin user can update it from the django admin panel.
-<img src="media/" alt="Video of the services list and modal">
+<img src="media/haircut-popup.gif" alt="Video of the services list and modal">
 
 At the bottom of the landing page is a contact section with address, opening times and a 'Book a Haircut' button.
 <img src="media/contact-section.png" alt="Image of the contact section">
@@ -276,7 +276,7 @@ The username and password fields are mandatory but the email is optional. If the
 - Updating a booking
 - Deleting a booking
 - An admin confirming a booking
-<img src="media/" alt="Video of the booking form being filled out causing an error.">
+<img src="media/booking-a-haircut.gif" alt="Video of the booking form being filled out causing an error.">
 
 ##### Sign In Page
 
@@ -304,7 +304,8 @@ Each booking is displayed on a card and contains:
 - The confirmation status of the booking
 
 The card has a hover effect to indicate that it is a clickable link taking the user to the details of the booking.
-<img src="media/" alt="Video of the hover effect for the booking card">
+
+<img src="media/booking-card-hover.gif" alt="Video of the hover effect for the booking card">
 
 The bookings are displayed in order starting from the one closest to the current date and time, descending as you go down the page. There is a link to view past bookings at the top of the list of bookings.
 
@@ -315,6 +316,7 @@ The account home page for an Admin user has the addition of a Search Bookings pa
 - Username
 
 If the number of bookings exceeds 25 the page paginates.
+
 <img src="media/" alt="Image of page pagination controls">
 
 ##### Booking Form
@@ -329,14 +331,12 @@ The form has built in validation alerting the user when an error has been made o
 - Booking a date in the past
 - Booking a time in the past
 - Trying to book an appointment at a time that is already booked.
-<img src="media/" alt="Video of the booking form being filled out and causing an error">
 
 Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.
-<img src="media/" alt="Video of the booking success message">
+
+<img src="media/booking-a-haircut.gif" alt="Video of the booking form being filled out and causing an error">
 
 ##### Booking Detail Page
-<img src="media/user-booking-detail.png" alt="Image of the user booking detail page">
-<img src="media/admin-booking-detail.png" alt="Image of the admin booking detail page">
 If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
 - Date
 - Username (if an admin user)
@@ -349,6 +349,11 @@ If a user clicks on a booking from the account home page they are taken to the a
 - An edit appointment button
 - A cancel appointment button
 - A close button
+
+User's View
+<img src="media/user-booking-detail.png" alt="Image of the user booking detail page">
+Admin's View
+<img src="media/admin-booking-detail.png" alt="Image of the admin booking detail page">
 
 ##### Update Booking Page
 
@@ -386,7 +391,7 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
   <img src="media/database-schema2.png"><br>
 </details><br>
 
-### 5. Surface
+### 5. Surface<hr>
 
 #### Color Scheme and Fonts
 
@@ -500,7 +505,7 @@ Users can change their password from the account panel in the account home page.
 ### Potential Future Features
 - Allow admin users to edit the services from the account home rather than from the django backend panel
 - Social media signup
-- Change username
+- Add profile section where users can add a profile picture and update their username
 
 ## Responsive Layout and Design
 The bootstrap grid system and flexbox was used to create a fully responsive layout and testing on multiple screen sizes and devices was carried out to make sure it each page looks good in many settings.
