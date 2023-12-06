@@ -227,7 +227,7 @@ A user who is signed in will see:
 <img src="media/signed-in-navbar.png" alt="Image of the navbar for a signed-in user">
 
 On smaller screen sizes a hamburger menu is displayed with a smooth dropdown effect.
-<img src="media/" alt="Video of the hamburger navbar">
+<img src="media/hamburger-menu.gif" alt="Video of the hamburger navbar">
 
 Each of the links had a hover effect where the color smoothly changes to indicate to the user it is an active link.
 <img src="media/nav-hover.gif" alt="Video of the hover effect in the navbar">
