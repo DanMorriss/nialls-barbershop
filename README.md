@@ -557,7 +557,13 @@ To create the requirements.txt file I ran the following command:<br>
 `pip3 freeze > requirements.txt`
 
 ## Testing
-Testing
+
+Tests were written using Django's test suite and can be found in the following locations:
+ - booking_system > test_forms.py
+ - booking_system > test_views.py
+ - home > test_views.py
+
+As well as automated tests you can find details on user testing in [TESTING.md](TESTING.md).
 
 ## Bugs
 
