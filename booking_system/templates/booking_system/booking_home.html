@@ -51,12 +51,6 @@
                     
                     {% endfor %}
 
-                    {% comment %} <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
-                        <div class="d-flex justify-content-center p-3">
-                            <button class="btn custom-button-dark-gold pt-3 " type="button"><h2>Book Another Appointment</h2></button>
-                        </div>
-                    </a> {% endcomment %}
-
                 {% else %}
                 <div class='d-flex justify-content-center '>
                     <div class="card shadow p-3 m-3 text-center w-75">
@@ -94,7 +88,7 @@
 
             
             <div class="d-flex justify-content-center p-3 mt-5">
-                <a href="{% url "booking-create" %}" class="btn custom-button-dark-gold pt-3 " type="button"><h4>Book An Appointment</h4></a>
+                <a href="{% url "booking-create" %}" class="btn custom-button-dark-gold pt-3"><h4>Book An Appointment</h4></a>
             </div>
             
             {% if user.is_superuser %}

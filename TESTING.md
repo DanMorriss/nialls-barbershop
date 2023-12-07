@@ -30,9 +30,10 @@ All pages were run through the [w3 HTML Validator](https://validator.w3.org/).
 
 Due to the django templating language code used in the HTML files, these could not be copy and pasted into the validator and due to the secured views, pages with login required or a secured view cannot be validated by direct URI. To test the validation on the files, open the page to validate, right click and view page source. Paste the raw html code into the validator as this will be only the HTML rendered code.
 
-![HTML Validator]()
+![HTML Validator: Homepage]()
+![HTML Validator: Account Home]()
 
-All pages were run through the official [Pep8](http://pep8online.com/) validator to ensure all code was pep8 compliant.
+All pages were run through the [Code Institute Pylint](https://pep8ci.herokuapp.com/) validator to ensure all code was pep8 compliant.
 
 ![PEP8]()
 
