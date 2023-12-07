@@ -5,21 +5,21 @@
   <div class="d-flex justify-content-center push-down">
     <div class="card gold-shadow p-3 m-3 text-center w-75 pb-5">
       <div class="d-flex justify-content-end ">
-        <a href="{% url 'booking-home' %}" class="btn btn-outline-dark gold-shadow custom-close-btn"><i class="fa-solid fa-scissors"></i></a>
+        <a href="{% url 'booking-home' %}" class="btn btn-outline-dark gold-shadow custom-close-btn" arila-label="close"><i class="fa-solid fa-scissors"></i></a>
       </div>
       <div>
         <h2 class="text-center">{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
       </div>
 
       {% if user.is_superuser %}
-      <h5><i class="fa-regular fa-user"></i> User: {{ booking.username }}</h5>
+      <h3><i class="fa-regular fa-user"></i> User: {{ booking.username }}</h3>
       {% endif %}
-      <h5>
+      <h3>
         {{ booking.service_name }} at {{ booking.start_time|date:"g:i a" }} until
-        {{ booking.end_time }}</h5>
+        {{ booking.end_time }}</h3>
         {% if booking.message %}
 
-        <h5><i class="fa-regular fa-comment"></i> Message:</h5>
+        <h3><i class="fa-regular fa-comment"></i> Message:</h3>
         <p>{{ booking.message }}</p>
         {% endif %}
       
