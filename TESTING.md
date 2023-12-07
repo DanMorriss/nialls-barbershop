@@ -249,7 +249,8 @@ This had warnings about the use of let, but as this code came from the Code Inst
 
 ## Lighthouse Report
 
-![Lighthouse v1]()
+Landing Page<br>
+![Lighthouse v1](media/lighthouse-landing.png)
 
 ## Responsiveness
 
