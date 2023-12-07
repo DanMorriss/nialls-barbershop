@@ -18,7 +18,6 @@ Testing was focused to ensure the following criteria were met:
 - All forms have associated labels or aria-labels so that this is read out on a screen reader to users who tab to form inputs
 - Color contrasts meet a minimum ratio as specified in [WCAG 2.1 Contrast Guidelines](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
 - Heading levels are not missed or skipped to ensure the importance of content is relayed correctly to the end user
-- All content is contained within landmarks to ensure ease of use for assistive technology, allowing the user to navigate by page regions
 - All not textual content had alternative text or titles so descriptions are read out to screen readers
 - HTML page lang attribute has been set
 - Aria properties have been implemented correctly
@@ -28,18 +27,19 @@ Testing was focused to ensure the following criteria were met:
 
 All pages were run through the [w3 HTML Validator](https://validator.w3.org/).
 
-Due to the django templating language code used in the HTML files, these could not be copy and pasted into the validator and due to the secured views, pages with login required or a secured view cannot be validated by direct URI. To test the validation on the files, open the page to validate, right click and view page source. Paste the raw html code into the validator as this will be only the HTML rendered code.
+The Django templating language would not allow the files to be pasted into the validator and as some of the pages were restricted due to login or admin access I used the Chrome DevTools to copy the HTML content and paste that into the validator.
 
-![HTML Validator: Homepage]()
-![HTML Validator: Account Home]()
+![HTML Validator](media/html-validation.png)
 
 All pages were run through the [Code Institute Pylint](https://pep8ci.herokuapp.com/) validator to ensure all code was pep8 compliant.
 
-![PEP8]()
+![PEP8](media/python-validation.png)
 
 JavaScript code was run through [JSHINT](https://jshint.com) javascript validator.
 
-![JS validator]()
+![JS validator](media/js-validation.png)
+
+This had warnings about the use of let, but as this code came from the Code Institute walkthrough project I assumed it acceptable.
 
 ## Lighthouse Report
 

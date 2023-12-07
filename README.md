@@ -657,7 +657,7 @@ The logo was designed and created using [Canva](https://www.canva.com/en_gb/).
 
 ### Code
 
-- The Code Institute CodeStar walkthrough project was a great help in getting used to Django
+- The Code Institute CodeStar walkthrough project was a great help in getting used to Django. The JS was from the walkthrough project.
 - Help with Bootstrap from their [documentation](https://getbootstrap.com)
 - Django's docs have been invaluable:
   - [Date](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date)
