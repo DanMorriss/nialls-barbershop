@@ -21,6 +21,11 @@ h1, h2, h3, h4, h5 {
     color: var(--clr-gold)
 }
 
+.gold-footer-text {
+    transition: .5s ease-in-out;
+    color: #DFAD49;
+}
+
 .light-text {
     color: var(--clr-light);
 }

@@ -16,9 +16,9 @@
 <div id="about" class="container mt-5 text-center">
 
     <div class="container heading">
-        <hr/>
+        <hr>
         <h1 class="text-uppercase">Welcome to Niell's Barbershop</h1>
-        <hr/>
+        <hr>
     </div>
 
     <p class="fs-4">Your Premier Destination for Grooming Excellence in the heart of Old Town, Swindon</p>
@@ -48,14 +48,14 @@
 <!-- Haircuts -->
 <div id="haircuts" class="dark-background text-center p-5 fill-width">
     <div class="container heading light-text">
-        <hr/>
+        <hr>
         <h2 class="fs-1 text-uppercase gold-text">Haircuts</h2>
-        <hr/>
+        <hr>
     </div>
     <div class="container light-text">
         <p>Your haircut is a statement of style and individuality. Niall is passionate about delivering more than just a haircut; he creates an experience tailored to you. Explore the diverse range of haircut services below and book your appointment for an unparalleled grooming experience at Niall's Barbershop.</p>
 
-            <i class="fa-solid fa-hand-point-down fs-1 gold-text" aria-laber="Hand pointing dowan towards the services list."></i></h2>
+            <i class="fa-solid fa-hand-point-down fs-1 gold-text" aria-label="Hand pointing dowan towards the services list."></i>
     </div>
 
     <!-- Button to trigger modal -->
@@ -83,7 +83,6 @@
                     </div>
 
                     <div class="modal-footer justify-content-center ">
-                        {% comment %} <button type="button" class="btn custom-button-light-gold font-sancreek me-3" data-bs-dismiss="modal">Close</button> {% endcomment %}
                         <a href="{% url 'booking-create' %}" type="button" class="btn custom-button-dark-gold font-sancreek fs-4">Book a cut</a>
                     </div>
 
@@ -102,9 +101,9 @@
 <div id="contact" class="container mt-5 text-center">
 
     <div class="container heading">
-        <hr/>
+        <hr>
         <h1 class="text-uppercase">Contact</h1>
-        <hr/>
+        <hr>
     </div>
 
     <p class="fs-4">You can find the shop in the heart of Old Town, Swindon. We're open Monday to Saturday, pop in to say hey or get in touch below!</p>
@@ -124,8 +123,8 @@
             <h2 class="fw-bold fs-5">Come Visit Us</h2> 
             <p>Unit 1,<br>The Arcade,<br>29c Wood Street,<br>Swindon<br>SN1 4AN</p>
             <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
-                <div class="">
-                    <button class="btn custom-button-dark-gold pt-3 haircut-hover" type="button"><h2>Book a Haircut</h2></button>
+                <div class="btn custom-button-dark-gold pt-3 haircut-hover" type="button">
+                    <h2>Book a Haircut</h2>
                 </div>
             </a>
         </div>
