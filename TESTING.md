@@ -7,11 +7,78 @@ Automated unit tests have been written and used, they can all be found in the fo
  - booking_system > test_views.py
  - home > test_views.py
 
+### TestBookingForm
+
+The following tests have been written for the BookingForm class:
+- test_the_form_works: Test the setup and basic functionality of the form.
+- test_date_of_booking_is_required: Test that the date of booking is a required field.
+- test_date_cannot_be_in_past: Test that the date of booking cannot be in the past.
+- test_service_name_is_required: Test that the service name is a required field.
+- test_start_time_is_required: Test that the start time is a required field.
+- test_start_time_cannot_be_in_the_past: Test that the start time cannot be in the past.
+- test_fields_are_explicit_in_form_meta_class: Test that form fields are explicitly defined in the Meta class.
+
+### TestBookingSearchForm
+
+The following tests have been written for the BookingSearchForm class.
+- test_return_all_future_bookings: Test returning all future bookings.
+- test_search_by_username: Test searching bookings by username.
+- test_search_by_date: Test searching bookings by date.
+
+### TestBookingsListView
+
+The following tests have been written for the BookingsListView view.
+- test_redirect_to_login_if_not_logged_in: Test redirection to login if not logged in.
+- test_if_admin_gets_all__future_bookings: Test if admin gets all future bookings.
+- test_user_is_shown_their_future_bookings: Test if the user is shown their future bookings.
+
+### TestPastBookingsView
+
+The following tests have been written for the PastBookingsView view.
+- test_redirect_to_login_if_not_logged_in: Test redirection to login if not logged in.
+- test_only_past_bookings_shown: Test only past bookings are shown.
+
+### EmailTest
+The following tests have been written for the email functionality.
+- test_send_email_confirmation: Test sending email confirmation.
+
+### TestCreateBookingView
+The following tests have been written for the CreateBookingView view.
+- test_load_booking_form: Test loading the booking form.
+- test_user_must_be_logged_in: Test that the user must be logged in.
+
+### TestUpdateBookingView
+The following tests have been written for the UpdateBookingView view.
+- test_load_booking_form: Test loading the booking form.
+- test_user_must_be_booking_owner: Test that the user must be the booking owner.
+- test_user_must_be_logged_in: Test that the user must be logged in.
+
+### TestBookingDetailView
+The following tests have been written for the BookingDetailView view.
+- test_load_booking_detail: Test loading the booking detail.
+- test_user_must_be_booking_owner: Test that the user must be the booking owner.
+- test_user_must_be_logged_in: Test that the user must be logged in.
+
+### TestBookingDeleteView
+The following tests have been written for the BookingDeleteView view.
+- test_user_cant_delete_another_users_booking: Test that the user can't delete another user's booking.
+- test_user_can_delete_their_own_booking: Test that the user can delete their own booking.
+- test_admin_can_delete_bookings: Test that the admin can delete bookings.
+
+### TestConfirmBookingView
+The following tests have been written for the ConfirmBookingView view.
+- test_admin_can_confirm_booking: Test that the admin can confirm a booking.
+- test_users_cant_confirm_bookings: Test that regular users can't confirm bookings.
+
 ## User Testing
+
+
 
 ## Accessibility
 
 [Wave Accessibility](https://wave.webaim.org/) tool was used throughout development and for final testing of the deployed website to check for any aid accessibility testing.
+
+![Wave Testing](medai/wave-validation.png)
 
 Testing was focused to ensure the following criteria were met:
 

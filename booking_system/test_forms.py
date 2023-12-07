@@ -4,10 +4,41 @@ from .forms import BookingForm
 from .models import Services, Booking
 from django.contrib.auth.models import User
 
+"""
+Module: test_booking.py
+Description: This module contains unit tests for the BookingForm and
+BookingSearchForm classes in a Django web application.
+
+Test classes:
+1. TestBookingForm - Tests for the BookingForm class.
+2. TestBookingSearchForm - Tests for the BookingSearchForm class.
+"""
+
 
 class TestBookingForm(TestCase):
+    """
+    Class: TestBookingForm
+    Description: Contains unit tests for the BookingForm class.
 
+    Methods:
+    - setUp: Set up initial data for the tests.
+    - create_booking: Helper method to create a valid booking.
+    - test_the_form_works: Test the setup and basic functionality of the form.
+    - test_date_of_booking_is_required: Test that the date of booking is a
+    required field.
+    - test_date_cannot_be_in_past: Test that the date of booking cannot be in
+    the past.
+    - test_service_name_is_required: Test that the service name is a required
+    field.
+    - test_start_time_is_required: Test that the start time is a required
+    field.
+    - test_start_time_cannot_be_in_the_past: Test that the start time cannot
+    be in the past.
+    - test_fields_are_explicit_in_form_meta_class: Test that form fields are
+    explicitly defined in the Meta class.
+    """
     def setUp(self):
+
         # Create a test service entry
         self.test_service = Services.objects.create(
             service_name='Test Service',
@@ -28,6 +59,9 @@ class TestBookingForm(TestCase):
 
     # Create a valid booking
     def create_booking(self, additional_data=None):
+        """
+        Method to create a valid booking
+        """
         data = self.common_data.copy()
         if additional_data:
             data.update(additional_data)
@@ -85,7 +119,16 @@ class TestBookingForm(TestCase):
 
 
 class TestBookingSearchForm(TestCase):
+    """
+    Class: TestBookingSearchForm
+    Description: Contains unit tests for the BookingSearchForm class.
 
+    Methods:
+    - setUp: Set up initial data for the tests.
+    - test_return_all_future_bookings: Test returning all future bookings.
+    - test_search_by_username: Test searching bookings by username.
+    - test_search_by_date: Test searching bookings by date.
+    """
     def setUp(self):
         # Create a test service entry
         self.test_service = Services.objects.create(
