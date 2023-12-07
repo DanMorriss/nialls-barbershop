@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5 {
 .custom-button-dark-gold {
     transition: .5s ease-in-out;
     background-color: var(--clr-dark);
-    color: var(--clr-gold);
+    color: var(--clr-light);
     box-shadow: 0 0.2rem 1rem var(--clr-gold);
 }
 
@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5 {
 .custom-button-light-gold {
     transition: .5s ease-in-out;
     background-color: var(--clr-light);
-    color: var(--clr-gold);
+    color: var(--clr-dark);
     box-shadow: 0 0.2rem 1rem var(--clr-gold);
 }
 
