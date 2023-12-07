@@ -70,9 +70,148 @@ The following tests have been written for the ConfirmBookingView view.
 - test_admin_can_confirm_booking: Test that the admin can confirm a booking.
 - test_users_cant_confirm_bookings: Test that regular users can't confirm bookings.
 
-## User Testing
+## Manual Testing
 
+### User sign up
 
+Description:
+A user can sign up by accessing the sign-up form and entering their details.
+
+Steps:
+1. Go to the register page
+2. Enter the requested details
+3. Click Sign Up
+
+Expected: 
+- Email should be optional, but if entered a confirmation email should be received by the user
+- A username should be unique
+- A password should comply with the regulations
+- Send to account home upon successful sign-up
+
+Actual:
+As expected, error messages displayed when incorrect or invalid data entered, confirmation email received and redirected to account home.
+
+### User login 
+
+Description:
+A user can login with their account details and be redirected to the account home page, unless the "book a haircut" button directed them to the login page. Upon successful login a success message should be displayed to the user.
+
+Steps:
+1. 
+Expected:
+Actual:
+
+### User logout
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User book a haircut
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User view upcoming bookings
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User view past bookings
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User view booking details
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User update booking
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User delete booking
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User update email
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### User change password
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### Admin view upcoming bookings
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### Admin view past bookings
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### Admin confirm booking
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### Admin delete booking
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### Admin update booking
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### Admin search by date
+
+Description:
+Steps:
+Expected:
+Actual:
+
+### Admin search by username
+
+Description:
+Steps:
+Expected:
+Actual:
 
 ## Accessibility
 
