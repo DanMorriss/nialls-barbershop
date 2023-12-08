@@ -72,7 +72,7 @@ The following tests have been written for the ConfirmBookingView view.
 
 ## Manual Testing
 
-### User sign up
+### User: Sign Up
 
 Description:
 - A user can sign up by accessing the sign-up form and entering their details.
@@ -92,7 +92,7 @@ Expected:
 Actual:
 - As expected, error messages displayed when incorrect or invalid data entered, confirmation email received and redirected to account home.
 
-### User login 
+### User: Login 
 
 Description:
 - A user can login with their account details and be redirected to the account home page, unless the "book a haircut" button as clicked prior to login; in that case the user should be directed to the booking form.
@@ -110,7 +110,7 @@ Expected:
 Actual:
 - As expected
 
-### User logout
+### User: Logout
 
 Description:
 - The user can logout successfully.
@@ -126,7 +126,7 @@ Expected:
 Actual:
 - As expected
 
-### User book a haircut
+### User: Book a Haircut
 
 Description:
 - A logged in user can book a haircut
@@ -150,7 +150,7 @@ Actual:
 - As expected
 
 
-### User view upcoming bookings
+### User: View Upcoming Bookings
 
 Description:
 - The user can view all their upcoming bookings
@@ -170,7 +170,7 @@ Expected:
 Actual:
 - As expected
 
-### User view past bookings
+### User: View Past Bookings
 
 Description:
 - A user can view their past bookings
@@ -192,7 +192,7 @@ Expected:
 Actual:
 - As expected
 
-### User view booking details
+### User: View Booking Details
 
 Description:
 - A user can view the details of a booking
@@ -216,7 +216,7 @@ Expected:
 Actual:
 - As expected
 
-### User update booking
+### User: Update Booking
 
 Description:
 - A user can update their booking
@@ -237,7 +237,7 @@ Expected:
 Actual:
 - As expected
 
-### User delete booking
+### User: Delete Booking
 
 Description:
 - A user can delete their booking
@@ -254,75 +254,140 @@ Expected:
 Actual:
 - As expected
 
-### User update email
+### User: Update Email
 
 Description:
-
+- A user can update the email address associated with their account.
 
 Steps:
-
+- Click 'Update Email' from the Account section of the Account home page
+- Add a (new) email address in the add email field
+- Click 'Add email'
+- Check your inbox
+- Follow the verification link in the email
+- Click 'confirm'
+- Go back to the 'Update email' page
+- Select the (new) email address
+- Click 'make primary'
 
 Expected:
-
+- A success message to be shown when email confirmed
 
 Actual:
+- As expected
 
-
-### User change password
+### User: Change Password
 
 Description:
-Steps:
-Expected:
-Actual:
+- A user can up update the password associated with their account
 
-### Admin view upcoming bookings
+Steps:
+- Click 'Change Password' from the Account section of the Account home page
+- Type your current password
+- Type a new password 
+- Type the new password again
+- Click 'Change password'
+
+Expected:
+- A message saying 'Password successfully changed.' is displayed to the user
+
+Actual:
+- As expected
+
+### Admin: View Upcoming Bookings
 
 Description:
-Steps:
-Expected:
-Actual:
+- An admin user can view all upcoming bookings
 
-### Admin view past bookings
+Steps:
+1. Go to the My Account page
+2. View all the upcoming bookings
+
+Expected:
+- All bookings are in the future and include:
+    - Date
+    - Service name
+    - Time
+    - User
+    - Message icon (if a message is attached to the booking)
+    - Confirmation status
+- If more than 25 bookings have been made page pagination will be on display
+    - Next >>
+    - << Prev
+
+Actual:
+- As expected
+
+### Admin: View Past Bookings
 
 Description:
-Steps:
-Expected:
-Actual:
+- An admin user can view all past bookings
 
-### Admin confirm booking
+Steps:
+1. Go to the My Account page
+2. Click 'Past Bookings'
+3. View all the past bookings
+
+Expected:
+- All bookings are in the past and include:
+    - Date
+    - Service name
+    - Time
+    - User
+    - Message (if a message is attached to the booking)
+- If more than 25 bookings have been made page pagination will be on display
+    - Next >>
+    - << Prev
+
+### Admin: Confirm Booking
 
 Description:
-Steps:
-Expected:
-Actual:
+- An admin can confirm a booking for a user
 
-### Admin delete booking
+Steps:
+1. Click on a booking card with a confirmation status of 'Not yet confirmed' from the admin account home
+2. Click 'Confirm Booking'
+
+Expected:
+- The admin will be redirected to account home
+- A success message will be displayed
+- The booking status changes to 'Booking Confirmed'
+- A confirmation email will be send to the user (if an email address is associated with the account)
+
+Actual:
+- As expected
+
+### Admin: Search by date
 
 Description:
-Steps:
-Expected:
-Actual:
+- Admin users can search upcoming bookings by date
 
-### Admin update booking
+Steps:
+1. On the account home page in the search bookings section select a date from the date picker
+2. Click 'search'
+
+Expected:
+- The bookings on the selected date will be displayed
+- If no bookings are on the selected date 'No upcoming bookings' will be displayed
+
+Actual:
+- As expected
+
+### Admin: Search by Username
 
 Description:
+- Admin users can search upcoming bookings by username
+
 Steps:
+1. On the account home page in the search bookings section type a username (or part of a username)
+2. Click 'search'
+
 Expected:
+- The bookings for the user(s) with the entered username will be displayed
+- If no bookings are found 'No upcoming bookings' will be displayed
+
 Actual:
-
-### Admin search by date
-
-Description:
-Steps:
-Expected:
-Actual:
-
-### Admin search by username
-
-Description:
-Steps:
-Expected:
-Actual:
+- As expected
 
 ## Accessibility
 
