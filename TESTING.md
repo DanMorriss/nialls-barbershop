@@ -250,7 +250,9 @@ This had warnings about the use of let, but as this code came from the Code Inst
 ## Lighthouse Report
 
 Landing Page<br>
-![Lighthouse v1](media/lighthouse-landing.png)
+![Lighthouse](media/lighthouse-landing.png)
+Account Home<br>
+![Lighthouse](media/lighthouse-account-home.png)
 
 ## Responsiveness
 
