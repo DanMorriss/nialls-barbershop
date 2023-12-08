@@ -584,6 +584,7 @@ As well as automated tests you can find details on user testing in [TESTING.md](
 - Setting up email confirmation was causing an SMTPAuthenticationError. I needed to setup a special password that works with Django.
 - The CreateBooking class wasn't working. There was type in the form_class attribute. It was set to from_class.
 - The custom 400, 403 and 500 pages were not showing up on deployment. Once I removed the {% trans %} block inside the html template they worked.
+- The DeleteBookingView was not sending a confirmation email to the user. I needed to put the code in the delete method not the form_valid method.
 
 ## Deployment
 

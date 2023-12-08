@@ -252,13 +252,21 @@ Expected:
 - A confirmation email is sent to the user (if they have an email address attached to their account)
 
 Actual:
+- As expected
 
 ### User update email
 
 Description:
+
+
 Steps:
+
+
 Expected:
+
+
 Actual:
+
 
 ### User change password
 
