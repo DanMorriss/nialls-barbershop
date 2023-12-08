@@ -5,7 +5,7 @@
   <div class="d-flex justify-content-center push-down">
     <div class="card gold-shadow p-3 m-3 text-center w-75 pb-5">
       <div class="d-flex justify-content-end ">
-        <a href="{% url 'booking-home' %}" class="btn btn-outline-dark gold-shadow custom-close-btn" arila-label="close"><i class="fa-solid fa-scissors"></i></a>
+        <a href="{% url 'booking-home' %}" class="btn btn-outline-dark gold-shadow custom-close-btn" aria-label="close"><i class="fa-solid fa-scissors"></i></a>
       </div>
       <div>
         <h2 class="text-center">{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
@@ -37,12 +37,12 @@
          <a
           href="{% url 'booking-update' booking.id %}"
           class="btn custom-button-light-gold pt-3"
-          ><h5>Edit Appointment</h5></a
+          ><h4>Edit Appointment</h5></a
         > 
         <a
           href="{%  url 'booking-delete' booking.id  %}"
           class="btn custom-button-dark-gold pt-3 light-text"
-          ><h5>Cancel Appointment</h5></a
+          ><h4>Cancel Appointment</h5></a
         >
       </div>
     </div>
