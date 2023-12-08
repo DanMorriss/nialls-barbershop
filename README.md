@@ -535,6 +535,7 @@ The bootstrap grid system and flexbox was used to create a fully responsive layo
 - [Cloudinary](https://cloudinary.com/) for storing static data
 - [Chrome LightHouse extension](https://developer.chrome.com/docs/lighthouse/overview/) for testing performance
 - [TinyPNG](https://tinypng.com/) to compress the hero image for faster load time.
+- [Cloud Convertor](https://cloudconvert.com/) to convert png to WebP for lighthouse improvement.
 
 ### Python packages
 
