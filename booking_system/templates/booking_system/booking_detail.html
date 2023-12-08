@@ -8,7 +8,7 @@
         <a href="{% url 'booking-home' %}" class="btn btn-outline-dark gold-shadow custom-close-btn" arila-label="close"><i class="fa-solid fa-scissors"></i></a>
       </div>
       <div>
-        <h2 class="text-center light-text">{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
+        <h2 class="text-center">{{ booking.date_of_booking|date:"l j F Y" }}</h2><br>
       </div>
 
       {% if user.is_superuser %}

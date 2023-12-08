@@ -2,7 +2,7 @@
 
 :root {
     --clr-gold: #af7f1f;
-    --clr-light: #faf8f2;
+    --clr-light: #f5f4f0;
     --clr-dark: #212529;
 }
 
@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5 {
     color: var(--clr-gold)
 }
 
-.gold-footer-text {
+.gold-light-text {
     transition: .5s ease-in-out;
     color: #DFAD49;
 }

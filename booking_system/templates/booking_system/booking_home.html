@@ -28,7 +28,7 @@
                             <a href="{% url 'booking-detail' booking.id %}" class="link-underline link-underline-opacity-0">
                                 <div class="card gold-shadow m-3 text-center custom-button-light-gold">
                                     <div class="card-header dark-background">
-                                        <p class="p-0 m-0 font-sancreek fs-4">{{ booking.date_of_booking|date:"l j F Y" }}</p>
+                                        <p class="p-0 m-0 font-sancreek fs-4 light-text">{{ booking.date_of_booking|date:"l j F Y" }}</p>
                                     </div> 
                                     <h5 class="mt-3 fs-3">{{ booking.service_name }}</h5>
                                     <h5>{{ booking.start_time|date:"g:i a" }} </h5>
