@@ -285,6 +285,23 @@ class BookingDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Booking
     success_url = reverse_lazy('booking-home')
 
+    def form_valid(self, form):
+        if self.request.user.email:
+            service = form.instance.service_name
+            date = form.instance.date_of_booking
+            time = form.instance.start_time
+            email_subject = 'Booking cancelled'
+            user_email = form.instance.username.email
+            email_message = (f'{form.instance.username},\n\n'
+                             f'Your {service} on {date} '
+                             f'at {time} has been cancelled!\n\n'
+                             f'Sorry you cant make it, we hope to see you in '
+                             f'the future.'
+                             )
+            send_email_confirmation(user_email,
+                                    email_subject,
+                                    email_message)
+
     def delete(self, request, *args, **kwargs):
         messages.success(
             self.request,

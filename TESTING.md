@@ -75,7 +75,7 @@ The following tests have been written for the ConfirmBookingView view.
 ### User sign up
 
 Description:
-A user can sign up by accessing the sign-up form and entering their details.
+- A user can sign up by accessing the sign-up form and entering their details.
 
 Steps:
 1. Go to the register page
@@ -83,71 +83,174 @@ Steps:
 3. Click Sign Up
 
 Expected: 
+
 - Email should be optional, but if entered a confirmation email should be received by the user
 - A username should be unique
 - A password should comply with the regulations
 - Send to account home upon successful sign-up
 
 Actual:
-As expected, error messages displayed when incorrect or invalid data entered, confirmation email received and redirected to account home.
+- As expected, error messages displayed when incorrect or invalid data entered, confirmation email received and redirected to account home.
 
 ### User login 
 
 Description:
-A user can login with their account details and be redirected to the account home page, unless the "book a haircut" button directed them to the login page. Upon successful login a success message should be displayed to the user.
+- A user can login with their account details and be redirected to the account home page, unless the "book a haircut" button as clicked prior to login; in that case the user should be directed to the booking form.
+- Upon successful login a success message should be displayed to the user.
 
 Steps:
-1. 
+1. Go to the login page
+2. Enter username or email and password
+3. Click 'Sign In'
+
 Expected:
+- The user is directed to the account home page
+- A success message is displayed at the top of the screen saying "Successfully signed in as `username`
+
 Actual:
+- As expected
 
 ### User logout
 
 Description:
+- The user can logout successfully.
+
 Steps:
+1. Click the 'Logout' button from the navbar
+2. Click 'Sign Out'
+
 Expected:
+- The user is logged out and redirected to the landing page
+- A message is displayed saying "You have signed out"
+
 Actual:
+- As expected
 
 ### User book a haircut
 
 Description:
+- A logged in user can book a haircut
+
 Steps:
+1. Click a "book a haircut" button or select it from the navbar
+2. Select a date from the date picker
+3. Select a haircut from the dropdown menu
+4. Select a time from the dropdown menu
+5. Add a message (optional)
+6. Click 'Book'
+
 Expected:
+- If a past date is selected an error message is shown saying 'Please select a date in the future'
+- If a time in the past is shown an error message is shown saying 'Please select a time in the future'
+- The user is redirected to the account home page
+- The booking is displayed with the 'Not yet confirmed' message on the upcoming bookings section
+- An email confirmation is sent to the user (if they have an email address associated with their account)
+
 Actual:
+- As expected
+
 
 ### User view upcoming bookings
 
 Description:
+- The user can view all their upcoming bookings
+
 Steps:
+- Go to the My Account page from the navbar
+- See the bookings in the Upcoming Bookings section
+
 Expected:
+- All future bookings are displayed including:
+    - Date
+    - Service name
+    - Time
+    - Message icon (if a message is attached to the booking)
+    - Confirmation status
+
 Actual:
+- As expected
 
 ### User view past bookings
 
 Description:
+- A user can view their past bookings
+
 Steps:
+- From the My Account page click on the 'past bookings' button
+- View all past bookings
+
 Expected:
+- All past bookings are displayed including:
+    - Date
+    - Service name
+    - Time
+    - Message icon (if a message is attached to the booking)
+- If more than 25 bookings have been made page pagination will be on display
+    - Next >>
+    - << Prev
+
 Actual:
+- As expected
 
 ### User view booking details
 
 Description:
+- A user can view the details of a booking
+
 Steps:
+- From the My Account page click on a booking card
+- View the booking details
+
 Expected:
+- Details of the bookins will be shown:
+    - Date
+    - Service
+    - Start time
+    - End time
+    - Message (if there is one)
+    - Confirmation status
+- Modification buttons will be available for the user to:
+    - Edit Appointment
+    - Cancel Appointment
+
 Actual:
+- As expected
 
 ### User update booking
 
 Description:
+- A user can update their booking
+
 Steps:
+1. Click on 'Edit Appointment' from the booking detail page
+2. Update the booking details
+
 Expected:
+- The user cannot someone elses appointment
+- The user is taken a pre-populated booking from containing the boooking information
+- The user changes any of the information with the same stipulations as when creating a new booking
+- The user is redirected to the account home page
+- A success message is shown to the user
+- A confirmation email is sent to the user (if they have an email address attached to their account)
+- The status is reset to 'not yet confirmed'
+
 Actual:
+- As expected
 
 ### User delete booking
 
 Description:
+- A user can delete their booking
+
 Steps:
+1. Select 'Cancel Appointment' from the booking detail page
+2. Select 'Yes, delete my booking'
+
 Expected:
+- The user is redirected to the account home page
+- A message saying 'Your booking has been successfully deleted' is displayed to the user
+- A confirmation email is sent to the user (if they have an email address attached to their account)
+
 Actual:
 
 ### User update email
