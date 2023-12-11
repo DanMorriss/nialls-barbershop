@@ -180,8 +180,8 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 
 **Relevant Content**<br>
 - Make sure all the available haircut services are listed on the site.
-- Display a map to the barbershop.
-- Display only available time slots when booking a service.
+- Display the barbershop address so users can find it.
+- Only allow users to book available time slots.
 
 **Responsiveness**<br>
 - Create a responsive website that works on every device and screen size.<br><br>
@@ -251,17 +251,17 @@ The landing page is divided into 4 sections:
 - Services section
 - Contact Section
 
-The main landing page has hero image with moving, interactive logo to spark the users interest right away.<br>
+The main landing page has hero image with moving, interactive logo to spark the users interest right away.<br><br>
 <img src="media/interactive-logo.gif" alt="Video of the interactive logo"><br>
 
-Below the hero image is an about section giving the user some information about the barbershop.<br>
+Below the hero image is an about section giving the user some information about the barbershop.<br><br>
 <img src="media/about-section.png" alt="Image of the about section"><br>
 
 Below the about section is some information on the different services available. Each one can be clicked on and a modal appears with more information about that service including a 'Book a Haircut' button.
-The information on the different services is taken from the database, so an admin user can update it from the django admin panel.<br>
+The information on the different services is taken from the database, so an admin user can update it from the django admin panel.<br><br>
 <img src="media/haircut-popup.gif" alt="Video of the services list and modal"><br>
 
-At the bottom of the landing page is a contact section with address, opening times and a 'Book a Haircut' button.<br>
+At the bottom of the landing page is a contact section with address, opening times and a 'Book a Haircut' button.<br><br>
 <img src="media/contact-section.png" alt="Image of the contact section"><br>
 
 If the user is logged in, the 'Book a Haircut' buttons will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
@@ -270,14 +270,12 @@ If the user is logged in, the 'Book a Haircut' buttons will take them to the boo
 
 <img src="media/sign-up-page.png" alt="Image of the signup page" width="60%"><br>
 
-This page uses the allauth page as a base with custom design added.
+This page uses the allauth template as a base with custom design added.
 The username and password fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
 - Creating a booking
 - Updating a booking
 - Deleting a booking
 - An admin confirming a booking
-
-<img src="media/booking-a-haircut.gif" alt="Video of the booking form being filled out causing an error."><br>
 
 ##### Sign In Page
 
@@ -317,8 +315,6 @@ The account home page for an Admin user has the addition of a Search Bookings pa
 - Username
 
 If the number of bookings exceeds 25 the page paginates.<br>
-
-<img src="media/" alt="Image of page pagination controls"><br>
 
 ##### Booking Form
 

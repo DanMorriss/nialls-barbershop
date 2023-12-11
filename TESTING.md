@@ -393,7 +393,7 @@ Actual:
 
 [Wave Accessibility](https://wave.webaim.org/) tool was used throughout development and for final testing of the deployed website to check for any aid accessibility testing.
 
-![Wave Testing](medai/wave-validation.png)
+![Wave Testing](media/wave-validation.png)
 
 Testing was focused to ensure the following criteria were met:
 
