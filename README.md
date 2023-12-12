@@ -162,7 +162,6 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 
 |EPIC|User Story|Description|
 |:--|:--|:--|
-|**Project Setup**|||
 |Navigation|Navbar|As a developer I need to create a navbar so that users can navigate the site.|
 |CRUD|View upcoming bookings|"As a barber I can see all the upcoming appointments so that I know what work I have coming up.|
 |Navigation|Footer|As a developer I need to create a footer so that users can find more information about the site.|
@@ -268,6 +267,7 @@ There are also 2 pages available to users who aren't singed in:
 - Create Account
 - Login
 
+[Back to Top](#overview)
 
 #### Navigation
 
@@ -649,6 +649,7 @@ The bootstrap grid system and flexbox was used to create a fully responsive layo
 - [Chrome LightHouse extension](https://developer.chrome.com/docs/lighthouse/overview/) for testing performance
 - [TinyPNG](https://tinypng.com/) to compress the hero image for faster load time.
 - [Cloud Convertor](https://cloudconvert.com/) to convert png to WebP for lighthouse improvement.
+- [GitHub Wiki TOC Generator](https://ecotrust-canada.github.io/markdown-toc/) to create a table of contents in the .MD files.
 
 [Back to Top](#overview)
 
