@@ -7,6 +7,9 @@ Automated unit tests have been written and used, they can all be found in the fo
  - booking_system > test_views.py
  - home > test_views.py
 
+ The following command will run the tests: <br>
+ `python3 manage.py test`
+
 ### TestBookingForm
 
 The following tests have been written for the BookingForm class:

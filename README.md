@@ -67,6 +67,8 @@ The user is notified of any change to their account or booking with an alert box
 The user can see their past bookings and is notified when the booking has been conformed by the barber.
 The admin users have extra functionality, being able to search bookings by date and username.
 
+[Back to Top](#overview)
+
 ## UX
 This site was created according to the Five Planes Of Website Design:<br>
 ### 1. Strategy
@@ -126,6 +128,9 @@ The project objectives can be broken into Epics and then further into User Stori
   - Readme
 
 <br>
+
+[Back to Top](#overview)
+
 
 **Agile Methodology**<br><br>
 This project was developed using the Agile methodology.<br>
@@ -221,9 +226,13 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 |Testing|Manual Testing|As a developer I need to manually test the site to make sure everything works properly for the user.|
 </details><br>
 
+[Back to Top](#overview)
+
 ### 2. Scope
 <hr>
-**Simple and Intuitive UX**<br>
+
+**Simple and Intuitive UX**
+<br>
 - Create a website that portrays the mood and feel of the barbershop.
 - Create a responsive navigation menu.
 - Create a footer with social links.
@@ -238,6 +247,8 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 
 **Responsiveness**<br>
 - Create a responsive website that works on every device and screen size.<br><br>
+
+[Back to Top](#overview)
 
 ### 3. Structure
 <hr>
@@ -286,6 +297,8 @@ On smaller screen sizes a hamburger menu is displayed with a smooth dropdown eff
 Each of the links had a hover effect where the color smoothly changes to indicate to the user it is an active link.<br>
 <img src="media/nav-hover.gif" alt="Video of the hover effect in the navbar"><br>
 
+[Back to Top](#overview)
+
 #### Footer
 
 The footer is the same across all the pages and includes:
@@ -294,6 +307,8 @@ The footer is the same across all the pages and includes:
 
 The active links have a hover effect where the color slowly changes from gold to white indicating to the user that the link is active.<br>
 <img src="media/footer-hover.gif" alt="Video of the footer" width="100%"><br>
+
+[Back to Top](#overview)
 
 #### Pages
 
@@ -320,6 +335,8 @@ At the bottom of the landing page is a contact section with address, opening tim
 
 If the user is logged in, the 'Book a Haircut' buttons will take them to the booking form. If the user isn't logged in they are redirected to the sign in page before arriving at the booking form.
 
+[Back to Top](#overview)
+
 ##### Sign Up Page
 
 <img src="media/sign-up-page.png" alt="Image of the signup page" width="60%"><br>
@@ -331,12 +348,16 @@ The username and password fields are mandatory but the email is optional. If the
 - Deleting a booking
 - An admin confirming a booking
 
+[Back to Top](#overview)
+
 ##### Sign In Page
 
 <img src="media/log-in-page.png" alt="Image of the login page" width="60%"><br>
 
 This page uses the allauth page as a base with custom design added. It allows the user to sign in with either their username or email address (if they provided one).
 It also includes a remember me button to make using the site in future easer, and a reset password link that will send the user a password reset email if they included an email when signing up.
+
+[Back to Top](#overview)
 
 ##### Account Home Page
 
@@ -362,6 +383,8 @@ The card has a hover effect to indicate that it is a clickable link taking the u
 
 The bookings are displayed in order starting from the one closest to the current date and time, descending as you go down the page. There is a link to view past bookings at the top of the list of bookings.
 
+[Back to Top](#overview)
+
 ##### Admin Account Home Page
 <img src="media/search-bookings.png" alt="Image of the admin search panel" width="60%"><br>
 The account home page for an Admin user has the addition of a Search Bookings panel giving the admin user the ability to search by:
@@ -369,6 +392,8 @@ The account home page for an Admin user has the addition of a Search Bookings pa
 - Username
 
 If the number of bookings exceeds 25 the page paginates.<br>
+
+[Back to Top](#overview)
 
 ##### Booking Form
 
@@ -386,6 +411,8 @@ The form has built in validation alerting the user when an error has been made o
 Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.<br>
 
 <img src="media/booking-a-haircut.gif" alt="Video of the booking form being filled out and causing an error"><br>
+
+[Back to Top](#overview)
 
 ##### Booking Detail Page
 If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
@@ -406,14 +433,20 @@ User's View<br>
 Admin's View<br>
 <img src="media/admin-booking-detail.png" alt="Image of the admin booking detail page" width="70%"><br>
 
+[Back to Top](#overview)
+
 ##### Update Booking Page
 
 If the user clicks on the edit appointment button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
 If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
 
+[Back to Top](#overview)
+
 ##### Confirm Delete Booking Page
 <img src="media/confirm-delete-booking.png" alt="Image of the confirm delete page" width="60%"><br>
 If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
+
+[Back to Top](#overview)
 
 #### Sitemap
 The project flowcharts for the site structure was created using [LucidChart](https://www.lucidchart.com/).
@@ -421,6 +454,8 @@ The project flowcharts for the site structure was created using [LucidChart](htt
 <summary>Sitemap:</summary>
 <img src="media/sitemap2.png"><br>
 </details>
+
+[Back to Top](#overview)
 
 ### 4. Skeleton
 <hr>
@@ -443,6 +478,8 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
   <img src="media/database-schema2.png"><br>
 </details><br>
 
+[Back to Top](#overview)
+
 ### 5. Surface<hr>
 
 #### Color Scheme and Fonts
@@ -459,6 +496,8 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
   - #faf8f2 --clr-dark
 
 <img src="media/color-palette2.png" width="60%">
+
+[Back to Top](#overview)
 
 #### Visual Effects
 
@@ -482,6 +521,8 @@ Booking Details Close Button<br>
 Rotating Outer Logo with spinning effect when hovered<br>
 <img src="media/interactive-logo.gif" width="40%"><br>
 
+[Back to Top](#overview)
+
 ## Features
 
 ### Existing Features
@@ -492,6 +533,8 @@ On the homepage the Services section includes a list of services taken from the 
 - Description
 - Cost
 - A book haircut button
+
+[Back to Top](#overview)
 
 #### Book a haircut
 The booking form has 4 inputs:
@@ -507,6 +550,8 @@ The form has built in validation alerting the user when an error has been made o
 
 Once a successful booking has been made the user is taken back to the account home page and a success message is displayed at the top that disappears after 5 seconds. The booking will be displayed on the account home page for the user to see, but it will have a 'Not Yet Confirmed' message until an admin logs in and confirms the booking is okay.
 
+[Back to Top](#overview)
+
 ##### Booking List
 Each booking is displayed on a card on the account home page and contains:
 - The date
@@ -514,6 +559,8 @@ Each booking is displayed on a card on the account home page and contains:
 - The time of the booking
 - If the user added a message, a message icon
 - The confirmation status of the booking
+
+[Back to Top](#overview)
 
 ##### Booking Detail Page
 If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
@@ -529,17 +576,25 @@ If a user clicks on a booking from the account home page they are taken to the a
 - A cancel appointment button
 - A close button
 
+[Back to Top](#overview)
+
 ##### Update Booking Page
 If the user clicks on the edit appointment button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
 If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
 
+[Back to Top](#overview)
+
 ##### Confirm Delete Booking Page
 If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
+
+[Back to Top](#overview)
 
 ##### Admin Search Panel
 Admin users have a Search Bookings panel on the account home page giving the admin user the ability to search by:
 - Date of booking
 - Username
+
+[Back to Top](#overview)
 
 ##### Update Email
 Users can update the email address attached to their account from the account panel in the account home page. They can:
@@ -547,13 +602,19 @@ Users can update the email address attached to their account from the account pa
 - Remove an email address
 - Make an email address primary
 
+[Back to Top](#overview)
+
 ##### Change Password
 Users can change their password from the account panel in the account home page.
+
+[Back to Top](#overview)
 
 ### Potential Future Features
 - Allow admin users to edit the services from the account home rather than from the django backend panel
 - Social media signup
 - Add profile section where users can add a profile picture and update their username
+
+[Back to Top](#overview)
 
 ## Responsive Layout and Design
 The bootstrap grid system and flexbox was used to create a fully responsive layout and testing on multiple screen sizes and devices was carried out to make sure it each page looks good in many settings.
@@ -564,6 +625,7 @@ The bootstrap grid system and flexbox was used to create a fully responsive layo
 - MacBook Pro
 - Samsung Galaxy Z flip 5
 
+[Back to Top](#overview)
 
 ## Tools Used
 
@@ -588,6 +650,8 @@ The bootstrap grid system and flexbox was used to create a fully responsive layo
 - [TinyPNG](https://tinypng.com/) to compress the hero image for faster load time.
 - [Cloud Convertor](https://cloudconvert.com/) to convert png to WebP for lighthouse improvement.
 
+[Back to Top](#overview)
+
 ### Python packages
 
 - [Django](https://www.djangoproject.com/) was used as the framework for the site.
@@ -609,6 +673,18 @@ To stop running the environment simply type the command... <br>
 To create the requirements.txt file I ran the following command:<br>
 `pip3 freeze > requirements.txt`
 
+To create a superuser the following command should be run: <br>
+`python3 manage.py createsuperuser`
+
+To run the migrations to the database the following commands are used:<br>
+`python3 manage.py makemigrations` <br>
+`python3 manage.py migrate`
+
+To collect the static files for deployment run the following command: <br>
+`python3 manage.py collectstatic`
+
+[Back to Top](#overview)
+
 ## Testing
 
 Tests were written using Django's test suite and can be found in the following locations:
@@ -617,6 +693,8 @@ Tests were written using Django's test suite and can be found in the following l
  - home > test_views.py
 
 As well as automated tests you can find details on user testing in [TESTING.md](TESTING.md).
+
+[Back to Top](#overview)
 
 ## Bugs
 
@@ -637,6 +715,8 @@ As well as automated tests you can find details on user testing in [TESTING.md](
 - The custom 400, 403 and 500 pages were not showing up on deployment. Once I removed the {% trans %} block inside the html template they worked.
 - The DeleteBookingView was not sending a confirmation email to the user. I needed to put the code in the delete method not the form_valid method.
 
+[Back to Top](#overview)
+
 ## Deployment
 
 ### ElephantSQL
@@ -649,13 +729,17 @@ As well as automated tests you can find details on user testing in [TESTING.md](
   - Go back to the ElephantSQL Dashboard click on the database instance name
   - Copy the *ElephantSQL Database URL* to add to Heroku
 
+[Back to Top](#overview)
+
 ### Cloudinary
   - Log into [Cloudinary]()
   - Go to the *Dashboard*
   - Copy the *API Environment variable* to add to Heroku
 
+[Back to Top](#overview)
+
 ### Heroku
-  - Go to the Heroku website (https://www.heroku.com/) 
+  - Go to the [Heroku](https://www.heroku.com/) website 
   - Login to Heroku and choose *Create App* 
   - Click *New* and *Create a new app*
   - Choose a name and select your location
@@ -673,11 +757,15 @@ As well as automated tests you can find details on user testing in [TESTING.md](
   - Go to the Deploy tab.
   - Choose the main branch for deploying and enable automatic deployment 
   - Select manual deploy for building the App 
-    
+
+[Back to Top](#overview)
+
 ### Fork the repository
 For creating a copy of the repository on your account and change it without affecting the original project, use<b>Fork</b> directly from GitHub:
 - On [My Repository Page](https://github.com/DanMorriss/nialls-barbershop), press <i>Fork</i> in the top right of the page
 - A forked version of my project will appear in your repository<br></br>
+
+[Back to Top](#overview)
 
 ### Clone the repository
 For creating a clone of the repository on your local machine, use<b>Clone</b>:
@@ -700,6 +788,8 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 - Add the following files to it:
   - env.py
   - venv/
+
+[Back to Top](#overview)
 
 ## Credits
 
@@ -725,6 +815,8 @@ The logo was designed and created using [Canva](https://www.canva.com/en_gb/).
 - This video by [BuyBytes](https://www.youtube.com/watch?v=8xb9s3jnRF8) of using a Form Wizard was useful, even though I didn't end up using it in the final deployment.
 - This video from [Corey Schafer](https://www.youtube.com/watch?v=Kg1Yvry_Ydk) on using venv was great for understanding virtual environments.
 
+[Back to Top](#overview)
+
 ## Acknowledgements
 
 - Roman Rakic for his help on Slack with linking up my urls.
@@ -732,3 +824,5 @@ The logo was designed and created using [Canva](https://www.canva.com/en_gb/).
 - Precious Ijege my Code Institute mentor.
 - Kent Yates for testing my application and supplying moral support.
 - Selina Sheerin for her continued encouregment and keen eye for spelling and grammar mistakes. 
+
+[Back to Top](#overview)
