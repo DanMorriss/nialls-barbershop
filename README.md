@@ -11,9 +11,9 @@ The web application allows users to create an account, login and create a bookin
 
 * [Overview](#overview)
 * [UX](#ux)
-  + [1. Strategy<hr>](#1-strategy-hr-)
-  + [2. Scope<hr>](#2-scope-hr-)
-  + [3. Structure<hr>](#3-structure-hr-)
+  + [1. Strategy](#1-strategy)
+  + [2. Scope](#2-scope)
+  + [3. Structure](#3-structure)
     - [Navigation](#navigation)
     - [Footer](#footer)
     - [Pages](#pages)
@@ -27,8 +27,8 @@ The web application allows users to create an account, login and create a bookin
       * [Update Booking Page](#update-booking-page)
       * [Confirm Delete Booking Page](#confirm-delete-booking-page)
     - [Sitemap](#sitemap)
-  + [4. Skeleton<hr>](#4-skeleton-hr-)
-  + [5. Surface<hr>](#5-surface-hr-)
+  + [4. Skeleton](#4-skeleton)
+  + [5. Surface](#5-surface)
     - [Color Scheme and Fonts](#color-scheme-and-fonts)
     - [Visual Effects](#visual-effects)
 * [Features](#features)
@@ -69,7 +69,8 @@ The admin users have extra functionality, being able to search bookings by date 
 
 ## UX
 This site was created according to the Five Planes Of Website Design:<br>
-### 1. Strategy<hr>
+### 1. Strategy
+<hr>
 
 To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login, book and update an appointment. 
 
@@ -220,7 +221,8 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 |Testing|Manual Testing|As a developer I need to manually test the site to make sure everything works properly for the user.|
 </details><br>
 
-### 2. Scope<hr>
+### 2. Scope
+<hr>
 **Simple and Intuitive UX**<br>
 - Create a website that portrays the mood and feel of the barbershop.
 - Create a responsive navigation menu.
@@ -237,7 +239,8 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 **Responsiveness**<br>
 - Create a responsive website that works on every device and screen size.<br><br>
 
-### 3. Structure<hr>
+### 3. Structure
+<hr>
 The website is designed with the user in mind and once the user is logged in they have access to 7 different pages:
 - Landing page
   - About
@@ -419,7 +422,8 @@ The project flowcharts for the site structure was created using [LucidChart](htt
 <img src="media/sitemap2.png"><br>
 </details>
 
-### 4. Skeleton<hr>
+### 4. Skeleton
+<hr>
 **Wireframes**
 
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
