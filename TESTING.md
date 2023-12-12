@@ -776,18 +776,25 @@ All lighthouse reports for all pages came back with a score of at least 91, you 
 
 Landing Page<br>
 ![Lighthouse Landing Page](media/lighthouse-landing.png)
+
 Account Home<br>
 ![Lighthouse Account Home](media/lighthouse-account-home.png)
+
 Booking Detail<br>
 ![Lighthouse Booking Detail](media/lighthouse-booking-detail.png)
+
 Booking Form<br>
 ![Lighthouse Booking Form](media/lighthouse-booking-form.png)
+
 Logout<br>
 ![Lighthouse Logout](media/lighthouse-logout.png)
+
 Sign Up<br>
 ![Lighthouse Sign Up](media/lighthouse-signup.png)
+
 Log In<br>
 ![Lighthouse Log In](media/lighthouse-login.png)
+
 
 [Back to Top](#testing)
 
