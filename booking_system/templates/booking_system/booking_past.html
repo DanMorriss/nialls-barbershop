@@ -15,7 +15,6 @@
             {% for booking in object_list %}
             <div>
                 <div class="d-flex justify-content-center ">
-
                     <div class="card shadow m-3 text-center custom-card-light-gold">
                         <div class="card-header dark-background gold-text">
                             <p class="p-0 m-0 font-sancreek fs-4">{{ booking.date_of_booking|date:"l j F Y" }}</p>
@@ -29,12 +28,9 @@
                             <p><i class="fa-regular fa-comment"></i> {{ booking.message }}</p>
                             {% endif %}
                         </p>
-                        
                     </div>
- 
-            </div>       
+                </div>       
             </div>
-            
             {% endfor %}
 
             <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
@@ -47,13 +43,11 @@
         <div class='d-flex justify-content-center '>
             <div class="card shadow p-3 m-3 text-center w-75">
                 <p class="pt-3">No previous apppointments.</p> 
-                
                 <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
                     <div class="d-flex justify-content-center p-3">
                         <button class="btn custom-button-dark-gold pt-3 " type="button"><h2>Book An Appointment</h2></button>
                     </div>
                 </a>
-
             </div>
         </div>
         {% endif %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}{% load account %}
 {% block content %}
+
 <div class="container mt-5">
-<!-- might need to use object. instead of booking. -->
     <div class="m-3 text-center">
         <form method="POST" action="{% url 'booking-delete' booking.id %}" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
             <h1 class="text-center pt-5">Confirm Booking</h1>
