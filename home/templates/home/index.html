@@ -1,134 +1,183 @@
-{% extends "base.html" %} {% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
 <!-- Hero Image -->
 <div class="hero-container">
-    <div class="hero-image d-flex justify-content-center align-items-center">
-        <div class="logo-div d-flex justify-content-center align-items-center">
-            <img src="{% static 'images/nialls-barbershop-logo-700x700.png' %}" alt="Niall's Barbershop Logo" class="logo">
-            <img src="{% static 'images/outer-logo-shell-700x700.png' %}" alt="Niall's Barbershop Logo casing" class="outer-logo-shell">
-        </div>
+  <div class="hero-image d-flex justify-content-center align-items-center">
+    <div class="logo-div d-flex justify-content-center align-items-center">
+      <img
+        src="{% static 'images/nicks-barbershop-logo.png' %}"
+        alt="Nick's Barbershop Logo"
+        class="logo"
+      />
+      <img
+        src="{% static 'images/outer-logo-shell-700x700.png' %}"
+        alt="Niall's Barbershop Logo casing"
+        class="outer-logo-shell"
+      />
     </div>
+  </div>
 </div>
 
 <!-- About -->
 <div id="about" class="container mt-5 text-center">
+  <div class="container heading">
+    <hr />
+    <h1 class="text-uppercase">Welcome to Nick's Barbershop</h1>
+    <hr />
+  </div>
 
-    <div class="container heading">
-        <hr>
-        <h1 class="text-uppercase">Welcome to Niell's Barbershop</h1>
-        <hr>
+  <p class="fs-4">
+    Your Premier Destination for Grooming Excellence in the heart of New Town,
+    Marlborough
+  </p>
+  <div class="row">
+    <div class="col-sm p-3 m-2">
+      <h2 class="fw-bold fs-5">Masterful Craftmanship</h2>
+      <p>Nick's barbershop is a fictional barbers based in Marlborugh.</p>
     </div>
 
-    <p class="fs-4">Your Premier Destination for Grooming Excellence in the heart of Old Town, Swindon</p>
-    <div class="row">
-        <div class="col-sm p-3 m-2">
-            <h2 class="fw-bold fs-5">Masterful Craftmanship</h2> 
-            <p>After completing his NVQ is barbering, Neill spend 2 years honing his craft in Marlborough before opening his own barbershop.</p>
-        </div>
-    
-        <div class="col-sm p-3 m-2">
-            <h2 class="fw-bold fs-5">Personalized Services</h2> 
-            <p>All services are tailored to your individual preferences, whether it's a classic cut, a modern style, or a beard grooming masterpiece.</p>
-        </div>
+    <div class="col-sm p-3 m-2">
+      <h2 class="fw-bold fs-5">Personalized Services</h2>
+      <p>
+        All services are tailored to your individual preferences, whether it's a
+        classic cut, a modern style, or a beard grooming masterpiece.
+      </p>
     </div>
-    <div class="row">
-        <div class="col-sm p-3 m-2">
-            <h2 class="fw-bold fs-5">Cutting-Edge Techniques</h2> 
-            <p>He stays at the forefront of the industry, incorporating the latest trends and technologies to give you the best possible grooming experience.</p>
-        </div>
-        <div class="col-sm p-3 m-2">
-            <h2 class="fw-bold fs-5">Quality Products</h2> 
-            <p>He only use top-tier grooming products to ensure you get the best results and maintain your look long after you leave his chair.</p>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-sm p-3 m-2">
+      <h2 class="fw-bold fs-5">Cutting-Edge Techniques</h2>
+      <p>
+        Nick stays at the forefront of the industry, incorporating the latest
+        trends and technologies to give you the best possible grooming
+        experience.
+      </p>
     </div>
+    <div class="col-sm p-3 m-2">
+      <h2 class="fw-bold fs-5">Quality Products</h2>
+      <p>
+        He only use top-tier grooming products to ensure you get the best
+        results and maintain your look long after you leave his chair.
+      </p>
+    </div>
+  </div>
 </div>
 
 <!-- Haircuts -->
 <div id="haircuts" class="dark-background text-center p-5 fill-width">
-    <div class="container heading light-text">
-        <hr>
-        <h2 class="fs-1 text-uppercase gold-text">Haircuts</h2>
-        <hr>
+  <div class="container heading light-text">
+    <hr />
+    <h2 class="fs-1 text-uppercase gold-text">Haircuts</h2>
+    <hr />
+  </div>
+  <div class="container light-text">
+    <p>
+      Your haircut is a statement of style and individuality. Nick is passionate
+      about delivering more than just a haircut; he creates an experience
+      tailored to you. Explore the diverse range of haircut services below and
+      book your appointment for an unparalleled grooming experience at Nick's
+      Barbershop.
+    </p>
+    <div aria-label="Hand pointing dowan towards the services list.">
+      <i class="fa-solid fa-hand-point-down fs-1 gold-text"></i>
     </div>
-    <div class="container light-text">
-        <p>Your haircut is a statement of style and individuality. Niall is passionate about delivering more than just a haircut; he creates an experience tailored to you. Explore the diverse range of haircut services below and book your appointment for an unparalleled grooming experience at Niall's Barbershop.</p>
-        <div aria-label="Hand pointing dowan towards the services list.">
-            <i class="fa-solid fa-hand-point-down fs-1 gold-text"></i>
-        </div>
-    </div>
+  </div>
 
-    <!-- Button to trigger modal -->
-    <div class="row justify-content-center">
+  <!-- Button to trigger modal -->
+  <div class="row justify-content-center">
     {% for service in services%}
-        <div class="col-md-5 pt-3 pt-md-5">
-            <button type="button" class="open-haircut-modal-btn p-4 fs-3" data-bs-toggle="modal" data-bs-target="#serviceModal{{ service.id}}">
-            {{ service.service_name}}
+    <div class="col-md-5 pt-3 pt-md-5">
+      <button
+        type="button"
+        class="open-haircut-modal-btn p-4 fs-3"
+        data-bs-toggle="modal"
+        data-bs-target="#serviceModal{{ service.id}}"
+      >
+        {{ service.service_name}}
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="serviceModal{{ service.id}}"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel{{ service.id}}"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel{{ service.id}}">
+              {{ service.service_name }}
+            </h1>
+            <button
+              type="button"
+              class="btn custom-close-btn"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="fa-solid fa-scissors"></i>
             </button>
+          </div>
+
+          <div class="modal-body">
+            <p>{{ service.description }}</p>
+            <p>£{{ service.cost }}</p>
+          </div>
+
+          <div class="modal-footer justify-content-center">
+            <a
+              href="{% url 'booking-create' %}"
+              class="btn custom-button-dark-gold font-sancreek fs-4"
+              >Book a cut</a
+            >
+          </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="serviceModal{{ service.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{ service.id}}" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel{{ service.id}}">{{ service.service_name }}</h1>
-                        <button type="button" class="btn custom-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-scissors"></i></button>
-                    </div>
-
-                    <div class="modal-body">
-                        <p>{{ service.description }}</p>
-                        <p>£{{ service.cost }}</p>
-                    </div>
-
-                    <div class="modal-footer justify-content-center ">
-                        <a href="{% url 'booking-create' %}"  class="btn custom-button-dark-gold font-sancreek fs-4">Book a cut</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+      </div>
+    </div>
 
     {% endfor %}
-    </div>
-    
+  </div>
 </div>
 
 <!-- Contact -->
 <div id="contact" class="container mt-5 text-center">
+  <div class="container heading">
+    <hr />
+    <h1 class="text-uppercase">Contact</h1>
+    <hr />
+  </div>
 
-    <div class="container heading">
-        <hr>
-        <h1 class="text-uppercase">Contact</h1>
-        <hr>
+  <p class="fs-4">
+    You can find the shop in the heart of New Town, Marlborough. We're open
+    Monday to Saturday, pop in to say hey or get in touch below!
+  </p>
+  <div class="row">
+    <div class="col-sm p-3 m-2">
+      <h2 class="fw-bold fs-5">Opening Hours</h2>
+      <p>Monday: 9am - 5pm</p>
+      <p>Tuesday: 9am - 5pm</p>
+      <p>Wednesday: 9am - 5pm</p>
+      <p>Thursday: 9am - 5pm</p>
+      <p>Friday: 9am - 5pm</p>
+      <p>Saturday: 9am - 5pm</p>
+      <p>Sunday: 9am - 5pm</p>
     </div>
 
-    <p class="fs-4">You can find the shop in the heart of Old Town, Swindon. We're open Monday to Saturday, pop in to say hey or get in touch below!</p>
-    <div class="row">
-        <div class="col-sm p-3 m-2">
-            <h2 class="fw-bold fs-5">Opening Hours</h2> 
-            <p>Monday: 9am - 5pm</p>
-            <p>Tuesday: 9am - 5pm</p>
-            <p>Wednesday: 9am - 5pm</p>
-            <p>Thursday: 9am - 5pm</p>
-            <p>Friday: 9am - 5pm</p>
-            <p>Saturday: 9am - 5pm</p>
-            <p>Sunday: 9am - 5pm</p>
+    <div class="col-sm p-3 m-2">
+      <h2 class="fw-bold fs-5">Come Visit Us</h2>
+      <p>16 New Town<br />Marlborough<br />SN8 4BN</p>
+      <a
+        href="{% url 'booking-create' %}"
+        class="link-underline link-underline-opacity-0"
+      >
+        <div class="btn custom-button-dark-gold pt-3 haircut-hover">
+          <h2>Book a Haircut</h2>
         </div>
-    
-        <div class="col-sm p-3 m-2">
-            <h2 class="fw-bold fs-5">Come Visit Us</h2> 
-            <p>Unit 1,<br>The Arcade,<br>29c Wood Street,<br>Swindon<br>SN1 4AN</p>
-            <a href="{% url 'booking-create' %}" class="link-underline link-underline-opacity-0">
-                <div class="btn custom-button-dark-gold pt-3 haircut-hover">
-                    <h2>Book a Haircut</h2>
-                </div>
-            </a>
-        </div>
+      </a>
     </div>
-    
+  </div>
 </div>
-
 
 {% endblock %}

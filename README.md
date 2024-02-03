@@ -1,80 +1,85 @@
-# Niall's Barbershop 
+# Nick's Barbershop
+
 <img src="media/mockup.png" ><br>
+
 - [Live Site](https://niallsbarbershop-e4e7dc2878db.herokuapp.com/)
 - [GitHub Repo](https://github.com/DanMorriss/nialls-barbershop)
 
-Niall's Barbershop is a website with a booking system for a Barber Shop in Swindon, Wiltshire. 
+Nick's Barbershop is a website with a booking system for a fictional Barber Shop in New Town, Marlborough.
 The web application allows users to create an account, login and create a booking.
 <br>
 
 ## Table of contents
 
-* [Overview](#overview)
-* [UX](#ux)
-  + [1. Strategy](#1-strategy)
-  + [2. Scope](#2-scope)
-  + [3. Structure](#3-structure)
+- [Overview](#overview)
+- [UX](#ux)
+  - [1. Strategy](#1-strategy)
+  - [2. Scope](#2-scope)
+  - [3. Structure](#3-structure)
     - [Navigation](#navigation)
     - [Footer](#footer)
     - [Pages](#pages)
-      * [Landing Page](#landing-page)
-      * [Sign Up Page](#sign-up-page)
-      * [Sign In Page](#sign-in-page)
-      * [Account Home Page](#account-home-page)
-      * [Admin Account Home Page](#admin-account-home-page)
-      * [Booking Form](#booking-form)
-      * [Booking Detail Page](#booking-detail-page)
-      * [Update Booking Page](#update-booking-page)
-      * [Confirm Delete Booking Page](#confirm-delete-booking-page)
+      - [Landing Page](#landing-page)
+      - [Sign Up Page](#sign-up-page)
+      - [Sign In Page](#sign-in-page)
+      - [Account Home Page](#account-home-page)
+      - [Admin Account Home Page](#admin-account-home-page)
+      - [Booking Form](#booking-form)
+      - [Booking Detail Page](#booking-detail-page)
+      - [Update Booking Page](#update-booking-page)
+      - [Confirm Delete Booking Page](#confirm-delete-booking-page)
     - [Sitemap](#sitemap)
-  + [4. Skeleton](#4-skeleton)
-  + [5. Surface](#5-surface)
+  - [4. Skeleton](#4-skeleton)
+  - [5. Surface](#5-surface)
     - [Color Scheme and Fonts](#color-scheme-and-fonts)
     - [Visual Effects](#visual-effects)
-* [Features](#features)
-  + [Existing Features](#existing-features)
+- [Features](#features)
+  - [Existing Features](#existing-features)
     - [Haircut Information Modal](#haircut-information-modal)
     - [Book a haircut](#book-a-haircut)
-      * [Booking List](#booking-list)
-      * [Booking Detail Page](#booking-detail-page-1)
-      * [Update Booking Page](#update-booking-page-1)
-      * [Confirm Delete Booking Page](#confirm-delete-booking-page-1)
-      * [Admin Search Panel](#admin-search-panel)
-      * [Update Email](#update-email)
-      * [Change Password](#change-password)
-  + [Potential Future Features](#potential-future-features)
-* [Responsive Layout and Design](#responsive-layout-and-design)
-* [Tools Used](#tools-used)
-  + [Python packages](#python-packages)
-* [Testing](#testing)
-* [Bugs](#bugs)
-* [Deployment](#deployment)
-  + [ElephantSQL](#elephantsql)
-  + [Cloudinary](#cloudinary)
-  + [Heroku](#heroku)
-  + [Fork the repository](#fork-the-repository)
-  + [Clone the repository](#clone-the-repository)
-* [Credits](#credits)
-  + [Content](#content)
-  + [Media](#media)
-  + [Code](#code)
-* [Acknowledgements](#acknowledgements)
-
+      - [Booking List](#booking-list)
+      - [Booking Detail Page](#booking-detail-page-1)
+      - [Update Booking Page](#update-booking-page-1)
+      - [Confirm Delete Booking Page](#confirm-delete-booking-page-1)
+      - [Admin Search Panel](#admin-search-panel)
+      - [Update Email](#update-email)
+      - [Change Password](#change-password)
+  - [Potential Future Features](#potential-future-features)
+- [Responsive Layout and Design](#responsive-layout-and-design)
+- [Tools Used](#tools-used)
+  - [Python packages](#python-packages)
+- [Testing](#testing)
+- [Bugs](#bugs)
+- [Deployment](#deployment)
+  - [ElephantSQL](#elephantsql)
+  - [Cloudinary](#cloudinary)
+  - [Heroku](#heroku)
+  - [Fork the repository](#fork-the-repository)
+  - [Clone the repository](#clone-the-repository)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
+  - [Code](#code)
+- [Acknowledgements](#acknowledgements)
 
 ## Overview
-The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a haircut both easy and enjoyable. 
-The user is notified of any change to their account or booking with an alert box and email notification where necessary. 
+
+The site was created using Django and has full CRUD functionality and an intuitive UI to make the process of booking a haircut both easy and enjoyable.
+The user is notified of any change to their account or booking with an alert box and email notification where necessary.
 The user can see their past bookings and is notified when the booking has been conformed by the barber.
 The admin users have extra functionality, being able to search bookings by date and username.
 
 [Back to Top](#overview)
 
 ## UX
+
 This site was created according to the Five Planes Of Website Design:<br>
+
 ### 1. Strategy
+
 <hr>
 
-To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login, book and update an appointment. 
+To create a website with good UI and UX to promote Niall's Barbershop where potential customers can login, book and update an appointment.
 
 The project objectives can be broken into Epics and then further into User Stories. To implement the user stories they were allocated into sprints.
 
@@ -131,7 +136,6 @@ The project objectives can be broken into Epics and then further into User Stori
 
 [Back to Top](#overview)
 
-
 **Agile Methodology**<br><br>
 This project was developed using the Agile methodology.<br>
 All epics and user stories implementation progress was registered using [GitHub](https://github.com/). As the user stories were accomplished, they were moved in the GitHub Kanban board from **ToDo**, to **In Progress**, **Done** and **Not Implemented** lists.
@@ -143,113 +147,124 @@ The board can be viewed [here](https://github.com/users/DanMorriss/projects/5).
 <details>
 <summary>Sprint 1: Base Setup</summary>
 
-|EPIC|User Story|Description|
-|:--|:--|:--|
-|Project Setup|Project setup|As a developer, I need to set up the project so that it is ready for implementing the core features.|
-|Deployment|Cloiudinary|As a developer I need to setup a cloudinary account so that the image I need for the site can be hosted on an external database.|
-|Deployment|ElephantSQL|As a developer I need to setup an ElephantSQL account so that my SQL database can be linked to the project.|
-|Deployment|Heroku|As a developer I need to deploy the finished project to Heroku so that it can be accessed by everyone.|
-|Project Setup|File structure|As a developer I need to set up the file structure in the project so that all the files can be accessed and created in the correct place.|
-|Project Setup|Database models|As a developer I need to create the database models so that the can be used by the app.|
-|Project Setup|Link CSS, JS & Bootstrap|As a developer I can link up boostrap and custom CSS & JavaScript into base.html so that the site can be styled.|
-|Project Setup|base.html|As a developer I need to create the base.html page and structure so that other pages can use the layout.|
-|Project Setup|Google Fonts|As a developer I can link in google fonts so that the site can have custom fonts.|
-|UX|Favicon|As a developer I can add a favicon so the user can see the site logo easily in the web browser.|
+| EPIC          | User Story               | Description                                                                                                                               |
+| :------------ | :----------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| Project Setup | Project setup            | As a developer, I need to set up the project so that it is ready for implementing the core features.                                      |
+| Deployment    | Cloiudinary              | As a developer I need to setup a cloudinary account so that the image I need for the site can be hosted on an external database.          |
+| Deployment    | ElephantSQL              | As a developer I need to setup an ElephantSQL account so that my SQL database can be linked to the project.                               |
+| Deployment    | Heroku                   | As a developer I need to deploy the finished project to Heroku so that it can be accessed by everyone.                                    |
+| Project Setup | File structure           | As a developer I need to set up the file structure in the project so that all the files can be accessed and created in the correct place. |
+| Project Setup | Database models          | As a developer I need to create the database models so that the can be used by the app.                                                   |
+| Project Setup | Link CSS, JS & Bootstrap | As a developer I can link up boostrap and custom CSS & JavaScript into base.html so that the site can be styled.                          |
+| Project Setup | base.html                | As a developer I need to create the base.html page and structure so that other pages can use the layout.                                  |
+| Project Setup | Google Fonts             | As a developer I can link in google fonts so that the site can have custom fonts.                                                         |
+| UX            | Favicon                  | As a developer I can add a favicon so the user can see the site logo easily in the web browser.                                           |
+
 </details><br>
 
 <details>
 <summary>Sprint 2: Navigation & Account Creation</summary>
 
-|EPIC|User Story|Description|
-|:--|:--|:--|
-|Navigation|Navbar|As a developer I need to create a navbar so that users can navigate the site.|
-|CRUD|View upcoming bookings|"As a barber I can see all the upcoming appointments so that I know what work I have coming up.|
-|Navigation|Footer|As a developer I need to create a footer so that users can find more information about the site.|
-|UX|Whitenoise|As a developer I need to setup whitenoice so that my static files can be served in deployment.|
-|Authentication|Add email address|As a site user I can supply my email address so that I will receive booking confirmation to my inbox.|
-|Authentication|Create Account|As a site user I can create an account so that I can log in and create a booking.|
-|Authentication|allauth|As a developer I need to inplement allauth so that user can signup and have access to the sites full features.|
-|Authentication|Login|As a site member I can login to my account so that I can see my appointments (past and upcoming) and make a new booking.|
+| EPIC           | User Story             | Description                                                                                                              |
+| :------------- | :--------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| Navigation     | Navbar                 | As a developer I need to create a navbar so that users can navigate the site.                                            |
+| CRUD           | View upcoming bookings | "As a barber I can see all the upcoming appointments so that I know what work I have coming up.                          |
+| Navigation     | Footer                 | As a developer I need to create a footer so that users can find more information about the site.                         |
+| UX             | Whitenoise             | As a developer I need to setup whitenoice so that my static files can be served in deployment.                           |
+| Authentication | Add email address      | As a site user I can supply my email address so that I will receive booking confirmation to my inbox.                    |
+| Authentication | Create Account         | As a site user I can create an account so that I can log in and create a booking.                                        |
+| Authentication | allauth                | As a developer I need to inplement allauth so that user can signup and have access to the sites full features.           |
+| Authentication | Login                  | As a site member I can login to my account so that I can see my appointments (past and upcoming) and make a new booking. |
+
 </details><br>
 
 <details>
 <summary>Sprint 3: Styling</summary>
 
-|EPIC|User Story|Description|
-|:--|:--|:--|
-|CRUD|Book a haircut|As a logged in user I can book a haircut so that I can get a haircut.|
-|UX|View sevices|As a site user I can view a list of the available haircuts with cost and how long it will take so that I can choose the correct service for me.|
-|UX|Style allauth|As a site owner I should style the allauth pages so that they fit in with the styling of the rest of the site.|
-|UX|Homepage|As a barber I would like a home page with information about my babershop so that customers can find out everything they need to about my shop.|
-|UX|Contact Section|As a user I can easily see how to get in contact with the barbers so I can ask any questions.|
-|UX|UX|As a site user I can experience good UX when visiting the site so that I am more likely to stay on the site and book a haircut.|
+| EPIC | User Story      | Description                                                                                                                                     |
+| :--- | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| CRUD | Book a haircut  | As a logged in user I can book a haircut so that I can get a haircut.                                                                           |
+| UX   | View sevices    | As a site user I can view a list of the available haircuts with cost and how long it will take so that I can choose the correct service for me. |
+| UX   | Style allauth   | As a site owner I should style the allauth pages so that they fit in with the styling of the rest of the site.                                  |
+| UX   | Homepage        | As a barber I would like a home page with information about my babershop so that customers can find out everything they need to about my shop.  |
+| UX   | Contact Section | As a user I can easily see how to get in contact with the barbers so I can ask any questions.                                                   |
+| UX   | UX              | As a site user I can experience good UX when visiting the site so that I am more likely to stay on the site and book a haircut.                 |
+
 </details><br>
 
 <details>
 <summary>Sprint 4: CRUD</summary>
 
-|EPIC|User Story|Description|
-|:--|:--|:--|
-|CRUD|Delete booking|As a logged in user I can delete a booking so that cancel my appointment if I can no longer make it.|
-|CRUD|Admin CRUD|As a site admin I want to be able to create, edit, delete and view bookings for customers so that I can edit appointments for customers.|
-|CRUD|Update booking|As a logged in user I can update my booking so that I can make changes if needed.|
-|UX|403|As a developer I need to create a 403 page to redirect unauthorised users so that I can secure my views.|
-|UX|500|As a developer I need to create a 500 page to alert users when an internal service error occurs.|
-|UX|404|As a developer I need to create a 404 page so that users know when they visit a page that doesn't exist.|
-|Validation|Booking validation|As a user I cannot book invalid appointments to I can turn up without any in person issues.|
-|UX|Past Bookings|As a logged in user I can see all my upcoming and past bookings so that I can check how long it's been since my last appointment and see any upcoming bookings.|
+| EPIC       | User Story         | Description                                                                                                                                                     |
+| :--------- | :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CRUD       | Delete booking     | As a logged in user I can delete a booking so that cancel my appointment if I can no longer make it.                                                            |
+| CRUD       | Admin CRUD         | As a site admin I want to be able to create, edit, delete and view bookings for customers so that I can edit appointments for customers.                        |
+| CRUD       | Update booking     | As a logged in user I can update my booking so that I can make changes if needed.                                                                               |
+| UX         | 403                | As a developer I need to create a 403 page to redirect unauthorised users so that I can secure my views.                                                        |
+| UX         | 500                | As a developer I need to create a 500 page to alert users when an internal service error occurs.                                                                |
+| UX         | 404                | As a developer I need to create a 404 page so that users know when they visit a page that doesn't exist.                                                        |
+| Validation | Booking validation | As a user I cannot book invalid appointments to I can turn up without any in person issues.                                                                     |
+| UX         | Past Bookings      | As a logged in user I can see all my upcoming and past bookings so that I can check how long it's been since my last appointment and see any upcoming bookings. |
+
 </details><br>
 
 <details>
 <summary>Sprint 5: Search & Email</summary>
 
-|EPIC|User Story|Description|
-|:--|:--|:--|
-|Administration|Admin search|As an admin I can filter and search the bookings so that I can find more relevant details easily.|
-|Administration|Update account|As a user I can have more account details available to me so that I can update my account.|
-|UX|Past Bookings|As a user I can see my past bookings so that I have a history of my haircuts.|
-|CRUD|Message in booking form|As a user I can add a message to the booking form so that I can let the barber know of any special requirements I have.|
-|UX|Message alerts|As a user I can see messages informing me of my actions so that I know I have logged in etc successfully.|
-|Authentication|Email notification|As a user I can be notified by email when a modification has been made to my booking so that I know if any change has been made to my booking.|
-|Administration|Admin confirm booking|As an admin I can confirm a booking so that I can make sure I am available.|
+| EPIC           | User Story              | Description                                                                                                                                    |
+| :------------- | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| Administration | Admin search            | As an admin I can filter and search the bookings so that I can find more relevant details easily.                                              |
+| Administration | Update account          | As a user I can have more account details available to me so that I can update my account.                                                     |
+| UX             | Past Bookings           | As a user I can see my past bookings so that I have a history of my haircuts.                                                                  |
+| CRUD           | Message in booking form | As a user I can add a message to the booking form so that I can let the barber know of any special requirements I have.                        |
+| UX             | Message alerts          | As a user I can see messages informing me of my actions so that I know I have logged in etc successfully.                                      |
+| Authentication | Email notification      | As a user I can be notified by email when a modification has been made to my booking so that I know if any change has been made to my booking. |
+| Administration | Admin confirm booking   | As an admin I can confirm a booking so that I can make sure I am available.                                                                    |
+
 </details><br>
 
 <details>
 <summary>Sprint 6: Testing & Documentation</summary>
 
-|EPIC|User Story|Description|
-|:--|:--|:--|
-|Testing|Unit Tests|As a developer I need to use testing so that I an sure my code is free of bugs and will not result in site errors.|
-|Deployment|DEBUG to False|As a developer I need to set DEBUG to False before final deployment so that private information ins't available to the public.|
-|Documentation|Readme|As a developer I need to complete a readme file so that my site is fully documented.|
-|Testing|Manual Testing|As a developer I need to manually test the site to make sure everything works properly for the user.|
+| EPIC          | User Story     | Description                                                                                                                    |
+| :------------ | :------------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| Testing       | Unit Tests     | As a developer I need to use testing so that I an sure my code is free of bugs and will not result in site errors.             |
+| Deployment    | DEBUG to False | As a developer I need to set DEBUG to False before final deployment so that private information ins't available to the public. |
+| Documentation | Readme         | As a developer I need to complete a readme file so that my site is fully documented.                                           |
+| Testing       | Manual Testing | As a developer I need to manually test the site to make sure everything works properly for the user.                           |
+
 </details><br>
 
 [Back to Top](#overview)
 
 ### 2. Scope
+
 <hr>
 
 **Simple and Intuitive UX**
 <br>
+
 - Create a website that portrays the mood and feel of the barbershop.
 - Create a responsive navigation menu.
 - Create a footer with social links.
 - Include store location and opening times.
 - Ensure that the user is visually notified of all changed to their account, eg booking conformation.
-- Ensure that the user keeps their orientation throughout their website experience. 
+- Ensure that the user keeps their orientation throughout their website experience.
 
 **Relevant Content**<br>
+
 - Make sure all the available haircut services are listed on the site.
 - Display the barbershop address so users can find it.
 - Only allow users to book available time slots.
 
 **Responsiveness**<br>
+
 - Create a responsive website that works on every device and screen size.<br><br>
 
 [Back to Top](#overview)
 
 ### 3. Structure
+
 <hr>
 The website is designed with the user in mind and once the user is logged in they have access to 7 different pages:
 - Landing page
@@ -264,6 +279,7 @@ The website is designed with the user in mind and once the user is logged in the
 - Change Password
 
 There are also 2 pages available to users who aren't singed in:
+
 - Create Account
 - Login
 
@@ -273,6 +289,7 @@ There are also 2 pages available to users who aren't singed in:
 
 The navbar along the top of the page is always displayed, allowing the user to easily navigate around the site. The styling is consistent across the site but has different links on display for users that are signed in.
 All users will see:
+
 - Niall's Barbershop logo taking them to the landing page
 - About
 - Services
@@ -280,12 +297,14 @@ All users will see:
 - Book a Haircut
 
 A user who isn't signed in will see:
+
 - Register
 - Login
 
 <img src="media/non-signed-in-navbar.png" alt="Image of the navbar for a non-signed-in user"><br>
 
 A user who is signed in will see:
+
 - My Account
 - Logout
 
@@ -302,6 +321,7 @@ Each of the links had a hover effect where the color smoothly changes to indicat
 #### Footer
 
 The footer is the same across all the pages and includes:
+
 - Social Media Icons (Facebook, Instagram, Github)
 - A copyright statement
 
@@ -315,7 +335,8 @@ The active links have a hover effect where the color slowly changes from gold to
 ##### Landing Page
 
 The landing page is divided into 4 sections:
-- Hero Image  Logo
+
+- Hero Image Logo
 - About section
 - Services section
 - Contact Section
@@ -343,6 +364,7 @@ If the user is logged in, the 'Book a Haircut' buttons will take them to the boo
 
 This page uses the allauth template as a base with custom design added.
 The username and password fields are mandatory but the email is optional. If the user signs up with and includes and email address they will be sent email updates on:
+
 - Creating a booking
 - Updating a booking
 - Deleting a booking
@@ -365,12 +387,14 @@ It also includes a remember me button to make using the site in future easer, an
 
 This page is displayed when the user first logs in, unless they clicked a "Book a Haircut" button before logging in.
 On a large screen it is divided into 2 sections:
+
 - Upcoming bookings
 - Your Account
 
 On a mobile device the two sections are stacked with the upcoming bookings at the top of the page.
 
 Each booking is displayed on a card and contains:
+
 - The date
 - The service
 - The time of the booking
@@ -386,8 +410,10 @@ The bookings are displayed in order starting from the one closest to the current
 [Back to Top](#overview)
 
 ##### Admin Account Home Page
+
 <img src="media/search-bookings.png" alt="Image of the admin search panel" width="60%"><br>
 The account home page for an Admin user has the addition of a Search Bookings panel giving the admin user the ability to search by:
+
 - Date of booking
 - Username
 
@@ -398,12 +424,14 @@ If the number of bookings exceeds 25 the page paginates.<br>
 ##### Booking Form
 
 The booking form has 4 inputs:
+
 - A date picker
 - A haircut dropdown list
 - A time dropdown list
 - An optional message box
 
 The form has built in validation alerting the user when an error has been made or the booking cannot be made. Reasons for an error include:
+
 - Booking a date in the past
 - Booking a time in the past
 - Trying to book an appointment at a time that is already booked.
@@ -415,7 +443,9 @@ Once a successful booking has been made the user is taken back to the account ho
 [Back to Top](#overview)
 
 ##### Booking Detail Page
+
 If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
+
 - Date
 - Username (if an admin user)
 - Appointment type
@@ -443,13 +473,16 @@ If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' an
 [Back to Top](#overview)
 
 ##### Confirm Delete Booking Page
+
 <img src="media/confirm-delete-booking.png" alt="Image of the confirm delete page" width="60%"><br>
 If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
 [Back to Top](#overview)
 
 #### Sitemap
+
 The project flowcharts for the site structure was created using [LucidChart](https://www.lucidchart.com/).
+
 <details>
 <summary>Sitemap:</summary>
 <img src="media/sitemap2.png"><br>
@@ -458,10 +491,12 @@ The project flowcharts for the site structure was created using [LucidChart](htt
 [Back to Top](#overview)
 
 ### 4. Skeleton
+
 <hr>
 **Wireframes**
 
 The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com/) tool and can be viewed <details>
+
 <summary>Here:</summary>
 Homepage<br>
 <img src="media/homepage-wireframe.png"><br>
@@ -473,6 +508,7 @@ Book a haircut<br>
 
 **Database**
 The project uses ElephantSQL as PostgreSQL relational database for storing the data.
+
 <details>
   <summary>Model</summary>
   <img src="media/database-schema2.png"><br>
@@ -528,7 +564,9 @@ Rotating Outer Logo with spinning effect when hovered<br>
 ### Existing Features
 
 #### Haircut Information Modal
+
 On the homepage the Services section includes a list of services taken from the database of services offered. Each services is displayed as a button and when clicked a modal is displayed containing information about the service including:
+
 - Service name
 - Description
 - Cost
@@ -537,13 +575,16 @@ On the homepage the Services section includes a list of services taken from the 
 [Back to Top](#overview)
 
 #### Book a haircut
+
 The booking form has 4 inputs:
+
 - A date picker
 - A haircut dropdown list
 - A time dropdown list
 - An optional message box
 
 The form has built in validation alerting the user when an error has been made or the booking cannot be made. Reasons for an error include:
+
 - Booking a date in the past
 - Booking a time in the past
 - Trying to book an appointment at a time that is already booked.
@@ -553,7 +594,9 @@ Once a successful booking has been made the user is taken back to the account ho
 [Back to Top](#overview)
 
 ##### Booking List
+
 Each booking is displayed on a card on the account home page and contains:
+
 - The date
 - The service
 - The time of the booking
@@ -563,7 +606,9 @@ Each booking is displayed on a card on the account home page and contains:
 [Back to Top](#overview)
 
 ##### Booking Detail Page
+
 If a user clicks on a booking from the account home page they are taken to the account detail page that includes:
+
 - Date
 - Username (if an admin user)
 - Appointment type
@@ -579,25 +624,31 @@ If a user clicks on a booking from the account home page they are taken to the a
 [Back to Top](#overview)
 
 ##### Update Booking Page
+
 If the user clicks on the edit appointment button on the booking detail page they are taken to a pre-populated booking form containing the details of the booking.
 If a confirmed booking as amended the status goes back to 'Not Yet Confirmed' and a confirmation message is displayed to the user.
 
 [Back to Top](#overview)
 
 ##### Confirm Delete Booking Page
+
 If the user clicks on the 'Cancel Appointment' button on the booking detail page they are asked if they wish to delete the booking. If they confirm the deletion they are taken back to the account home page and displayed a confirmation message.
 
 [Back to Top](#overview)
 
 ##### Admin Search Panel
+
 Admin users have a Search Bookings panel on the account home page giving the admin user the ability to search by:
+
 - Date of booking
 - Username
 
 [Back to Top](#overview)
 
 ##### Update Email
+
 Users can update the email address attached to their account from the account panel in the account home page. They can:
+
 - Add an email address
 - Remove an email address
 - Make an email address primary
@@ -605,11 +656,13 @@ Users can update the email address attached to their account from the account pa
 [Back to Top](#overview)
 
 ##### Change Password
+
 Users can change their password from the account panel in the account home page.
 
 [Back to Top](#overview)
 
 ### Potential Future Features
+
 - Allow admin users to edit the services from the account home rather than from the django backend panel
 - Social media signup
 - Add profile section where users can add a profile picture and update their username
@@ -617,6 +670,7 @@ Users can change their password from the account panel in the account home page.
 [Back to Top](#overview)
 
 ## Responsive Layout and Design
+
 The bootstrap grid system and flexbox was used to create a fully responsive layout and testing on multiple screen sizes and devices was carried out to make sure it each page looks good in many settings.
 
 **Tested devices:**
@@ -689,9 +743,10 @@ To collect the static files for deployment run the following command: <br>
 ## Testing
 
 Tests were written using Django's test suite and can be found in the following locations:
- - booking_system > test_forms.py
- - booking_system > test_views.py
- - home > test_views.py
+
+- booking_system > test_forms.py
+- booking_system > test_views.py
+- home > test_views.py
 
 As well as automated tests you can find details on user testing in [TESTING.md](TESTING.md).
 
@@ -721,55 +776,62 @@ As well as automated tests you can find details on user testing in [TESTING.md](
 ## Deployment
 
 ### ElephantSQL
-  - Log into [ElephantSQL](https://customer.elephantsql.com/login)
-  - Click *Create New Instance*
-  - Select the *Tiny Turtle* (free) plan
-  - Select your local region
-  - Click *Review*
-  - Click *Create Instance*
-  - Go back to the ElephantSQL Dashboard click on the database instance name
-  - Copy the *ElephantSQL Database URL* to add to Heroku
+
+- Log into [ElephantSQL](https://customer.elephantsql.com/login)
+- Click _Create New Instance_
+- Select the _Tiny Turtle_ (free) plan
+- Select your local region
+- Click _Review_
+- Click _Create Instance_
+- Go back to the ElephantSQL Dashboard click on the database instance name
+- Copy the _ElephantSQL Database URL_ to add to Heroku
 
 [Back to Top](#overview)
 
 ### Cloudinary
-  - Log into [Cloudinary]()
-  - Go to the *Dashboard*
-  - Copy the *API Environment variable* to add to Heroku
+
+- Log into [Cloudinary]()
+- Go to the _Dashboard_
+- Copy the _API Environment variable_ to add to Heroku
 
 [Back to Top](#overview)
 
 ### Heroku
-  - Go to the [Heroku](https://www.heroku.com/) website 
-  - Login to Heroku and choose *Create App* 
-  - Click *New* and *Create a new app*
-  - Choose a name and select your location
-  - Navigate to the *Settings* tab
-  - Reveal Config Vars and add: your 
-    - CLOUDINARY_URL (from Cloudinary)
-    - DATABASE_URL (from ElephantSQL) 
-    - SECRET_KEY
-    - PORT
-    - EMAIL_PASSWORD (generated by Gmail)
-  - Go to the *Resources* tab 
-  - From the Resources list select *Heroku Postgres*
-  - Navigate to the *Deploy* tab
-  - Click on *Connect to Github* and search for your repository
-  - Go to the Deploy tab.
-  - Choose the main branch for deploying and enable automatic deployment 
-  - Select manual deploy for building the App 
+
+- Go to the [Heroku](https://www.heroku.com/) website
+- Login to Heroku and choose _Create App_
+- Click _New_ and _Create a new app_
+- Choose a name and select your location
+- Navigate to the _Settings_ tab
+- Reveal Config Vars and add: your
+  - CLOUDINARY_URL (from Cloudinary)
+  - DATABASE_URL (from ElephantSQL)
+  - SECRET_KEY
+  - PORT
+  - EMAIL_PASSWORD (generated by Gmail)
+- Go to the _Resources_ tab
+- From the Resources list select _Heroku Postgres_
+- Navigate to the _Deploy_ tab
+- Click on _Connect to Github_ and search for your repository
+- Go to the Deploy tab.
+- Choose the main branch for deploying and enable automatic deployment
+- Select manual deploy for building the App
 
 [Back to Top](#overview)
 
 ### Fork the repository
+
 For creating a copy of the repository on your account and change it without affecting the original project, use<b>Fork</b> directly from GitHub:
+
 - On [My Repository Page](https://github.com/DanMorriss/nialls-barbershop), press <i>Fork</i> in the top right of the page
 - A forked version of my project will appear in your repository<br></br>
 
 [Back to Top](#overview)
 
 ### Clone the repository
+
 For creating a clone of the repository on your local machine, use<b>Clone</b>:
+
 - On [My Repository Page](https://github.com/DanMorriss/nialls-barbershop), click the <i>Code</i> green button, right above the code window
 - Chose from <i>HTTPS, SSH and GitClub CLI</i> format and copy (preferably <i>HTTPS</i>)
 - In your <i>IDE</i> open <i>Git Bash</i>
@@ -795,9 +857,11 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 ## Credits
 
 ### Content
+
 All the content was created for the site by myself.
 
 ### Media
+
 The logo was designed and created using [Canva](https://www.canva.com/en_gb/).
 
 ### Code
@@ -824,6 +888,6 @@ The logo was designed and created using [Canva](https://www.canva.com/en_gb/).
 - Tomislav for his help understanding venv, cloudinary & how django works with static. His patience helping me understand the settings in a full stack application has been amazing.
 - Precious Ijege my Code Institute mentor.
 - Kent Yates for testing my application and supplying moral support.
-- Selina Sheerin for her continued encouregment and keen eye for spelling and grammar mistakes. 
+- Selina Sheerin for her continued encouregment and keen eye for spelling and grammar mistakes.
 
 [Back to Top](#overview)
